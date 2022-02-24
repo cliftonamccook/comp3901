@@ -1,9 +1,33 @@
 {
+  "campuses": [
+    {
+      "id": 1,
+      "name": "Mona",
+    }
+  ],
+
+  "faculties": [
+    {
+      "id": 1,
+      "campus_id": 1,
+      "name": "ST"
+    }
+  ],
+
+  "departments": [
+    {
+      "id": 1,
+      "faculty_id": 1,
+      "name": "Computing",
+    }
+  ],
+
  "programmes": [
    {
     "id": 1,
     "department_id": 1,
     "name": "BSC",
+    "version": "", // version of course
 
     "requirement_groups": [
       {
@@ -147,6 +171,7 @@
     "code": "COMP1161",
     "description": "...",
     "level": 1,
+    "tag": ["programming"], // can be multiple
     "credit_amount": 3,
     "semester_offered_in": "both", // this can be either 1, 2 or both
     "discontinued": false,
@@ -168,7 +193,7 @@
     ],//requirement_groups
    }
  ],//courses
- 
+
  "students": [
   {
     "id": 1,
@@ -186,11 +211,15 @@
           "id": 1,
           "course_id": 2,
           "status": 1, // Enum: 0 - failed, 1 - in-progress, 2 - completed
+          "year": 2019,
+          "semester": 1,
         },
         {
           "id": 2,
           "course_id": 3,
           "status": 0, // Enum: 0 - failed, 1 - in-progress, 2 - completed
+          "year": 2019,
+          "semester": 1,
         },
       ]
     }
