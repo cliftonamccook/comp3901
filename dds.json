@@ -168,4 +168,32 @@
     ],//requirement_groups
    }
  ],//courses
+ 
+ "students": [
+  {
+    "id": 1,
+    "student_id": 62012200,
+    "title": "Mr",
+    "first_name": "John",
+    "last_name": "Doe",
+    "gender": "Male",
+
+    "record": {
+      "id": 1,
+
+      "courses": [
+        {
+          "id": 1,
+          "course_id": 2,
+          "status": 1, // Enum: 0 - failed, 1 - in-progress, 2 - completed
+        },
+        {
+          "id": 2,
+          "course_id": 3,
+          "status": 0, // Enum: 0 - failed, 1 - in-progress, 2 - completed
+        },
+      ]
+    }
+  }
+ ],//students
 }
