@@ -14,3 +14,8 @@
 # ActiveSupport::Inflector.inflections(:en) do |inflect|
 #   inflect.acronym 'RESTful'
 # end
+
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.plural(/(campu)s$/i, '\1ses')
+  inflect.singular(/(campu)(es)?$/i, '\1')
+end
