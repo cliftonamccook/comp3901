@@ -1,1 +1,1 @@
-json.array! @campuses, partial: "campuses/campuse", as: :campuse
+json.array! @campuses, partial: "campuses/campus", as: :campus

@@ -1,5 +1,5 @@
 class CampusesController < ApplicationController
-  before_action :set_campuse, only: %i[ show edit update destroy ]
+  before_action :set_campus, only: %i[ show edit update destroy ]
 
   # GET /campuses or /campuses.json
   def index
@@ -12,7 +12,7 @@ class CampusesController < ApplicationController
 
   # GET /campuses/new
   def new
-    @campuse = Campus.new
+    @campus = Campus.new
   end
 
   # GET /campuses/1/edit
@@ -21,15 +21,15 @@ class CampusesController < ApplicationController
 
   # POST /campuses or /campuses.json
   def create
-    @campuse = Campus.new(campuse_params)
+    @campus = Campus.new(campus_params)
 
     respond_to do |format|
-      if @campuse.save
-        format.html { redirect_to campuse_url(@campuse), notice: "Campus was successfully created." }
-        format.json { render :show, status: :created, location: @campuse }
+      if @campus.save
+        format.html { redirect_to campus_url(@campus), notice: "Campus was successfully created." }
+        format.json { render :show, status: :created, location: @campus }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @campuse.errors, status: :unprocessable_entity }
+        format.json { render json: @campus.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -37,19 +37,19 @@ class CampusesController < ApplicationController
   # PATCH/PUT /campuses/1 or /campuses/1.json
   def update
     respond_to do |format|
-      if @campuse.update(campuse_params)
-        format.html { redirect_to campuse_url(@campuse), notice: "Campus was successfully updated." }
-        format.json { render :show, status: :ok, location: @campuse }
+      if @campus.update(campus_params)
+        format.html { redirect_to campus_url(@campus), notice: "Campus was successfully updated." }
+        format.json { render :show, status: :ok, location: @campus }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @campuse.errors, status: :unprocessable_entity }
+        format.json { render json: @campus.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /campuses/1 or /campuses/1.json
   def destroy
-    @campuse.destroy
+    @campus.destroy
 
     respond_to do |format|
       format.html { redirect_to campuses_url, notice: "Campus was successfully destroyed." }
@@ -59,12 +59,12 @@ class CampusesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_campuse
-      @campuse = Campus.find(params[:id])
+    def set_campus
+      @campus = Campus.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    def campuse_params
-      params.require(:campuse).permit(:name)
+    def campus_params
+      params.require(:campus).permit(:name)
     end
 end

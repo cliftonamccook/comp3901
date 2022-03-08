@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @requirement_group.name %>
+</p>
+
+<p>
+  <strong>Requirement groupable:</strong>
+  <%= @requirement_group.requirement_groupable_id %>
+</p>
+
+<%= link_to 'Edit', edit_requirement_group_path(@requirement_group) %> |
+<%= link_to 'Back', requirement_groups_path %>

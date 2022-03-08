@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Minors</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Programme</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @minors.each do |minor| %>
+      <tr>
+        <td><%= minor.name %></td>
+        <td><%= minor.programme_id %></td>
+        <td><%= link_to 'Show', minor %></td>
+        <td><%= link_to 'Edit', edit_minor_path(minor) %></td>
+        <td><%= link_to 'Destroy', minor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Minor', new_minor_path %>

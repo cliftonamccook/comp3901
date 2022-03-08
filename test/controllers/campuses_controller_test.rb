@@ -2,7 +2,7 @@ require "test_helper"
 
 class CampusesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @campuse = campuses(:one)
+    @campus = campuses(:one)
   end
 
   test "should get index" do
@@ -11,36 +11,36 @@ class CampusesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_campuse_url
+    get new_campus_url
     assert_response :success
   end
 
-  test "should create campuse" do
+  test "should create campus" do
     assert_difference('Campus.count') do
-      post campuses_url, params: { campuse: { name: @campuse.name } }
+      post campuses_url, params: { campus: { name: @campus.name } }
     end
 
-    assert_redirected_to campuse_url(Campus.last)
+    assert_redirected_to campus_url(Campus.last)
   end
 
-  test "should show campuse" do
-    get campuse_url(@campuse)
+  test "should show campus" do
+    get campus_url(@campus)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_campuse_url(@campuse)
+    get edit_campus_url(@campus)
     assert_response :success
   end
 
-  test "should update campuse" do
-    patch campuse_url(@campuse), params: { campuse: { name: @campuse.name } }
-    assert_redirected_to campuse_url(@campuse)
+  test "should update campus" do
+    patch campus_url(@campus), params: { campus: { name: @campus.name } }
+    assert_redirected_to campus_url(@campus)
   end
 
-  test "should destroy campuse" do
+  test "should destroy campus" do
     assert_difference('Campus.count', -1) do
-      delete campuse_url(@campuse)
+      delete campus_url(@campus)
     end
 
     assert_redirected_to campuses_url

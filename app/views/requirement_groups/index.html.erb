@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Requirement Groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Requirement groupable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @requirement_groups.each do |requirement_group| %>
+      <tr>
+        <td><%= requirement_group.name %></td>
+        <td><%= requirement_group.requirement_groupable_id %></td>
+        <td><%= link_to 'Show', requirement_group %></td>
+        <td><%= link_to 'Edit', edit_requirement_group_path(requirement_group) %></td>
+        <td><%= link_to 'Destroy', requirement_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Requirement Group', new_requirement_group_path %>

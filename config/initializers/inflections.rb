@@ -17,5 +17,5 @@
 
 ActiveSupport::Inflector.inflections(:en) do |inflect|
   inflect.plural(/(campu)s$/i, '\1ses')
-  inflect.singular(/(campu)(es)?$/i, '\1')
+  inflect.singular(/(campus)(es)?$/i, '\1')
 end

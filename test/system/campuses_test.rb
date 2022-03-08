@@ -2,7 +2,7 @@ require "application_system_test_case"
 
 class CampusesTest < ApplicationSystemTestCase
   setup do
-    @campuse = campuses(:one)
+    @campus = campuses(:one)
   end
 
   test "visiting the index" do
@@ -14,7 +14,7 @@ class CampusesTest < ApplicationSystemTestCase
     visit campuses_url
     click_on "New Campus"
 
-    fill_in "Name", with: @campuse.name
+    fill_in "Name", with: @campus.name
     click_on "Create Campus"
 
     assert_text "Campus was successfully created"
@@ -25,7 +25,7 @@ class CampusesTest < ApplicationSystemTestCase
     visit campuses_url
     click_on "Edit", match: :first
 
-    fill_in "Name", with: @campuse.name
+    fill_in "Name", with: @campus.name
     click_on "Update Campus"
 
     assert_text "Campus was successfully updated"

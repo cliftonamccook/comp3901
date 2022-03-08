@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @minor.name %>
+</p>
+
+<p>
+  <strong>Programme:</strong>
+  <%= @minor.programme_id %>
+</p>
+
+<%= link_to 'Edit', edit_minor_path(@minor) %> |
+<%= link_to 'Back', minors_path %>
