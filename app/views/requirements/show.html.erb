@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Requirement group:</strong>
+  <%= @requirement.requirement_group_id %>
+</p>
+
+<p>
+  <strong>Operation:</strong>
+  <%= @requirement.operation %>
+</p>
+
+<p>
+  <strong>Minimum amount of credits:</strong>
+  <%= @requirement.minimum_amount_of_credits %>
+</p>
+
+<%= link_to 'Edit', edit_requirement_path(@requirement) %> |
+<%= link_to 'Back', requirements_path %>

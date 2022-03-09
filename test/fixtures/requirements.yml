@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requirement_group: one
+  operation: 1
+  minimum_amount_of_credits: 1
+
+two:
+  requirement_group: two
+  operation: 1
+  minimum_amount_of_credits: 1

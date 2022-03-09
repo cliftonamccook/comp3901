@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_08_162031) do
+ActiveRecord::Schema.define(version: 2022_03_09_030322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 2022_03_08_162031) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.text "description"
+    t.integer "credit_amount"
+    t.integer "level"
+    t.integer "semester_offered_in"
+    t.boolean "discountinued", default: false
+    t.bigint "department_id", null: false
+    t.bigint "requirement_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_courses_on_department_id"
+    t.index ["requirement_id"], name: "index_courses_on_requirement_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -70,6 +86,15 @@ ActiveRecord::Schema.define(version: 2022_03_08_162031) do
     t.index ["requirement_groupable_type", "requirement_groupable_id"], name: "index_requirement_groups_on_requirement_groupable"
   end
 
+  create_table "requirements", force: :cascade do |t|
+    t.bigint "requirement_group_id", null: false
+    t.integer "operation"
+    t.integer "minimum_amount_of_credits"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["requirement_group_id"], name: "index_requirements_on_requirement_group_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -93,11 +118,14 @@ ActiveRecord::Schema.define(version: 2022_03_08_162031) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "departments"
+  add_foreign_key "courses", "requirements"
   add_foreign_key "departments", "faculties"
   add_foreign_key "faculties", "campuses"
   add_foreign_key "majors", "programmes"
   add_foreign_key "minors", "programmes"
   add_foreign_key "programmes", "departments"
+  add_foreign_key "requirements", "requirement_groups"
   add_foreign_key "users", "campuses"
   add_foreign_key "users", "departments"
 end

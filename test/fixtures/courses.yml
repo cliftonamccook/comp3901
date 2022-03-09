@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  description: MyText
+  credit_amount: 1
+  level: 1
+  semester_offered_in: 1
+  discountinued: false
+  department: one
+  requirement: one
+
+two:
+  name: MyString
+  code: MyString
+  description: MyText
+  credit_amount: 1
+  level: 1
+  semester_offered_in: 1
+  discountinued: false
+  department: two
+  requirement: two
