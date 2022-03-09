@@ -9,4 +9,6 @@ Rails.application.routes.draw do
   resources :faculties
   resources :campuses
   devise_for :users
+
+  root 'home#index'
 end
