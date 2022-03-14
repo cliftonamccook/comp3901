@@ -1,5 +1,7 @@
-<h1>New Department</h1>
+<%= render 'shared/page_header', title: "New Department", back_action: departments_path %>
 
-<%= render 'form', department: @department %>
-
-<%= link_to 'Back', departments_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', faculty: @department %>
+  </div>
+</div>

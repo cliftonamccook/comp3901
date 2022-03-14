@@ -1,24 +1,16 @@
-# README
+# UWI Pocket Advisor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built as a final project for COMP3901 (Group Project). 
 
-Things you may want to cover:
+Group Members:
+---------------------
 
-* Ruby version
+ - Itawnya Walker 
+ - Clifton McCook 
+ - Dexter Small 
+ - Jordan Barret 
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+Live Site 
+---------------------
+https://uwi-pocket-advisor.herokuapp.com/

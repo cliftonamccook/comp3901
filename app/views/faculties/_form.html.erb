@@ -1,10 +1,9 @@
-
 <%= simple_form_for(@faculty) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :campus %>
+    <%= f.association :campus, prompt: "Please select a campus", input_html: { class: 'form-select' } %>
     <%= f.input :name %>
   </div>
 
