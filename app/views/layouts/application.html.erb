@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>UPA</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= render 'shared/head' %>
+  </head>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-</head>
-
-  <body>
-    <%= yield %>
+  <body class="theme-light">
+    <div class="page">
+      <%= render 'shared/navbar' %>
+      <div class="page-wrapper">
+        <div class="page-body">
+          <div class="container-xl">
+            <%= toastr_flash %>
+            <%= yield %>
+          </div>
+        </div><!--/.page-body-->
+        <%= render 'shared/footer' %>
+      </div><!--/.page-wrapper-->
+    </div><!--/.page-->
   </body>
 </html>
