@@ -44,31 +44,26 @@ class ANDNode(Node):
         super().__init__()
 
     def is_fulfilled(self, record):
+        modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
         if not self.is_grouping():
             if self.prerequisite == []:
-                for term in record.course_history:
-                    for courserecord in term.courses:
-                        if courserecord.course.code == self.code:
-                            self.state = True
-                            print(f'{self.code} = ',self.state)
+                if self.code in [c.course.code for c in modules_taken]:
+                    self.state = True
             else:
-                results = []
-                codes = []
-                for term in record.course_history:
-                    for courserecord in term.courses:
-                        codes.append(courserecord.course.code)
-                for child in self.prerequisite:
-                    results.extend([child.is_fulfilled(record)])
-                passed = self.code in codes
-                results.append(passed)
-                self.state = all(results)
-                print(results)
-                print(codes, self.code)
+                prerequisite_states = []
+                for module in self.prerequisite:
+                    prerequisite_states.extend([module.is_fulfilled(record)])
+                passed = self.code in [c.course.code for c in modules_taken]
+                print(passed)
+                prerequisite_states.append(passed)
+                self.state = all(prerequisite_states)
+                print(prerequisite_states)
         else:
-            results = []
-            for child in self.prerequisite:
-                results.extend([child.is_fulfilled(record)])
-            self.state = all(results)
+            prerequisite_states = []
+            for requirement in self.prerequisite:
+                prerequisite_states.extend([requirement.is_fulfilled(record)])
+            self.state = all(prerequisite_states)
+            print(prerequisite_states)
         return self.state
 
 
@@ -81,29 +76,49 @@ class ORNode(Node):
     def __init__(self):
         super().__init__()
 
-    def is_fulfilled(self): # pass in student transcript object
-    
-
-
-def postorder_traversal_iteratively(root: 'Node'): # pass in tree and student record
-    if not root:
-        return []
-    stack = [root]
-    last = None
-
-    while stack:
-        root = stack[-1]
-        if not root.prerequisite or last and (last in root.prerequisite):
-            '''
-            add current node logic here
-            '''
-            print(root.name)
-
-            stack.pop()
-            last = root
+    def is_fulfilled(self, record): # pass in student transcript object
+        modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
+        if not self.is_grouping():
+            if self.prerequisite == []:
+                if self.code in [c.course.code for c in modules_taken]:
+                    self.state = True
+            else:
+                prerequisite_states = []
+                for module in self.prerequisite:
+                    prerequisite_states.extend([module.is_fulfilled(record)])
+                passed = self.code in [c.course.code for c in modules_taken]
+                print(passed)
+                prerequisite_states.append(passed)
+                self.state = any(prerequisite_states)
+                print(prerequisite_states)
         else:
-            for child in root.prerequisite[::-1]:
-                stack.append(child)
+            prerequisite_states = []
+            for requirement in self.prerequisite:
+                prerequisite_states.extend([requirement.is_fulfilled(record)])
+            self.state = any(prerequisite_states)
+            print(prerequisite_states)
+        return self.state
+
+
+# def postorder_traversal_iteratively(root: 'Node'): # pass in tree and student record
+#     if not root:
+#         return []
+#     stack = [root]
+#     last = None
+
+#     while stack:
+#         root = stack[-1]
+#         if not root.prerequisite or last and (last in root.prerequisite):
+#             '''
+#             add current node logic here
+#             '''
+#             print(root.name)
+
+#             stack.pop()
+#             last = root
+#         else:
+#             for child in root.prerequisite[::-1]:
+#                 stack.append(child)
 
 
 class CourseRecord:
@@ -342,9 +357,21 @@ c1 = CourseRecord(math1152, 'A', 3)
 c2 = CourseRecord(comp1126, 'A+', 3)
 c3 = CourseRecord(comp1127, 'A', 3)
 c4 = CourseRecord(comp1161, 'A', 3)
+c5 = CourseRecord(comp1210, 'B+', 3)
+c6 = CourseRecord(comp1220, 'A+', 3)
+c7 = CourseRecord(comp2140, 'B', 3)
+c8 = CourseRecord(comp2171, 'B+', 3)
+c9 = CourseRecord(comp2190, 'A', 3)
+c10 = CourseRecord(comp2201, 'B+', 3)
+c11 = CourseRecord(comp2211, 'A', 3)
+c12 = CourseRecord(comp2340, 'A', 3)
+c13 = CourseRecord(comp3101, 'A', 3)
+c14 = CourseRecord(comp3161, 'A', 3)
+c15 = CourseRecord(comp3220, 'A', 3)
+c16 = CourseRecord(comp3901, 'A', 3)
 
 t1 = TermRecord("2019/2020", 1)
-t1.courses.extend([c1, c2, c3, c4])
+t1.courses.extend([c1, c2, c3, c4, c5, c6, c7, c8, c9, c11, c12, c13, c14, c15, c16])
 
 sr = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020")
 sr.course_history.extend([t1])
