@@ -56,16 +56,17 @@ class ANDNode(Node):
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
                 passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
-                print(passed)
+                # print(passed)
                 prerequisite_states.append(passed)
                 self.state = all(prerequisite_states)
-                print(prerequisite_states)
+                # print(prerequisite_states)
         else:
             prerequisite_states = []
             for requirement in self.prerequisite:
                 prerequisite_states.extend([requirement.is_fulfilled(record)])
             self.state = all(prerequisite_states)
-            print(prerequisite_states)
+            # print(prerequisite_states)
+            print(f'Grouping => {self.name}: ', self.state)
         return self.state
 
 
@@ -91,16 +92,17 @@ class ORNode(Node):
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
                 passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
-                print(passed)
+                # print(passed)
                 prerequisite_states.append(passed)
                 self.state = any(prerequisite_states)
-                print(prerequisite_states)
+                # print(prerequisite_states)
         else:
             prerequisite_states = []
             for requirement in self.prerequisite:
                 prerequisite_states.extend([requirement.is_fulfilled(record)])
             self.state = any(prerequisite_states)
-            print(prerequisite_states)
+            # print(prerequisite_states)
+            print(f'Grouping => {self.name}: ', self.state)
         return self.state
 
 
@@ -383,4 +385,5 @@ sr.course_history.extend([t1])
 # print(sr.course_history)
 
 
-print(CS_Core.is_fulfilled(sr))
+# print(CS_Core.is_fulfilled(sr))
+print(BSc.is_fulfilled(sr))
