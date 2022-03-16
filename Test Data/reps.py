@@ -49,7 +49,7 @@ class ANDNode(Node):
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    if grades[self.code] <= 'C':
+                    if grades[self.code][0] <= 'C':
                         self.state = True
             else:
                 prerequisite_states = []
@@ -84,7 +84,7 @@ class ORNode(Node):
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    if grades[self.code] <= 'C':
+                    if grades[self.code][0] <= 'C':
                         self.state = True
             else:
                 prerequisite_states = []
