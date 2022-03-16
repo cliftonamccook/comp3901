@@ -55,7 +55,7 @@ class ANDNode(Node):
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code] <= 'C')
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
                 print(passed)
                 prerequisite_states.append(passed)
                 self.state = all(prerequisite_states)
@@ -90,7 +90,7 @@ class ORNode(Node):
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code] <= 'C')
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
                 print(passed)
                 prerequisite_states.append(passed)
                 self.state = any(prerequisite_states)
