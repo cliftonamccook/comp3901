@@ -25,6 +25,7 @@ class Node(object):
         self.description = ""
         self.tag = []
         self.state = False
+        self.creds = 0
 
     def is_grouping(self):
         return self.type == "grouping"
@@ -44,32 +45,29 @@ class ANDNode(Node):
         super().__init__()
 
     def is_fulfilled(self, record):
-        modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
-        grades = {module.course.code:module.grade for module in modules_taken}
+        terms_in_record = [term_record for term_record in record.course_history]
+        modules_in_term = [term.courses for term in terms_in_record]
+        modules_taken = [module for listing in modules_in_term for module in listing]
+        grades = {module.course.code:module for module in modules_taken}
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    if grades[self.code][0] <= 'C':
+                    if grades[self.code].grade[0] <= 'C':
                         self.state = True
             else:
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
-                # print(passed)
-                prerequisite_states.append(passed)
-                self.state = all(prerequisite_states)
-                # print(prerequisite_states)
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code].grade[0] <= 'C')
+                if all(prerequisite_states) and passed:
+                    self.state = True
         else:
             prerequisite_states = []
             for requirement in self.prerequisite:
                 prerequisite_states.extend([requirement.is_fulfilled(record)])
             self.state = all(prerequisite_states)
-            # print(prerequisite_states)
-            print(f'Grouping => {self.name}: ', self.state)
+            print(f'Grouping => {self.name}: ', self.state, self.creds)
         return self.state
-
-
 
 
 class ORNode(Node):
@@ -79,30 +77,29 @@ class ORNode(Node):
     def __init__(self):
         super().__init__()
 
-    def is_fulfilled(self, record): # pass in student transcript object
-        modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
-        grades = {module.course.code:module.grade for module in modules_taken}
+    def is_fulfilled(self, record):
+        terms_in_record = [term_record for term_record in record.course_history]
+        modules_in_term = [term.courses for term in terms_in_record]
+        modules_taken = [module for listing in modules_in_term for module in listing]
+        grades = {module.course.code:module for module in modules_taken}
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    if grades[self.code][0] <= 'C':
+                    if grades[self.code].grade[0] <= 'C':
                         self.state = True
             else:
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code][0] <= 'C')
-                # print(passed)
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code].grade[0] <= 'C')
                 prerequisite_states.append(passed)
                 self.state = any(prerequisite_states)
-                # print(prerequisite_states)
         else:
             prerequisite_states = []
             for requirement in self.prerequisite:
                 prerequisite_states.extend([requirement.is_fulfilled(record)])
             self.state = any(prerequisite_states)
-            # print(prerequisite_states)
-            print(f'Grouping => {self.name}: ', self.state)
+            print(f'Grouping => {self.name}: ', self.state, self.creds)
         return self.state
 
 
@@ -294,6 +291,19 @@ foun1401.code = "FOUN1401"
 foun1401.min_credits = 3
 foun1401.type = "module"
 
+# Foreign Language Courses
+span1000 = ANDNode()
+span1000.name = "Spanish Language 1"
+span1000.code = "SPAN1000"
+span1000.min_credits = 3
+span1000.type = "module"
+
+span1001 = ANDNode()
+span1001.name = "Spanish Language 2"
+span1001.code = "SPAN1001"
+span1001.min_credits = 3
+span1001.type = "module"
+
 # Groupings
 COMP_FOUN = ORNode()
 COMP_FOUN.name = "Compulsory Foundation"
@@ -312,6 +322,7 @@ FL.name = "Foreign Language"
 FL.min_credits = 0
 FL.max_credits = 6
 FL.type = "grouping"
+FL.prerequisite.extend([span1000, span1001])
 
 OPT_FOUN = ORNode()
 OPT_FOUN.name = "Optional Foundation"
@@ -375,15 +386,24 @@ c13 = CourseRecord(comp3101, 'A', 3)
 c14 = CourseRecord(comp3161, 'A', 3)
 c15 = CourseRecord(comp3220, 'A', 3)
 c16 = CourseRecord(comp3901, 'A', 3)
+c17 = CourseRecord(foun1401, 'A-', 3)
+c18 = CourseRecord(span1000, 'A+', 3)
+c19 = CourseRecord(span1001, 'A+', 3)
 
 t1 = TermRecord("2019/2020", 1)
-t1.courses.extend([c1, c2, c3, c4, c5, c6, c7, c8, c9, c11, c12, c13, c14, c15, c16])
+t2 = TermRecord("2019/2020", 2)
+t3 = TermRecord("2020/2021", 1)
+t1.courses.extend([c1, c2, c3, c4, c5, c6])
+t2.courses.extend([c8, c9, c11, c12, c7, c17])
+t3.courses.extend([c13, c14, c15, c16, c18, c19])
 
-sr = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020")
-sr.course_history.extend([t1])
+student_record1 = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020")
+student_record1.course_history.extend([t1])
+student_record1.course_history.extend([t2])
+student_record1.course_history.extend([t3])
 
 # print(sr.course_history)
 
 
 # print(CS_Core.is_fulfilled(sr))
-print(BSc.is_fulfilled(sr))
+print(BSc.is_fulfilled(student_record1))
