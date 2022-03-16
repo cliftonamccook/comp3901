@@ -45,15 +45,17 @@ class ANDNode(Node):
 
     def is_fulfilled(self, record):
         modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
+        grades = {module.course.code:module.grade for module in modules_taken}
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    self.state = True
+                    if grades[self.code] <= 'C':
+                        self.state = True
             else:
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = self.code in [c.course.code for c in modules_taken]
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code] <= 'C')
                 print(passed)
                 prerequisite_states.append(passed)
                 self.state = all(prerequisite_states)
@@ -78,15 +80,17 @@ class ORNode(Node):
 
     def is_fulfilled(self, record): # pass in student transcript object
         modules_taken = list(module for module in [term.courses for term in record.course_history])[0]
+        grades = {module.course.code:module.grade for module in modules_taken}
         if not self.is_grouping():
             if self.prerequisite == []:
                 if self.code in [c.course.code for c in modules_taken]:
-                    self.state = True
+                    if grades[self.code] <= 'C':
+                        self.state = True
             else:
                 prerequisite_states = []
                 for module in self.prerequisite:
                     prerequisite_states.extend([module.is_fulfilled(record)])
-                passed = self.code in [c.course.code for c in modules_taken]
+                passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code] <= 'C')
                 print(passed)
                 prerequisite_states.append(passed)
                 self.state = any(prerequisite_states)
@@ -355,7 +359,7 @@ BSc.type = "grouping"
 
 c1 = CourseRecord(math1152, 'A', 3)
 c2 = CourseRecord(comp1126, 'A+', 3)
-c3 = CourseRecord(comp1127, 'A', 3)
+c3 = CourseRecord(comp1127, 'C', 3)
 c4 = CourseRecord(comp1161, 'A', 3)
 c5 = CourseRecord(comp1210, 'B+', 3)
 c6 = CourseRecord(comp1220, 'A+', 3)
