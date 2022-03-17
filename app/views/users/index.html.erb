@@ -1,0 +1,39 @@
+<%= render 'shared/page_header', title: "Users", pre_title: "Manage Users", action: new_user_path, action_name: "New User" %>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter card-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>UWI ID</th>
+          <th>Name</th>
+          <th>Account type</th>
+          <th>Accound status</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.uwi_id %></td>
+            <td><%= user.name %></td>
+            <td><%= enum_to_human(user.account_type).titleize %></td>
+            <td><%= status_text(user) %></td>
+            <td>
+              <div class="btn-list flex-nowrap">
+                <%= link_to "Edit", edit_user_path(user), class: "btn btn-white" %>
+                <%= link_to 'Reset Password', reset_password_user_path(user), class: "btn btn-primary", action: :reset_password, :method => :patch, 
+                  data: { confirm: "Are you sure you want to reset this user's password?" } %>                
+                
+                  <%= status_action_link(user) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

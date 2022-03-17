@@ -8,7 +8,21 @@ Rails.application.routes.draw do
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
-  devise_for :users
+
+  devise_for :users, :skip => [:registration], :controllers => { :users => "users" }
+  as :user do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'
+  end
+  
+  resources :users, except: [:destroy] do
+    member do
+      patch 'activate_account'
+      patch 'deactivate_account'
+      patch 'reset_password'
+    end
+  end
+
 
   root 'home#index'
 end
