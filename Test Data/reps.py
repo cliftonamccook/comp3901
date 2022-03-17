@@ -126,7 +126,6 @@ class ORNode(Node):
 
 class CourseRecord:
     def __init__(self, course, grade, cr) -> None:
-        # self.name = name
         self.course = course
         self.grade = grade
         self.credits_earned = cr
@@ -156,7 +155,7 @@ class StudentRecord:
         self.course_history = []
 
 
-# Core Courses
+# CS Core Courses
 math1152 = ANDNode()
 math1152.code = "MATH1152"
 math1152.name = "Introduction to Formal Mathematics"
@@ -369,6 +368,11 @@ BSc.type = "grouping"
 
 # postorder_traversal_iteratively(BSc)
 
+# Construct student record
+student_record1 = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020")
+t1 = TermRecord("2019/2020", 1)
+t2 = TermRecord("2019/2020", 2)
+t3 = TermRecord("2020/2021", 1)
 
 c1 = CourseRecord(math1152, 'A', 3)
 c2 = CourseRecord(comp1126, 'A+', 3)
@@ -391,15 +395,10 @@ c18 = CourseRecord(span1000, 'A+', 3)
 c19 = CourseRecord(span1001, 'A+', 3)
 
 # Simulating a student record that has the above courses taken over three terms
-
-t1 = TermRecord("2019/2020", 1)
-t2 = TermRecord("2019/2020", 2)
-t3 = TermRecord("2020/2021", 1)
 t1.courses.extend([c1, c2, c3, c4, c5, c6])
 t2.courses.extend([c8, c9, c11, c12, c7, c17])
 t3.courses.extend([c13, c14, c15, c16, c18, c19])
 
-student_record1 = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020")
 student_record1.course_history.extend([t1])
 student_record1.course_history.extend([t2])
 student_record1.course_history.extend([t3])
