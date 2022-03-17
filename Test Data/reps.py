@@ -390,6 +390,8 @@ c17 = CourseRecord(foun1401, 'A-', 3)
 c18 = CourseRecord(span1000, 'A+', 3)
 c19 = CourseRecord(span1001, 'A+', 3)
 
+# Simulating a student record that has the above courses taken over three terms
+
 t1 = TermRecord("2019/2020", 1)
 t2 = TermRecord("2019/2020", 2)
 t3 = TermRecord("2020/2021", 1)
