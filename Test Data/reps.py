@@ -54,89 +54,6 @@ class Course(Node):
             report["need to do"].extend([self.code])
         return report
 
-# class Course(Course):
-#     """
-#     True if all sub-objectives are fulfilled (True)
-#     """
-#     def __init__(self):
-#         super().__init__()
-        
-#     def check_requirements(self, record):
-#         terms_in_record = [term_record for term_record in record.course_history]
-#         modules_in_term = [term.courses for term in terms_in_record]
-#         modules_taken = [module for listing in modules_in_term for module in listing]
-#         grades = {module.course.code:module for module in modules_taken}
-#         report = {
-#             "fulfilled": False,
-#             "credits": 0,
-#             "need to do": []
-#             }
-
-#         if self.code in [c.course.code for c in modules_taken]:
-#             if grades[self.code].grade[0] <= 'C':
-#                 report["fulfilled"] = True
-#                 report["credits"] += grades[self.code].credits_earned
-#         else:
-#             report["need to do"].extend([self.code])
-#         return report
-
-        # if self.prerequisite == []:
-        #     if self.code in [c.course.code for c in modules_taken]:
-        #         if grades[self.code].grade[0] <= 'C':
-        #             report["fulfilled"] = True
-        #             report["credits"] += grades[self.code].credits_earned
-        # else:
-        #     prerequisite_states = []
-        #     for module in self.prerequisite:
-        #         prerequisite_states.extend([module.check_requirements(record)["fulfilled"]])
-        #     passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code].grade[0] <= 'C')
-        #     if all(prerequisite_states) and passed:
-        #         report["fulfilled"] = True
-
-        # return report
-        
-
-
-# class ORNode(Course):
-#     """
-#     True if any sub-objective is fulfilled (True)
-#     """
-#     def __init__(self):
-#         super().__init__()
-
-#     def check_requirements(self, record):
-#         terms_in_record = [term_record for term_record in record.course_history]
-#         modules_in_term = [term.courses for term in terms_in_record]
-#         modules_taken = [module for listing in modules_in_term for module in listing]
-#         grades = {module.course.code:module for module in modules_taken}
-#         report = {
-#             "fulfilled": False,
-#             "credits": 0,
-#             "need to do": []
-#             }
-#         if self.code in [c.course.code for c in modules_taken]:
-#             if grades[self.code].grade[0] <= 'C':
-#                 report["fulfilled"] = True
-#                 report["credits"] += grades[self.code].credits_earned
-#         else:
-#             report["need to do"].extend([self.code])
-#         return report
-
-        # if self.prerequisite == []:
-        #     if self.code in [c.course.code for c in modules_taken]:
-        #         if grades[self.code].grade[0] <= 'C':
-        #             report["fulfilled"] = True
-        #             report["credits"] += grades[self.code].credits_earned
-        # else:
-        #     prerequisite_states = []
-        #     for module in self.prerequisite:
-        #         prerequisite_states.extend([module.check_requirements(record)["fulfilled"]])
-        #     passed = (self.code in [c.course.code for c in modules_taken]) and (grades[self.code].grade[0] <= 'C')
-        #     if any(prerequisite_states) and passed:
-        #         report["fulfilled"] = True
-                
-        # return report
-
 
 class ANDGrouping(Node):
     def __init__(self):
@@ -145,7 +62,7 @@ class ANDGrouping(Node):
         self.max_credits = maxsize
 
     def within_threshold(self, value):
-        return value >= self.min_credits and value < self.max_credits
+        return value >= self.min_credits and value <= self.max_credits
 
     def check_requirements(self, record):
         report = {
@@ -155,8 +72,6 @@ class ANDGrouping(Node):
             }
         prerequisite_states = []
         for requirement in self.prerequisite:
-            # prerequisite_states.extend([requirement.check_requirements(record)["fulfilled"]])
-            # print(isinstance(requirement, ANDGrouping))
             state = requirement.check_requirements(record)
             if state["fulfilled"]:
                 report["credits"] += state["credits"]
@@ -167,6 +82,8 @@ class ANDGrouping(Node):
                 report["need to do"].extend(state["need to do"])
             prerequisite_states.extend([state["fulfilled"]])
         report["fulfilled"] = all(prerequisite_states) and self.within_threshold(report["credits"])
+        if report["fulfilled"]:
+            report["need to do"] = []
         print(f'Grouping => {self.name}: ', f'Fulfilled => {report["fulfilled"]}', f'Credits Obtained => {report["credits"]}', f'Need to do => {report["need to do"]}')
         return report
 
@@ -179,7 +96,7 @@ class ORGrouping(Node):
         self.max_credits = maxsize
 
     def within_threshold(self, value):
-        return value >= self.min_credits and value < self.max_credits
+        return value >= self.min_credits and value <= self.max_credits
 
     def check_requirements(self, record):
         report = {
@@ -189,7 +106,6 @@ class ORGrouping(Node):
             }
         prerequisite_states = []
         for requirement in self.prerequisite:
-            # prerequisite_states.extend([requirement.check_requirements(record)["fulfilled"]])
             state = requirement.check_requirements(record)
             if state["fulfilled"]:
                 report["credits"] += state["credits"]
@@ -200,34 +116,14 @@ class ORGrouping(Node):
                 report["need to do"].extend(state["need to do"])
             prerequisite_states.extend([state["fulfilled"]])
         report["fulfilled"] = any(prerequisite_states) and self.within_threshold(report["credits"])
+        if report["fulfilled"]:
+            report["need to do"] = []
         print(f'Grouping => {self.name}: ', f'Fulfilled => {report["fulfilled"]} ', f'Credits Obtained => {report["credits"]}', f'Need to do => {report["need to do"]}')
         return report
 
 
-# def postorder_traversal_iteratively(root: 'Node'): # pass in tree and student record
-#     if not root:
-#         return []
-#     stack = [root]
-#     last = None
-
-#     while stack:
-#         root = stack[-1]
-#         if not root.prerequisite or last and (last in root.prerequisite):
-#             '''
-#             add current node logic here
-#             '''
-#             print(root.name)
-
-#             stack.pop()
-#             last = root
-#         else:
-#             for child in root.prerequisite[::-1]:
-#                 stack.append(child)
-
-
 class CourseRecord:
     def __init__(self, course, grade, cr) -> None:
-        # self.name = name
         self.course = course
         self.grade = grade
         self.credits_earned = cr
@@ -371,9 +267,26 @@ comp3901.prerequisite.extend([comp2140, comp2211])
 
 # Foundation Courses
 foun1401 = Course()
-foun1401.name = "Critical Reading and Writing"
+foun1401.name = "Critical Reading and Writing in Science and Technology and Medical Sciences"
 foun1401.code = "FOUN1401"
 foun1401.min_credits = 3
+
+foun1301 = Course()
+foun1301.name = "Law, Governance, Economy & Society"
+foun1301.code = "FOUN1301"
+foun1301.min_credits = 3
+
+foun1101 = Course()
+foun1101.name = "Caribbean Civilization"
+foun1101.code = "FOUN1101"
+foun1101.min_credits = 3
+
+foun1019 = Course()
+foun1019.name = "Critical Reading and Writing in the Disciplines"
+foun1019.code = "FOUN1019"
+foun1019.min_credits = 3
+
+
 
 # Foreign Language Courses
 span1000 = Course()
@@ -391,17 +304,18 @@ span1001.min_credits = 3
 COMP_FOUN = ORGrouping()
 COMP_FOUN.name = "Compulsory Foundation"
 COMP_FOUN.min_credits = 3
-COMP_FOUN.prerequisite.extend([foun1401])
+COMP_FOUN.prerequisite.extend([foun1401, foun1019])
 
 OPT_FOUN2 = ORGrouping()
 OPT_FOUN2.name = "Other Foundation"
-OPT_FOUN2.min_credits = 0
+OPT_FOUN2.min_credits = 3
 OPT_FOUN2.max_credits = 6
+OPT_FOUN2.prerequisite.extend([foun1101, foun1301])
 
 FL = ORGrouping()
 FL.name = "Foreign Language"
 FL.min_credits = 0
-FL.max_credits = 6
+FL.max_credits = 3
 FL.prerequisite.extend([span1000, span1001])
 
 OPT_FOUN = ORGrouping()
@@ -463,7 +377,7 @@ c14 = CourseRecord(comp3161, 'A+', 3)
 c15 = CourseRecord(comp3220, 'A', 3)
 c16 = CourseRecord(comp3901, 'A+', 3)
 c17 = CourseRecord(foun1401, 'A-', 3)
-c18 = CourseRecord(span1000, 'A+', 3)
+c18 = CourseRecord(foun1301, 'A+', 3)
 c19 = CourseRecord(span1001, 'A+', 3)
 
 t1 = TermRecord("2019/2020", 1, [c1, c2, c3, c4, c5, c6])
