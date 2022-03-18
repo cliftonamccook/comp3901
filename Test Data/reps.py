@@ -298,63 +298,63 @@ span1001.min_credits = 3
 
 
 # Groupings
-COMP_FOUN = ORGrouping()
-COMP_FOUN.name = "Compulsory Foundation"
-COMP_FOUN.min_credits = 3
-COMP_FOUN.prerequisite.extend([foun1401, foun1019])
+FST_COMP_FOUN = ORGrouping()
+FST_COMP_FOUN.name = "Compulsory Foundation"
+FST_COMP_FOUN.min_credits = 3
+FST_COMP_FOUN.prerequisite.extend([foun1401, foun1019])
 
-OPT_FOUN2 = ORGrouping()
-OPT_FOUN2.name = "Other Foundation"
-OPT_FOUN2.min_credits = 3
-OPT_FOUN2.max_credits = 6
-OPT_FOUN2.prerequisite.extend([foun1101, foun1301])
+FST_OPT_FOUN_1 = ORGrouping()
+FST_OPT_FOUN_1.name = "Other Foundation"
+FST_OPT_FOUN_1.min_credits = 3
+FST_OPT_FOUN_1.max_credits = 6
+FST_OPT_FOUN_1.prerequisite.extend([foun1101, foun1301])
 
-FL = ORGrouping()
-FL.name = "Foreign Language"
-FL.min_credits = 0
-FL.max_credits = 3
-FL.prerequisite.extend([span1000, span1001])
+FOREIGN_LANGUAGE = ORGrouping()
+FOREIGN_LANGUAGE.name = "Foreign Language"
+FOREIGN_LANGUAGE.min_credits = 0
+FOREIGN_LANGUAGE.max_credits = 3
+FOREIGN_LANGUAGE.prerequisite.extend([span1000, span1001])
 
-OPT_FOUN = ORGrouping()
-OPT_FOUN.name = "Optional Foundation"
-OPT_FOUN.min_credits = 6
-OPT_FOUN.prerequisite.extend([OPT_FOUN2, FL])
+FST_OPT_FOUN = ORGrouping()
+FST_OPT_FOUN.name = "Optional Foundation"
+FST_OPT_FOUN.min_credits = 6
+FST_OPT_FOUN.prerequisite.extend([FST_OPT_FOUN_1, FOREIGN_LANGUAGE])
 
-FOUNDATION = ANDGrouping()
-FOUNDATION.name = "Foundation"
-FOUNDATION.min_credits = 9
-FOUNDATION.prerequisite.extend([COMP_FOUN, OPT_FOUN])
+FST_FOUNDATION = ANDGrouping()
+FST_FOUNDATION.name = "Foundation"
+FST_FOUNDATION.min_credits = 9
+FST_FOUNDATION.prerequisite.extend([FST_COMP_FOUN, FST_OPT_FOUN])
 
-CS_Intro = ANDGrouping()
-CS_Intro.name = "CS Core Introductory"
-CS_Intro.min_credits = 15
-CS_Intro.prerequisite.extend([comp1210, comp1220, comp1126, comp1127, comp1161])
+FST_CS_INTRO = ANDGrouping()
+FST_CS_INTRO.name = "CS Core Introductory"
+FST_CS_INTRO.min_credits = 15
+FST_CS_INTRO.prerequisite.extend([comp1210, comp1220, comp1126, comp1127, comp1161])
 
-CS_Advanced = ANDGrouping()
-CS_Advanced.name = "CS Core Advanced"
-CS_Advanced.min_credits = 30
-CS_Advanced.prerequisite.extend([comp2140, comp2171, comp2201, comp2211, comp2190, comp2340, comp3101, comp3161, comp3220, comp3901])
+FST_CS_ADVANCED = ANDGrouping()
+FST_CS_ADVANCED.name = "CS Core Advanced"
+FST_CS_ADVANCED.min_credits = 30
+FST_CS_ADVANCED.prerequisite.extend([comp2140, comp2171, comp2201, comp2211, comp2190, comp2340, comp3101, comp3161, comp3220, comp3901])
 
-CS_Major = ANDGrouping()
-CS_Major.name = "Computer Science Major"
-CS_Major.faculty = "Science and Technology"
-CS_Major.min_credits = 54
-CS_Major.prerequisite.extend([CS_Intro, CS_Advanced])
+FST_CS_MAJOR = ANDGrouping()
+FST_CS_MAJOR.name = "Computer Science Major"
+FST_CS_MAJOR.faculty = "Science and Technology"
+FST_CS_MAJOR.min_credits = 54
+FST_CS_MAJOR.prerequisite.extend([FST_CS_INTRO, FST_CS_ADVANCED])
 
-BSc = ANDGrouping()
-BSc.name = "BSc"
-BSc.faculty = "Science and Technology"
-BSc.min_credits = 93
-BSc.prerequisite.extend([CS_Major, FOUNDATION])
+BSC_CS = ANDGrouping()
+BSC_CS.name = "BSc Computer Science"
+BSC_CS.faculty = "Science and Technology"
+BSC_CS.min_credits = 93
+BSC_CS.prerequisite.extend([FST_CS_MAJOR, FST_FOUNDATION])
 
 
-# print(BSc.prerequisite)
-# print(CS.prerequisite)
-# print(CS_Core.prerequisite)
+# print(BSC_CS.prerequisite)
+# print(FST_CS_MAJOR.prerequisite)
+# print(FST_CS_INTRO.prerequisite)
 # print(comp2201.prerequisite)
 
 
-# postorder_traversal_iteratively(BSc)
+# postorder_traversal_iteratively(BSC_CS)
 
 
 c1 = CourseRecord(math1152, 'A', 3)
@@ -369,7 +369,7 @@ c9 = CourseRecord(comp2190, 'A', 3)
 c10 = CourseRecord(comp2201, 'B+', 3)
 c11 = CourseRecord(comp2211, 'A', 3)
 c12 = CourseRecord(comp2340, 'A', 3)
-c13 = CourseRecord(comp3101, 'F', 3)
+c13 = CourseRecord(comp3101, 'A', 3)
 c14 = CourseRecord(comp3161, 'A+', 3)
 c15 = CourseRecord(comp3220, 'A', 3)
 c16 = CourseRecord(comp3901, 'A+', 3)
@@ -381,10 +381,10 @@ t1 = TermRecord("2019/2020", 1, [c1, c2, c3, c4, c5, c6])
 t2 = TermRecord("2019/2020", 2, [c8, c9, c10, c11, c12, c7, c17])
 t3 = TermRecord("2020/2021", 1, [c13, c14, c15, c16, c18, c19])
 
-student_record1 = StudentRecord("Jane", "Mona", "FST", "BSc", "2019/2020", [t1, t2, t3])
+student_record1 = StudentRecord("Jane", "Mona", "FST", "BSC_CS", "2019/2020", [t1, t2, t3])
 
 # print(sr.course_history)
 
 
 # print(CS_Core.is_fulfilled(sr))
-print(BSc.check_requirements(student_record1))
+print(BSC_CS.check_requirements(student_record1))
