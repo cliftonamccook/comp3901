@@ -17,6 +17,8 @@ class Node(object):
         self.faculty = None
         self.department = None
         self.prerequisite = []
+        self.min_credits = 0
+        self.max_credits = maxsize
         self.description = ""
         self.tag = []
 
@@ -31,7 +33,6 @@ class Course(Node):
         self.corequisite = []
         self.antirequisite = []
         self.code = None
-        self.min_credits = 0
 
     def check_requirements(self, record):
         terms_in_record = [term_record for term_record in record.course_history]
@@ -58,8 +59,6 @@ class Course(Node):
 class ANDGrouping(Node):
     def __init__(self):
         super().__init__()
-        self.min_credits = 0
-        self.max_credits = maxsize
 
     def within_threshold(self, value):
         return value >= self.min_credits and value <= self.max_credits
@@ -92,8 +91,6 @@ class ANDGrouping(Node):
 class ORGrouping(Node):
     def __init__(self):
         super().__init__()
-        self.min_credits = 0
-        self.max_credits = maxsize
 
     def within_threshold(self, value):
         return value >= self.min_credits and value <= self.max_credits
@@ -372,7 +369,7 @@ c9 = CourseRecord(comp2190, 'A', 3)
 c10 = CourseRecord(comp2201, 'B+', 3)
 c11 = CourseRecord(comp2211, 'A', 3)
 c12 = CourseRecord(comp2340, 'A', 3)
-c13 = CourseRecord(comp3101, 'A', 3)
+c13 = CourseRecord(comp3101, 'F', 3)
 c14 = CourseRecord(comp3161, 'A+', 3)
 c15 = CourseRecord(comp3220, 'A', 3)
 c16 = CourseRecord(comp3901, 'A+', 3)
