@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
+  resources :course_records, except: [:destroy]
 
   devise_for :users, :skip => [:registration], :controllers => { :users => "users" }
   as :user do
