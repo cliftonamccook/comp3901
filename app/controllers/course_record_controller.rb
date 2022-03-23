@@ -1,10 +1,10 @@
 class CourseRecordController < ApplicationController
    def index
-      @course_record = CourseRecord.all
+      @course_record = CourseRecord.joins(:Course).where(user_id: params[:id])
    end
 
    def show
-      @course_record = CourseRecord.find(params[:id])
+      @course_record = CourseRecord.joins(:Course).where(id: params[:id])
    end
    
    def new
