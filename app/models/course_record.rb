@@ -1,5 +1,5 @@
 class CourseRecord < ApplicationRecord
   belongs_to :user
   belongs_to :course
-  enum term: [:1,:2,:3]
+  enum term: {term_1: 1,term_2: 2,term_3: 3}
 end

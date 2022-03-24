@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   end
 
 
-  get 'students/:id/course-records', to: 'course_records#index' 
+  get 'students/course-records', to: 'course_records#index' 
   root 'home#index'
 end

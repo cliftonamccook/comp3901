@@ -1,0 +1,19 @@
+<h1>New Article</h1>
+
+<%= form_with model: @course_record do |form| %>
+  <div>
+    <%= form.label :course_id %><br>
+    <%= form.text_field :course_id %>
+  </div>
+  <div>
+    <%= form.label :term %><br>
+    <%= form.text_area :term %>
+  </div>
+  <div>
+    <%= form.label :grade %><br>
+    <%= form.text_area :grade %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

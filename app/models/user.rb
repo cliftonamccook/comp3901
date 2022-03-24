@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :campus
   belongs_to :department, optional: true 
+  has_many :course_record
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login]
