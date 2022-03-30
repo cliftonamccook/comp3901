@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
-  resources :course_records, except: [:destroy, :index]
+  resources :course_records, except: [:destroy, :index, :create]
 
   devise_for :users, :skip => [:registration], :controllers => { :users => "users" }
   as :user do
@@ -26,5 +26,7 @@ Rails.application.routes.draw do
 
 
   get 'students/course-records', to: 'course_records#index' 
+  post 'students/:student_id/course-records', to: 'course_records#create'
+
   root 'home#index'
 end
