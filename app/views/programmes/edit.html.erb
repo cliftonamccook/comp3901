@@ -1,6 +1,7 @@
-<h1>Editing Programme</h1>
+<%= render 'shared/page_header', title: "Editing Programme", back_action: programmes_path %>
 
-<%= render 'form', programme: @programme %>
-
-<%= link_to 'Show', @programme %> |
-<%= link_to 'Back', programmes_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', programme: @programme %>
+  </div>
+</div>

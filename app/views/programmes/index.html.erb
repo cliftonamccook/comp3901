@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', title: "Programmes", action: new_programme_path, action_name: "New Programme" %>
 
-<h1>Programmes</h1>
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter card-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Department</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @programmes.each do |programme| %>
-      <tr>
-        <td><%= programme.name %></td>
-        <td><%= programme.department_id %></td>
-        <td><%= link_to 'Show', programme %></td>
-        <td><%= link_to 'Edit', edit_programme_path(programme) %></td>
-        <td><%= link_to 'Destroy', programme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Programme', new_programme_path %>
+      <tbody>
+        <% @programmes.each do |programme| %>
+          <tr>
+            <td><%= programme.id %></td>
+            <td><%= programme.name %></td>
+            <td><%= programme.department.name %></td>
+            <td>
+              <%= link_to 'Show', programme %>
+              <%= link_to 'Edit', edit_programme_path(programme) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
