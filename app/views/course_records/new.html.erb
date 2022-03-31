@@ -3,7 +3,7 @@
 <form action="/students/<%= current_user.id %>/course_records" accept-charset="UTF-8" method="post">
   <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>/>
   <div>
-    <label for="course_record_course_id">Course</label><br>
+    <label for="course_record_course_id">Course ID</label><br>
     <input type="text" name="course_record[course_id]" id="course_record_course_id" />
   </div>
   <div>

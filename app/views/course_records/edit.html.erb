@@ -1,0 +1,23 @@
+<h1>Edit Course Record</h1>
+
+<form action="/students/<%= current_user.id %>/course_records/<%= @course_record.id %>" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %>/>
+  <div>
+    <label for="course_record_course_id">Course ID</label><br>
+    <input type="text" name="course_record[course_id]" id="course_record_course_id" value=<%= @course_record.course_id %> />
+  </div>
+  <div>
+    <label for="course_record_term">Term</label><br>
+    <textarea name="course_record[term]" id="course_record_term"><%= @course_record.term %></textarea>
+</textarea>
+  </div>
+  <div>
+    <label for="course_record_grade">Grade</label><br>
+    <textarea name="course_record[grade]" id="course_record_grade"><%= @course_record.grade %></textarea>
+</textarea>
+  </div>
+  <div>
+    <input type="submit" name="commit" value="Update Course record" data-disable-with="Update Course record" />
+  </div>
+</form>
