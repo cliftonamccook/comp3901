@@ -1,11 +1,52 @@
-<h1>Course Records</h1>
 
-   <ul>
-	<% @course_records.each do |course_record| %>
-	   <li>
-		<a href="/course_records/<%= course_record.id %>">
-			<%= course_record.course.id %>
-		</a>
-	   </li>
-	<% end %>
-   </ul>
+<div class="page-wrapper">
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="page-header d-print-none mb-4">
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <h2 class="page-title">
+        Course Records
+      </h2>
+    </div>
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+          <a class="btn btn-primary" href="/course_records/new">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            New Course Record
+</a>        </div>
+      </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter card-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+		  <th>Course Code</th>
+          <th>Term Taken</th>
+		  <th>Grade</th>
+          <th>View</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @course_records.each do |course_record| %>
+          <tr>
+            <td><%= course_record.id %></td>
+            <td><%= course_record.course.name %></td>
+			<td><%= course_record.course.code %></td>
+            <td><%= course_record.term %></td>
+			<td><%= course_record.grade %></td>
+            <td>
+              <a href="/course_records/<%= course_record.id %>">View</a>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
