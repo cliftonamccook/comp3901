@@ -1,5 +1,6 @@
 @import 'tabler';
 
+
 @import url("https://use.fontawesome.com/releases/v5.0.8/css/all.css");
 
 $accent-color: #db3131;
@@ -9,9 +10,7 @@ $accent-color: #db3131;
     color: white;
 }
 
-main{
-    margin: auto;
-}
+
 
 input[type="radio"] {
     position: absolute;
@@ -55,6 +54,22 @@ input[type="radio"] {
     background-color: white;
     padding: 25px ;
     border-radius: 3px;
+    margin-left: 5%;
+    
+    a{
+        color: black;
+        display: inline;
+
+    }
+
+    .dropdown-menu{
+        max-height: 200px;
+        overflow: scroll;
+    }
+
+    hr{
+        margin: 20px 0px
+    }
 }
 
 
@@ -104,7 +119,6 @@ input[type="radio"] {
     margin-right: 20px;
     margin-top: 10px;
 }
-
 
 
 td, th{

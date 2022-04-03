@@ -1,6 +1,7 @@
 
 <form method="get" class="row ">
             <main class="col-sm-6 col-md-7 col-lg-8">
+                <!--This should probably be a form by itself-->
                 <div class="show-only">
                     <input type="radio" id="All" name="categories" value="All" checked>
                     <input type="radio" id="Courses" name="categories" value="Courses">
@@ -53,7 +54,7 @@
 
 
             <!--Sidebar filter-->
-            <section id="sidebar" class="col-sm-6 col-md-4 col-lg-3 ">
+            <section id="sidebar" class="col-sm-6 col-md-4 col-lg-3 shadow-sm">
                  <!--Main search -->
                 
                 <div class="input-group">
@@ -78,15 +79,18 @@
 
                  <!--Campus filter-->
                 <div class="filters filter-campus">
-                    <h3 class="">Campus</h3>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> Mona</span>
-                    </label>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> St.Augustine</span>
-                    </label>
+                    <a href="#campus" data-bs-toggle="collapse"> <h3 class="">Campus</h3> </a><i class="fa-regular fa-caret-down"></i>
+                    <p><small>Select a Campus</small> </p>
+                    <div class="collapse" id="campus">
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> Mona</span>
+                        </label>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> St.Augustine</span>
+                        </label>
+                    </div>
                 </div>
 
                 <hr>
@@ -95,7 +99,7 @@
                 <div class="dropdown filters filter-version">
                     <h3 class="">Faculty</h3>
                     <button class="btn btn-outline-dark dropdown-toggle btn-block" type="button" data-bs-toggle="dropdown">Select faculty
-                    <span class="caret "></span></button>
+                    </button>
                     <div class="dropdown-menu">
                         <input class="form-control" id="faculty" type="text" placeholder="Search..">
                         <!--List of faculties-->
@@ -120,23 +124,26 @@
                 <hr>
 
                 <div class="filters filter-year">
-                    <h3 class="">Year Level</h3>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> Level 1</span>
-                    </label>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> Level 2</span>
-                    </label>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> Level 3</span>
-                    </label>
-                    <label class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <span class="form-check-label"> Level 4</span>
-                    </label>
+                    <a href="#yr-lvl" data-bs-toggle="collapse"> <h3 class="">Year Level</h3> </a><i class="fa-thin fa-caret-down"></i>
+                    <p><small>Select a year level</small> </p>
+                    <div class="collapse" id="yr-lvl">
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> Level 1</span>
+                        </label>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> Level 2</span>
+                        </label>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> Level 3</span>
+                        </label>
+                        <label class="form-check">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-label"> Level 4</span>
+                        </label>
+                    </div>
                 </div>
 
                 <hr>
