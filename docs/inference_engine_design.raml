@@ -1,0 +1,136 @@
+#RAML 1.0
+displayName: UWI Pocket Advisor Inference Engine
+
+/checker:
+    displayName: Check Student Progress
+    description: Accepts student's record and programme data and returns student's progress
+    post:
+        body:
+            application/json:
+                example: {
+                            bsccs : {
+                                "name": "BSc Computer Science",
+                                "code": "BSCCSUGMONA",
+                                "minimum credits": 93,
+                                "faculty": "Science and Technology",
+                                "operation": "AND",
+                                "requirements": [
+                                    {   
+                                        "name": "Compulsory Foundation",
+                                        "operation": "OR",
+                                        "requirements": [foun1401, foun1019]
+                                    },
+                                    {   
+                                        "name": "Other Foundation",
+                                        "operation": "OR",
+                                        "requirements": [foun1101, foun1301]
+                                    },
+                                    {   
+                                        "name": "Foreign Language",
+                                        "operation": "OR",
+                                        "requirements": [span1000, span1001]
+                                    },
+                                    {   
+                                        "name": "Optional Foundation",
+                                        "operation": "OR",
+                                        "requirements": [FST_OPT_FOUN_1, FOREIGN_LANGUAGE]
+                                    },
+                                    {   
+                                        "name": "Foundation",
+                                        "operation": "AND",
+                                        "requirements": [FST_COMP_FOUN, FST_OPT_FOUN]
+                                    },
+                                    {   
+                                        "name": "CS Core Introductory",
+                                        "operation": "AND",
+                                        "requirements": [comp1210, comp1220, comp1126, comp1127, comp1161]
+                                    },
+                                    {   
+                                        "name": "CS Advanced Elective",
+                                        "operation": "OR",
+                                        "requirements": []
+                                    },
+                                    {   
+                                        "name": "CS Core Advanced",
+                                        "operation": "AND",
+                                        "requirements": [comp2140, comp2171, comp2201, comp2211, comp2190, comp2340, comp3101, comp3161, comp3220, comp3901]
+                                    },
+                                    {   
+                                        "name": "Computer Science Major",
+                                        "operation": "AND",
+                                        "requirements": [FST_CS_INTRO, FST_CS_ADVANCED, FST_CS_ELECT_ADVANCED]
+                                    }
+                                ]
+                            },
+                            studentRecord : {
+                                "name": "Jane",
+                                "campus": "Mona",
+                                "faculty": "Science and Technology",
+                                "programme": {
+                                    "name": "BSc Computer Science",
+                                    "enrollment year": "2019/2020",
+                                    "majors":[{"name": "CS Major", "enrollment year": "2019/2020"}],
+                                    "minors": []
+                                },
+                                "course history": [
+                                    {
+                                        "term": "2019/2020-S1",
+                                        "course records": 
+                                        [
+                                            {"course": math1152, "grade": "A+"},
+                                            {"course": comp1126, "grade": "A+"},
+                                            {"course": comp1127, "grade": "A+"},
+                                            {"course": comp1161, "grade": "A+"},
+                                            {"course": comp1210, "grade": "A+"},
+                                            {"course": comp1220, "grade": "A+"}
+                                        ]
+                                    },
+                                    {
+                                        "term": "2019/2020-S2",
+                                        "course records": 
+                                        [
+                                            {"course": comp2171, "grade": "A+"},
+                                            {"course": comp2190, "grade": "A+"},
+                                            {"course": comp2201, "grade": "A+"},
+                                            {"course": comp2211, "grade": "A+"},
+                                            {"course": comp2340, "grade": "A+"},
+                                            {"course": comp2140, "grade": "A+"},
+                                            {"course": foun1401, "grade": "A+"}
+                                        ]
+                                    },
+                                    {
+                                        "term": "2020/2021-S1",
+                                        "course records": 
+                                        [
+                                            {"course": comp3101, "grade": "A+"},
+                                            {"course": comp3161, "grade": "A+"},
+                                            {"course": comp3220, "grade": "A+"},
+                                            {"course": comp3901, "grade": "A+"},
+                                            {"course": comp2340, "grade": "A+"},
+                                            {"course": foun1301, "grade": "A+"},
+                                            {"course": span1001, "grade": "A+"}
+                                        ]
+                                    }
+                                ]
+                            }
+                }
+        responses:
+            200:
+                body:
+                    application/json:
+                        example: {}
+            400:
+                body:
+                    application/json:
+                        example: {"error": "Malformed request body"}
+            401:
+                body:
+                    application/json:
+                        example: {
+                                    "error": "Missing programme data for programme with ID 1",
+                                    "programme_missing": 1
+                                }
+            500:
+                body:
+                    application/json:
+                        example: {"error": "Error checking student progress"}
