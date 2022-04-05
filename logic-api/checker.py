@@ -37,7 +37,7 @@ def checkprogress(SR:StudentData, ProgID:str):
         # return report
         pass
     else:
-        return {"error message": "Programme not present", "error ID": 400}
+        return {"error message": "Programme not present", "error ID": 401}
 
 
 # uvicorn checker:app --reload
