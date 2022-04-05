@@ -29,12 +29,15 @@ def checkprogress():
 
 
 @app.post("/checker/")
-def checkprogress(SR:StudentData, Prog:ProgrammeData):
-    # construct programme tree
-    # cache tree in programmes dictionary
-    # perform check (tree walk)
-    # return report
-    pass
+def checkprogress(SR:StudentData, ProgID:str):
+    if programmes[ProgID] is not None:
+        # construct programme tree
+        # cache tree in programmes dictionary
+        # perform check (tree walk)
+        # return report
+        pass
+    else:
+        return {"error message": "Programme not present", "error ID": 400}
 
 
 # uvicorn checker:app --reload
