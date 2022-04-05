@@ -22,13 +22,19 @@ class ReportData(BaseModel):
 
 programmes = {}
 
+
+@app.get("/checker/")
+def checkprogress():
+    return "Progress Checker under construction"
+
+
 @app.post("/checker/")
 def checkprogress(SR:StudentData, Prog:ProgrammeData):
     # construct programme tree
     # cache tree in programmes dictionary
     # perform check (tree walk)
     # return report
-    return "Progress Checker under construction"
+    pass
 
 
 # uvicorn checker:app --reload
