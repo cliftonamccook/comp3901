@@ -37,10 +37,46 @@
             ]
         },
         {
+            "name": "Foreign Language",
+            "code":"FOERIGNLANG",
+            "operation": "OR",
+            "minimum credits": 0,
+            "requirements": [
+                {
+                    "name": "Beginners' Spanish",
+                    "code": "SPAN0101",
+                    "semester": [1,2,3],
+                    "credits": 3,
+                    "campus": "Mona",
+                    "faculty": "Humanities and Education",
+                    "department": "Department of Modern Languages and Literatures",
+                    "requirements": [],
+                    "corerequisite": [],
+                    "antirequisite": [],
+                    "description": "",
+                    "tags": []
+                },
+                {
+                    "name": "Intermediate Spanish",
+                    "code": "SPAN1000",
+                    "semester": [1,2,3],
+                    "credits": 3,
+                    "campus": "Mona",
+                    "faculty": "Humanities and Education",
+                    "department": "Department of Modern Languages and Literatures",
+                    "requirements": ["SPAN0101"],
+                    "corerequisite": [],
+                    "antirequisite": [],
+                    "description": "",
+                    "tags": []
+                }
+            ]
+        },
+        {
             "name": "FST Optional Foundation",
             "code":"FSTOPTFOUN",
             "operation": "OR",
-            "minimum credits": 6,
+            "minimum credits": 3,
             "requirements": [
                 {
                     "name": "Law, Governance, Economy & Society",
@@ -69,6 +105,86 @@
                     "antirequisite": [],
                     "description": "",
                     "tags": []
+                }
+            ]
+        },
+        {
+            "name": "FST Foreign Language Optional Foundation",
+            "code":"FSTFLOPTFOUN",
+            "operation": "OR",
+            "minimum credits": 6,
+            "requirements": [
+                {
+                    "name": "Foreign Language",
+                    "code":"FOERIGNLANG",
+                    "operation": "OR",
+                    "minimum credits": 0,
+                    "requirements": [
+                        {
+                            "name": "Beginners' Spanish",
+                            "code": "SPAN0101",
+                            "semester": [1,2,3],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Humanities and Education",
+                            "department": "Department of Modern Languages and Literatures",
+                            "requirements": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Intermediate Spanish",
+                            "code": "SPAN1000",
+                            "semester": [1,2,3],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Humanities and Education",
+                            "department": "Department of Modern Languages and Literatures",
+                            "requirements": ["SPAN0101"],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        }
+                    ]
+                },
+                {
+                    "name": "FST Optional Foundation",
+                    "code":"FSTOPTFOUN",
+                    "operation": "OR",
+                    "minimum credits": 3,
+                    "requirements": [
+                        {
+                            "name": "Law, Governance, Economy & Society",
+                            "code": "FOUN1301",
+                            "semester": [1,2],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Social Sciences",
+                            "department": "Department of Government",
+                            "requirements": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Caribbean Civilization",
+                            "code": "FOUN1101",
+                            "semester": [1],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Humanities and Education",
+                            "department": "Department of Caribbean Studies",
+                            "requirements": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        }
+                    ]
                 }
             ]
         },
@@ -115,38 +231,82 @@
                     ]
                 },
                 {
-                    "name": "FST Optional Foundation",
-                    "code":"FSTOPTFOUN",
+                    "name": "FST Foreign Language Optional Foundation",
+                    "code":"FSTFLOPTFOUN",
                     "operation": "OR",
                     "minimum credits": 6,
                     "requirements": [
                         {
-                            "name": "Law, Governance, Economy & Society",
-                            "code": "FOUN1301",
-                            "semester": [1,2],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Social Sciences",
-                            "department": "Department of Government",
-                            "requirements": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
+                            "name": "Foreign Language",
+                            "code":"FOERIGNLANG",
+                            "operation": "OR",
+                            "minimum credits": 0,
+                            "requirements": [
+                                {
+                                    "name": "Beginners' Spanish",
+                                    "code": "SPAN0101",
+                                    "semester": [1,2,3],
+                                    "credits": 3,
+                                    "campus": "Mona",
+                                    "faculty": "Humanities and Education",
+                                    "department": "Department of Modern Languages and Literatures",
+                                    "requirements": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Intermediate Spanish",
+                                    "code": "SPAN1000",
+                                    "semester": [1,2,3],
+                                    "credits": 3,
+                                    "campus": "Mona",
+                                    "faculty": "Humanities and Education",
+                                    "department": "Department of Modern Languages and Literatures",
+                                    "requirements": ["SPAN0101"],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                }
+                            ]
                         },
                         {
-                            "name": "Caribbean Civilization",
-                            "code": "FOUN1101",
-                            "semester": [1],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Humanities and Education",
-                            "department": "Department of Caribbean Studies",
-                            "requirements": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
+                            "name": "FST Optional Foundation",
+                            "code":"FSTOPTFOUN",
+                            "operation": "OR",
+                            "minimum credits": 3,
+                            "requirements": [
+                                {
+                                    "name": "Law, Governance, Economy & Society",
+                                    "code": "FOUN1301",
+                                    "semester": [1,2],
+                                    "credits": 3,
+                                    "campus": "Mona",
+                                    "faculty": "Social Sciences",
+                                    "department": "Department of Government",
+                                    "requirements": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Caribbean Civilization",
+                                    "code": "FOUN1101",
+                                    "semester": [1],
+                                    "credits": 3,
+                                    "campus": "Mona",
+                                    "faculty": "Humanities and Education",
+                                    "department": "Department of Caribbean Studies",
+                                    "requirements": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                }
+                            ]
                         }
                     ]
                 }
