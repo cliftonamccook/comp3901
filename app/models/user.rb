@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   belongs_to :campus
-  belongs_to :department, optional: true 
-
+  has_one :permission_group
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login]
 
@@ -15,7 +15,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
   validates_presence_of :title, :first_name, :last_name, :gender, :account_type
-  validate :cant_assign_student_to_department
 
   def login
     @login || self.uwi_id || self.email
@@ -48,12 +47,5 @@ class User < ApplicationRecord
 
   def name
     "#{first_name} #{last_name}"
-  end
-
-  def cant_assign_student_to_department
-    if account_type == User.account_types.key(1) and department_id.present?
-      errors.add(:department, "Student can't be assigned to a department")
-      department = ""
-    end
   end
 end

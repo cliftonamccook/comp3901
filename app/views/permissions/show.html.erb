@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @permission.department_id %>
+</p>
+
+<p>
+  <strong>Permission group:</strong>
+  <%= @permission.permission_group_id %>
+</p>
+
+<p>
+  <strong>Can create:</strong>
+  <%= @permission.can_create %>
+</p>
+
+<p>
+  <strong>Can update:</strong>
+  <%= @permission.can_update %>
+</p>
+
+<p>
+  <strong>Can discontinue:</strong>
+  <%= @permission.can_discontinue %>
+</p>
+
+<p>
+  <strong>Can view:</strong>
+  <%= @permission.can_view %>
+</p>
+
+<%= link_to 'Edit', edit_permission_path(@permission) %> |
+<%= link_to 'Back', permissions_path %>

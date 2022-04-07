@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  department: one
+  permission_group: one
+  can_create: false
+  can_update: false
+  can_discontinue: false
+  can_view: false
+
+two:
+  department: two
+  permission_group: two
+  can_create: false
+  can_update: false
+  can_discontinue: false
+  can_view: false

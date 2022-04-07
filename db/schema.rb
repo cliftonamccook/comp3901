@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_030653) do
+ActiveRecord::Schema.define(version: 2022_04_07_035658) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,27 @@ ActiveRecord::Schema.define(version: 2022_03_17_030653) do
     t.index ["programme_id"], name: "index_minors_on_programme_id"
   end
 
+  create_table "permission_groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_permission_groups_on_user_id"
+  end
+
+  create_table "permissions", force: :cascade do |t|
+    t.bigint "department_id", null: false
+    t.bigint "permission_group_id", null: false
+    t.boolean "can_create"
+    t.boolean "can_update"
+    t.boolean "can_discontinue"
+    t.boolean "can_view"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["department_id"], name: "index_permissions_on_department_id"
+    t.index ["permission_group_id"], name: "index_permissions_on_permission_group_id"
+  end
+
   create_table "programmes", force: :cascade do |t|
     t.string "name"
     t.bigint "department_id", null: false
@@ -102,7 +123,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_030653) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.bigint "campus_id"
-    t.bigint "department_id"
     t.string "title"
     t.string "first_name"
     t.string "middle_names"
@@ -114,7 +134,6 @@ ActiveRecord::Schema.define(version: 2022_03_17_030653) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "uwi_id"
     t.index ["campus_id"], name: "index_users_on_campus_id"
-    t.index ["department_id"], name: "index_users_on_department_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -125,8 +144,10 @@ ActiveRecord::Schema.define(version: 2022_03_17_030653) do
   add_foreign_key "faculties", "campuses"
   add_foreign_key "majors", "programmes"
   add_foreign_key "minors", "programmes"
+  add_foreign_key "permission_groups", "users"
+  add_foreign_key "permissions", "departments"
+  add_foreign_key "permissions", "permission_groups"
   add_foreign_key "programmes", "departments"
   add_foreign_key "requirements", "requirement_groups"
   add_foreign_key "users", "campuses"
-  add_foreign_key "users", "departments"
 end
