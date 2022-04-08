@@ -4,7 +4,7 @@
             "name": "FST Mandatory Foundation",
             "code":"FSTMANDFOUN",
             "operation": "OR",
-            "minimum credits": 3,
+            "minimum_credits": 3,
             "requirements": [
                 {
                     "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
@@ -40,7 +40,7 @@
             "name": "Foreign Language",
             "code":"FOERIGNLANG",
             "operation": "OR",
-            "minimum credits": 0,
+            "minimum_credits": 0,
             "requirements": [
                 {
                     "name": "Beginners' Spanish",
@@ -76,7 +76,7 @@
             "name": "FST Optional Foundation",
             "code":"FSTOPTFOUN",
             "operation": "OR",
-            "minimum credits": 3,
+            "minimum_credits": 3,
             "requirements": [
                 {
                     "name": "Law, Governance, Economy & Society",
@@ -112,13 +112,13 @@
             "name": "FST Foreign Language Optional Foundation",
             "code":"FSTFLOPTFOUN",
             "operation": "OR",
-            "minimum credits": 6,
+            "minimum_credits": 6,
             "requirements": [
                 {
                     "name": "Foreign Language",
                     "code":"FOERIGNLANG",
                     "operation": "OR",
-                    "minimum credits": 0,
+                    "minimum_credits": 0,
                     "requirements": [
                         {
                             "name": "Beginners' Spanish",
@@ -154,7 +154,7 @@
                     "name": "FST Optional Foundation",
                     "code":"FSTOPTFOUN",
                     "operation": "OR",
-                    "minimum credits": 3,
+                    "minimum_credits": 3,
                     "requirements": [
                         {
                             "name": "Law, Governance, Economy & Society",
@@ -192,13 +192,13 @@
             "name": "FST Foundation",
             "code":"FSTFOUN",
             "operation": "AND",
-            "minimum credits": 9,
+            "minimum_credits": 9,
             "requirements": [
                 {
                     "name": "FST Mandatory Foundation",
                     "code":"FSTMANDFOUN",
                     "operation": "OR",
-                    "minimum credits": 3,
+                    "minimum_credits": 3,
                     "requirements": [
                         {
                             "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
@@ -234,13 +234,13 @@
                     "name": "FST Foreign Language Optional Foundation",
                     "code":"FSTFLOPTFOUN",
                     "operation": "OR",
-                    "minimum credits": 6,
+                    "minimum_credits": 6,
                     "requirements": [
                         {
                             "name": "Foreign Language",
                             "code":"FOERIGNLANG",
                             "operation": "OR",
-                            "minimum credits": 0,
+                            "minimum_credits": 0,
                             "requirements": [
                                 {
                                     "name": "Beginners' Spanish",
@@ -276,7 +276,7 @@
                             "name": "FST Optional Foundation",
                             "code":"FSTOPTFOUN",
                             "operation": "OR",
-                            "minimum credits": 3,
+                            "minimum_credits": 3,
                             "requirements": [
                                 {
                                     "name": "Law, Governance, Economy & Society",
@@ -316,7 +316,7 @@
             "name": "Computer Science Introductory Core",
             "code":"FSTCSCOREINTRO",
             "operation": "AND",
-            "minimum credits": 15,
+            "minimum_credits": 15,
             "requirements": [
                 {
                     "name": "Introduction to Computing I",
@@ -438,7 +438,7 @@
             "name": "Computer Science Advanced Core",
             "code":"FSTCSCOREADV",
             "operation": "AND",
-            "minimum credits": 30,
+            "minimum_credits": 30,
             "requirements": [
                 {
                     "name": "Software Engineering",
@@ -586,7 +586,7 @@
             "name": "Computer Science Advanced Elective",
             "code":"FSTCSELECTADV",
             "operation": "OR",
-            "minimum credits": 9,
+            "minimum_credits": 9,
             "requirements": [
                 {
                     "name": "Systems Programming",
@@ -930,13 +930,13 @@
             "name": "Computer Science Major",
             "code":"FSTCSMAJOR",
             "operation": "AND",
-            "minimum credits": 54,
+            "minimum_credits": 54,
             "requirements": [
                 {
                     "name": "Computer Science Introductory Core",
                     "code":"FSTCSCOREINTRO",
                     "operation": "AND",
-                    "minimum credits": 15,
+                    "minimum_credits": 15,
                     "requirements": [
                         {
                             "name": "Introduction to Computing I",
@@ -1058,7 +1058,7 @@
                     "name": "Computer Science Advanced Core",
                     "code":"FSTCSCOREADV",
                     "operation": "AND",
-                    "minimum credits": 30,
+                    "minimum_credits": 30,
                     "requirements": [
                         {
                             "name": "Software Engineering",
@@ -1206,7 +1206,7 @@
                     "name": "Computer Science Advanced Elective",
                     "code":"FSTCSELECTADV",
                     "operation": "OR",
-                    "minimum credits": 9,
+                    "minimum_credits": 9,
                     "requirements": [
                         {
                             "name": "Systems Programming",
