@@ -756,14 +756,14 @@
             "code": "ELECTINTRO",
             "operation": "OR",
             "minimum_credits": 9,
-            "requirements": []
+            "requirements": ["ALL introductory courses should be in this array"]
         },
         {
             "name": "Advanced Elective",
             "code": "ELECTADV",
             "operation": "OR",
             "minimum_credits": 60,
-            "requirements": []
+            "requirements": ["ALL advanced courses should be in this array"]
         }
     ]
 }
