@@ -1,7 +1,7 @@
 from typing import Optional, List, Set
 from fastapi import FastAPI
 from pydantic import BaseModel
-from models import ProgrammeTreeNode, Course, ANDGrouping, ORGrouping, StudentRecord, TermRecord, CourseRecord
+from models import Node, Course, ANDGrouping, ORGrouping, StudentRecord, TermRecord, CourseRecord
 import os
 
 
@@ -105,4 +105,37 @@ def checkprogress(payload:AuditInput):
         # return report
         student_record = payload.audit_data[0]
         programme = payload.audit_data[1]
+
+        # code = programme["code"]
+        # name = programme["name"]
+        # mincreds = programme["minimum_credits"]
+        # reqs = programme["requirements"]
+        # op = programme["operation"]
+
+        # if op == "AND":
+        #     root = ANDGrouping(code, name, mincreds)
+        #     for req in reqs:
+        #         if req["operation"] == None:
+        #             course = Course(req["code"], req["name"], req["minimum_credits"], req["department"])
+        #             root.requirements.extend(course)
+        #         elif req["operation"] == "AND":
+        #             group = ANDGrouping(req["code"], req["name"], req["minimum_credits"])
+        #             root.requirements.extend(group)
+        #         elif req["operation"] == "OR":
+        #             group = ORGrouping(req["code"], req["name"], req["minimum_credits"])
+        #             root.requirements.extend(group)
+        # elif op == "OR":
+        #     root = ORGrouping(code, name, mincreds)
+        #     for req in reqs:
+        #         if req["operation"] == None:
+        #             course = Course(req["code"], req["name"], req["minimum_credits"], req["department"])
+        #             root.requirements.extend(course)
+        #         elif req["operation"] == "AND":
+        #             group = ANDGrouping(req["code"], req["name"], req["minimum_credits"])
+        #             root.requirements.extend(group)
+        #         elif req["operation"] == "OR":
+        #             group = ORGrouping(req["code"], req["name"], req["minimum_credits"])
+        #             root.requirements.extend(group)
+
+
         return student_record

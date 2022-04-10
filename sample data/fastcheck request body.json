@@ -1,0 +1,63 @@
+{
+    "audit_request_data":
+[
+        
+    {
+    "name": "Jane Doe",
+    "id": 620000000,
+    "campus": "Mona",
+    "faculty": "Science and Technology",
+    "programme": "BSc Computer Science",
+    "course history": [
+        {
+            "term": "2019-2020-S1",
+            "course records": [
+                {
+                    "name": "Introduction to Computing I",
+                    "code": "COMP1126",
+                    "grade": "A"
+                },
+                {
+                    "name": "Introduction to Computing II",
+                    "code": "COMP1127",
+                    "grade": "A"
+                },
+                {
+                    "name": "Mathematics for Computing",
+                    "code": "COMP1210",
+                    "grade": "A"
+                },
+                {
+                    "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
+                    "code": "FOUN1401",
+                    "grade": "A-"
+                }
+            ]
+        },
+        {
+            "term": "2019-2020-S2",
+            "course records": [
+                {
+                    "name": "Computing and Society",
+                    "code": "COMP1220",
+                    "grade": "A+"
+                },
+                {
+                    "name": "Object-Oriented Programming",
+                    "code": "COMP1161",
+                    "grade": "A"
+                },
+                {
+                    "name": "Law, Governance, Economy & Society",
+                    "code": "FOUN1301",
+                    "grade": "B+"
+                }
+            ]
+        }
+    ]
+},
+{
+    "code":"BSCCOMPSCI"
+}
+]
+}
