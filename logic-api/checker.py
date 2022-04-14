@@ -60,7 +60,6 @@ class StudentData(BaseModel):
     course_history: List[TermData]
 
 
-
 class AuditRequest(BaseModel):
     audit_request_data: list
 
@@ -73,15 +72,15 @@ class AuditInput(BaseModel):
 class ReportData(BaseModel):
     fulfilled: bool
     credits: int
-    incomplete: list = []
+    summary: list = []
 
 
 programmes = {} # cache of programme trees
 
 
-@app.get("/checker/")
-def checkprogress():
-    return "Progress Checker under construction"
+# @app.get("/checker/")
+# def checkprogress():
+#     return "Progress Checker under construction"
 
 
 @app.post("/checker/fastcheck/")
@@ -90,6 +89,7 @@ def checkprogress(AR:AuditRequest):
     try:
         if programmes[pid] is not None:
             programme = programmes[pid]
+            report = ReportData()
             # perform check (tree walk) on cached programme tree
             # return report
             return pid

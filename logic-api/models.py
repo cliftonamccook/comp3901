@@ -5,12 +5,7 @@ class Report:
     def __init__(self) -> None:
         self.fulfilled = False
         self.credits = 0
-        self.incomplete = []
-        self.breakdown = []
-
-    def read(self):
-        for i in self.breakdown:
-            print(i)
+        self.summary = []
 
 
 class Node:
@@ -50,10 +45,10 @@ class ANDGrouping(Node):
 
     def check_requirements(self, record) -> Report:
         report = Report()
-        prerequisite_states = []
-        for requirement in self.prerequisite:
+        requirement_states = []
+        for requirement in self.requirements:
             state = requirement.check_requirements(record)
-            report.breakdown.extend([f'Grouping => {requirement.name} Fulfilled => {state.fulfilled} Credits Obtained => {state.credits} incomplete => {state.incomplete}'])
+            # report.breakdown.extend([f'Grouping => {requirement.name} Fulfilled => {state.fulfilled} Credits Obtained => {state.credits} incomplete => {state.incomplete}'])
             if state.fulfilled:
                 report.credits += state.credits
             else:
@@ -61,12 +56,12 @@ class ANDGrouping(Node):
                     report.credits += state.credits
                     report.incomplete.extend([requirement.name])
                 report.incomplete.extend(state.incomplete)
-            prerequisite_states.extend([state.fulfilled])
-        report.fulfilled = self.AND(prerequisite_states) and self.within_threshold(report.credits)
+            requirement_states.extend([state.fulfilled])
+        report.fulfilled = self.AND(requirement_states) and self.within_threshold(report.credits)
         if report.fulfilled:
             report.incomplete.clear
         # print(f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}')
-        report.breakdown.extend([f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}'])
+        # report.breakdown.extend([f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}'])
         return report
 
 
@@ -77,10 +72,10 @@ class ORGrouping(Node):
 
     def check_requirements(self, record) -> Report:
         report = Report()
-        prerequisite_states = []
-        for requirement in self.prerequisite:
+        requirement_states = []
+        for requirement in self.requirements:
             state = requirement.check_requirements(record)
-            report.breakdown.extend([f'Grouping => {requirement.name} Fulfilled => {state.fulfilled} Credits Obtained => {state.credits} incomplete => {state.incomplete}'])
+            # report.breakdown.extend([f'Grouping => {requirement.name} Fulfilled => {state.fulfilled} Credits Obtained => {state.credits} incomplete => {state.incomplete}'])
             if state.fulfilled:
                 report.credits += state.credits
             else:
@@ -88,12 +83,12 @@ class ORGrouping(Node):
                     report.credits += state.credits
                     report.incomplete.extend([requirement.name])
                 report.incomplete.extend(state.incomplete)
-            prerequisite_states.extend([state.fulfilled])
-        report.fulfilled = self.OR(prerequisite_states) and self.within_threshold(report.credits)
+            requirement_states.extend([state.fulfilled])
+        report.fulfilled = self.OR(requirement_states) and self.within_threshold(report.credits)
         if report.fulfilled:
             report.incomplete.clear
         # print(f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}')
-        report.breakdown.extend([f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}'])
+        # report.breakdown.extend([f'Grouping => {self.name} Fulfilled => {report.fulfilled} Credits Obtained => {report.credits} incomplete => {report.incomplete}'])
         return report
 
 
