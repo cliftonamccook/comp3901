@@ -213,7 +213,7 @@
                     "requirements": []
                 },
                 {
-                    "name": "INDTRODUCTORY FREE ELECTIVES",
+                    "name": "INTRODUCTORY FREE ELECTIVES",
                     "code":"INTROFELECT",
                     "operation": "OR",
                     "minimum_credits": 6,
