@@ -1,9 +1,14 @@
 from typing import Optional, List, Set
 from fastapi import FastAPI
 from pydantic import BaseModel
-from models import Node, Course, ANDGrouping, ORGrouping, StudentRecord, TermRecord, CourseRecord
+# from models import Node, Course, ANDGrouping, ORGrouping, StudentRecord, TermRecord, CourseRecord
 import os
+import json
 
+file = open('sample data/bsc_cs.json')
+data = json.load(file)
+
+print(data["name"])
 
 app = FastAPI()
 
