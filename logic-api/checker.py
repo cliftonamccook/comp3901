@@ -5,10 +5,10 @@ from pydantic import BaseModel
 import os
 import json
 
-file = open('sample data/bsc_cs.json')
-data = json.load(file)
+# file = open('sample data/bsc_cs.json')
+# data = json.load(file)
 
-print(data["name"])
+# print(data["name"])
 
 app = FastAPI()
 
