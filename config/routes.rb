@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :permissions
   resources :permission_groups
   resources :courses, except: [:destroy]
   resources :requirements, except: [:destroy]

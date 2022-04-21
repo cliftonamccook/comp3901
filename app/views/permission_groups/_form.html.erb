@@ -1,10 +1,22 @@
-
 <%= simple_form_for(@permission_group) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs mb-4">
     <%= f.input :name %>
+
+    <hr>
+    <div class="permission">
+      <h3>Add Permissions</h3>
+      <p class="mb-4 text-muted">These permissions will allow assigned user to create, update, discontinue and view programmes within the specificed department</p>
+
+      <div class="new-permission row row-cards">
+        <%= f.simple_fields_for :permissions do |builder| %>
+          <%= render 'permission', f: builder %>
+        <% end %>
+      </div><!--/.new-permission-->
+      <%= link_to_add_card('Add Permission', f, :permissions, 'permission', class: 'btn btn-white') %>
+    </div><!--/.permissions-->
   </div>
 
   <div class="form-actions">

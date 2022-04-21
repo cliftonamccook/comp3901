@@ -1,14 +1,64 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', pre_title: "Programme From " + @programme.department.name + " Department", title: @programme.name, back_action: programmes_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @programme.name %>
-</p>
+<div class="row row-cards mb-4">
+  <div class="col-sm-6 col-lg-3">
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= @programme.majors.count %>
+            </div>
+            <div class="text-muted">
+              Majors 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-lg-3">
+    <div class="card card-sm">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="font-weight-medium">
+              <%= @programme.minors.count %>
+            </div>
+            <div class="text-muted">
+              Minors
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Department:</strong>
-  <%= @programme.department_id %>
-</p>
+<div>
+  <h1 class="mb-4"><%= params[:view].titleize %></h1>
 
-<%= link_to 'Edit', edit_programme_path(@programme) %> |
-<%= link_to 'Back', programmes_path %>
+  <%= link_to params[:view].titleize,  %>
+
+  <div class="card">
+    <div class="table-responsive">
+      <table class="table table-vcenter card-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th colspan="3">Actions</th>
+          </tr>
+        </thead>
+        <tbody> 
+          <% @objects.each do |object| %>
+            <tr>
+              <td><%= object.id %></td>
+              <td><%= object.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

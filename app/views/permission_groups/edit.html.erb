@@ -1,6 +1,7 @@
-<h1>Editing Permission Group</h1>
+<%= render 'shared/page_header', title: "Editing Permission Group", back_action: permission_groups_path %>
 
-<%= render 'form', permission_group: @permission_group %>
-
-<%= link_to 'Show', @permission_group %> |
-<%= link_to 'Back', permission_groups_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', permission_group: @permission_group  %>
+  </div>
+</div>

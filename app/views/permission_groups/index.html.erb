@@ -1,27 +1,30 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', title: "Permission Groups", action: new_permission_group_path, action_name: "New Permission Group" %>
 
-<h1>Permission Groups</h1>
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter card-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th colspan="3">Actions</th>
+        </tr>
+      </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @permission_groups.each do |permission_group| %>
-      <tr>
-        <td><%= permission_group.name %></td>
-        <td><%= link_to 'Show', permission_group %></td>
-        <td><%= link_to 'Edit', edit_permission_group_path(permission_group) %></td>
-        <td><%= link_to 'Destroy', permission_group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Permission Group', new_permission_group_path %>
+      <tbody>
+        <% @permission_groups.each do |permission_group| %>
+          <tr>
+            <td><%= permission_group.id %></td>
+            <td><%= permission_group.name %></td>
+            <td>
+              <div class="btn-list flex-nowrap">
+                <%= link_to 'Show', permission_group %>
+                <%= link_to 'Edit', edit_permission_group_path(permission_group) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_035658) do
+ActiveRecord::Schema.define(version: 2022_04_21_171626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,8 +73,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_035658) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_permission_groups_on_user_id"
   end
 
   create_table "permissions", force: :cascade do |t|
@@ -133,6 +131,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_035658) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "uwi_id"
+    t.bigint "permission_group_id"
     t.index ["campus_id"], name: "index_users_on_campus_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -144,7 +143,6 @@ ActiveRecord::Schema.define(version: 2022_04_07_035658) do
   add_foreign_key "faculties", "campuses"
   add_foreign_key "majors", "programmes"
   add_foreign_key "minors", "programmes"
-  add_foreign_key "permission_groups", "users"
   add_foreign_key "permissions", "departments"
   add_foreign_key "permissions", "permission_groups"
   add_foreign_key "programmes", "departments"

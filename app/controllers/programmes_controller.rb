@@ -1,25 +1,23 @@
 class ProgrammesController < ApplicationController
   before_action :set_programme, only: %i[ show edit update destroy ]
 
-  # GET /programmes or /programmes.json
   def index
     @programmes = Programme.all
   end
 
-  # GET /programmes/1 or /programmes/1.json
   def show
+    if params[:view].present? 
+      @objects = params[:view] == "major" ? @programme.majors : @programme.minors
+    end
   end
 
-  # GET /programmes/new
   def new
     @programme = Programme.new
   end
 
-  # GET /programmes/1/edit
   def edit
   end
 
-  # POST /programmes or /programmes.json
   def create
     @programme = Programme.new(programme_params)
 
@@ -34,7 +32,6 @@ class ProgrammesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /programmes/1 or /programmes/1.json
   def update
     respond_to do |format|
       if @programme.update(programme_params)
@@ -47,7 +44,6 @@ class ProgrammesController < ApplicationController
     end
   end
 
-  # DELETE /programmes/1 or /programmes/1.json
   def destroy
     @programme.destroy
 
@@ -58,12 +54,10 @@ class ProgrammesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_programme
       @programme = Programme.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def programme_params
       params.require(:programme).permit(:name, :department_id)
     end

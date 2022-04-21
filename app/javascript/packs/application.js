@@ -18,3 +18,26 @@ require("stylesheets/application.scss")
 
 global.$ = jQuery;
 global.toastr = require("toastr")
+
+$(document).on('turbolinks:load', function() {
+  // Handle adding and removing of permissions
+  $('form').on('click', '.add_permissions', function(event) {
+    var regexp, time;
+    time = new Date().getTime();
+    regexp = new RegExp($(this).data('id'), 'g');
+    $('.new-permission').append($(this).data('fields').replace(regexp, time));
+    event.preventDefault();
+  });
+
+  $('form').on('click', '.remove_permission', function(event) {
+    let field_parent = this.closest('.card-container');
+    let delete_field = field_parent ? field_parent.querySelector('input[type="hidden"]') : null;
+
+    if (delete_field) {
+      delete_field.value = 1;
+      field_parent.style.display = 'none';
+    }
+    
+    return event.preventDefault();
+  });
+});

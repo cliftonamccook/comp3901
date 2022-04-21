@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
+  def update 
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to users_path, notice: "User was successfully updated." }
@@ -92,6 +92,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:email, :uwi_id, :campus_id, :department_id, :title, :first_name, :middle_names, :last_name, :gender, :account_type)
+      params.require(:user).permit(:email, :uwi_id, :campus_id, :department_id, :title, :first_name, :middle_names, :last_name, :gender, :account_type, :permission_group_id)
     end
 end

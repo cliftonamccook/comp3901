@@ -1,25 +1,20 @@
 class PermissionGroupsController < ApplicationController
   before_action :set_permission_group, only: %i[ show edit update destroy ]
 
-  # GET /permission_groups or /permission_groups.json
   def index
     @permission_groups = PermissionGroup.all
   end
 
-  # GET /permission_groups/1 or /permission_groups/1.json
   def show
   end
 
-  # GET /permission_groups/new
   def new
     @permission_group = PermissionGroup.new
   end
 
-  # GET /permission_groups/1/edit
   def edit
   end
 
-  # POST /permission_groups or /permission_groups.json
   def create
     @permission_group = PermissionGroup.new(permission_group_params)
 
@@ -34,7 +29,6 @@ class PermissionGroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /permission_groups/1 or /permission_groups/1.json
   def update
     respond_to do |format|
       if @permission_group.update(permission_group_params)
@@ -47,7 +41,6 @@ class PermissionGroupsController < ApplicationController
     end
   end
 
-  # DELETE /permission_groups/1 or /permission_groups/1.json
   def destroy
     @permission_group.destroy
 
@@ -58,13 +51,11 @@ class PermissionGroupsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_permission_group
       @permission_group = PermissionGroup.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def permission_group_params
-      params.require(:permission_group).permit(:name)
+      params.require(:permission_group).permit(:name, permissions_attributes: Permission.attribute_names.map(&:to_sym).append(:_destroy))
     end
 end

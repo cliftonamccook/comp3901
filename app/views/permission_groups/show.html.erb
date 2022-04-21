@@ -1,9 +1,24 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', pre_title: "Permission Group", title: "#{@permission_group.name}", back_action: permission_groups_path %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @permission_group.name %>
-</p>
+<h3>Permissions</h3>
 
-<%= link_to 'Edit', edit_permission_group_path(@permission_group) %> |
-<%= link_to 'Back', permission_groups_path %>
+<div class="row row-cards">
+  <% @permission_group.permissions.each do |permission| %>
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-title"><%= permission.department.name %> Department</div>
+          <div class="mt-2">
+            <h3>Allowed actions:</h3>
+            <p class="lead"> 
+              <%= permission.can_create? ? "Can Create" : "" %> <br>
+              <%= permission.can_update? ? "Can Update" : "" %> <br>
+              <%= permission.can_discontinue? ? "Can discontinue" : "" %> <br>
+              <%= permission.can_view? ? "Can view" : "" %> <br>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   belongs_to :campus
-  has_one :permission_group
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login]
@@ -14,7 +13,7 @@ class User < ApplicationRecord
   GENDER = ['Male', 'Female']
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
-  validates_presence_of :title, :first_name, :last_name, :gender, :account_type
+  validates_presence_of :title, :first_name, :last_name, :gender, :account_type, :permission_group_id
 
   def login
     @login || self.uwi_id || self.email
@@ -37,15 +36,19 @@ class User < ApplicationRecord
     update(account_status: 1, password: User::DEFAULT_PASSWORD)
   end
 
-  def apart_of_department?
-    department.present?
-  end
-
   def initials
     "#{first_name.first}#{last_name.first}"
   end
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def has_permission_group?
+    permission_group.present?
+  end
+
+  def permission_group
+    PermissionGroup.find(permission_group_id)
   end
 end

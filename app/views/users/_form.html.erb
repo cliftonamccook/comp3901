@@ -6,13 +6,13 @@
     <%= f.input :email %>
     <%= f.input :uwi_id, label: "UWI ID" %>
     <%= f.association :campus, prompt: "Please select", input_html: { class: 'form-select' } %>
-    <%= f.association :department, prompt: "Please select", input_html: { class: 'form-select' } %>
     <%= f.input :title %>
     <%= f.input :first_name %>
     <%= f.input :middle_names %>
     <%= f.input :last_name %>
     <%= f.input :gender, collection: User::GENDER, prompt: "Please select" %>
     <%= f.input :account_type, collection: User::account_types.keys, prompt: "Please select", input_html: { class: 'form-select' }, label_method: lambda { |type| type.titleize } %>
+    <%= f.input :permission_group_id, as: :select, collection: PermissionGroup.all, value_method: :id, prompt: "Please select", input_html: { class: 'form-select' }  %>
   </div>
 
   <div class="form-actions">

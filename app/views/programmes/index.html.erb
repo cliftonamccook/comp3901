@@ -19,8 +19,8 @@
             <td><%= programme.name %></td>
             <td><%= programme.department.name %></td>
             <td>
-              <%= link_to 'Show', programme %>
-              <%= link_to 'Edit', edit_programme_path(programme) %>
+              <%= link_to 'Show', programme_path(programme, view: "major"), class: 'btn btn-sm btn-indigo' %>
+              <%= link_to 'Edit', edit_programme_path(programme), class: 'btn btn-sm' %>
             </td>
           </tr>
         <% end %>
