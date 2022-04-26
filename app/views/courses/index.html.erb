@@ -18,11 +18,11 @@
       <tbody>
         <% @courses.each do |course| %>
           <tr>
-            <td><%= course.code %></td>
-            <td><%= course.name %></td>
+            <td><%= course.code.upcase %></td>
+            <td><%= course.name.titleize %></td>
             <td><%= course.credit_amount %></td>
-            <td><%= course.level %></td>
-            <td><%= course.semester_offered_in %></td>
+            <td><%= enum_to_human(course.level).titleize %></td>
+            <td><%= enum_to_human(course.semester_offered_in).titleize %></td>
             <td><span class="badge <%= course.discontinued ? "bg-danger" : "bg-success" %>"><%= boolean_to_human(course.discontinued) %></span></td>
             <td><%= course.department.name %></td>
             <td>
