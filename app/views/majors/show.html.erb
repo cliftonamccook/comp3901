@@ -1,14 +1,2 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', title: "#{@major.name.titleize} Major", back_action: @major.programme %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @major.name %>
-</p>
-
-<p>
-  <strong>Programme:</strong>
-  <%= @major.programme_id %>
-</p>
-
-<%= link_to 'Edit', edit_major_path(@major) %> |
-<%= link_to 'Back', majors_path %>

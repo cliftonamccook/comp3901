@@ -17,7 +17,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create course" do
     assert_difference('Course.count') do
-      post courses_url, params: { course: { code: @course.code, credit_amount: @course.credit_amount, department_id: @course.department_id, description: @course.description, discountinued: @course.discountinued, level: @course.level, name: @course.name, requirement_id: @course.requirement_id, semester_offered_in: @course.semester_offered_in } }
+      post courses_url, params: { course: { code: @course.code, credit_amount: @course.credit_amount, department_id: @course.department_id, description: @course.description, discontinued: @course.discontinued, level: @course.level, name: @course.name, requirement_id: @course.requirement_id, semester_offered_in: @course.semester_offered_in } }
     end
 
     assert_redirected_to course_url(Course.last)
@@ -34,7 +34,7 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update course" do
-    patch course_url(@course), params: { course: { code: @course.code, credit_amount: @course.credit_amount, department_id: @course.department_id, description: @course.description, discountinued: @course.discountinued, level: @course.level, name: @course.name, requirement_id: @course.requirement_id, semester_offered_in: @course.semester_offered_in } }
+    patch course_url(@course), params: { course: { code: @course.code, credit_amount: @course.credit_amount, department_id: @course.department_id, description: @course.description, discontinued: @course.discontinued, level: @course.level, name: @course.name, requirement_id: @course.requirement_id, semester_offered_in: @course.semester_offered_in } }
     assert_redirected_to course_url(@course)
   end
 

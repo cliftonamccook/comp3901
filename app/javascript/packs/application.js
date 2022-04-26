@@ -16,8 +16,13 @@ ActiveStorage.start()
 
 require("stylesheets/application.scss")
 
+// Jquery
 global.$ = jQuery;
 global.toastr = require("toastr")
+
+// datatables
+require('datatables.net-bs4')
+require('packs/datatables')
 
 $(document).on('turbolinks:load', function() {
   // Handle adding and removing of permissions

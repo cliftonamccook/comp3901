@@ -5,4 +5,16 @@ class Programme < ApplicationRecord
   has_many :minors, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+
+  def has_majors?
+    majors.present?
+  end
+
+  def has_minors?
+    minors.present?
+  end
+
+  def has_requirement_groups?
+    requirement_groups.present?
+  end
 end 

@@ -1,25 +1,24 @@
 class RequirementsController < ApplicationController
   before_action :set_requirement, only: %i[ show edit update destroy ]
 
-  # GET /requirements or /requirements.json
   def index
     @requirements = Requirement.all
   end
 
-  # GET /requirements/1 or /requirements/1.json
   def show
   end
 
-  # GET /requirements/new
   def new
     @requirement = Requirement.new
+
+    if params[:requirement_group].present?
+      @requirement_group = RequirementGroup.find(params[:requirement_group])
+    end
   end
 
-  # GET /requirements/1/edit
-  def edit
+  def edi
   end
 
-  # POST /requirements or /requirements.json
   def create
     @requirement = Requirement.new(requirement_params)
 
@@ -34,7 +33,6 @@ class RequirementsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /requirements/1 or /requirements/1.json
   def update
     respond_to do |format|
       if @requirement.update(requirement_params)
@@ -47,7 +45,6 @@ class RequirementsController < ApplicationController
     end
   end
 
-  # DELETE /requirements/1 or /requirements/1.json
   def destroy
     @requirement.destroy
 
@@ -58,12 +55,10 @@ class RequirementsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_requirement
       @requirement = Requirement.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def requirement_params
       params.require(:requirement).permit(:requirement_group_id, :operation, :minimum_amount_of_credits)
     end

@@ -1,13 +1,13 @@
-<%= render 'shared/page_header', title: "Permission Groups", action: new_permission_group_path, action_name: "New Permission Group" %>
+<%= render 'shared/page_header', pre_title: "Manage permission groups", title: "Permission Groups", action: new_permission_group_path, action_name: "New Permission Group" %>
 
 <div class="card">
   <div class="table-responsive">
-    <table class="table table-vcenter card-table">
+    <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable">
       <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th colspan="3">Actions</th>
+          <th class="w-3">Actions</th>
         </tr>
       </thead>
 
@@ -18,8 +18,8 @@
             <td><%= permission_group.name %></td>
             <td>
               <div class="btn-list flex-nowrap">
-                <%= link_to 'Show', permission_group %>
-                <%= link_to 'Edit', edit_permission_group_path(permission_group) %>
+                <%= link_to 'Show', permission_group, class: "btn btn-primary" %>
+                <%= link_to 'Edit', edit_permission_group_path(permission_group), class: "btn" %>
               </div>
             </td>
           </tr>

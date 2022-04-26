@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_21_171626) do
+ActiveRecord::Schema.define(version: 2022_04_26_034456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,11 @@ ActiveRecord::Schema.define(version: 2022_04_21_171626) do
     t.integer "credit_amount"
     t.integer "level"
     t.integer "semester_offered_in"
-    t.boolean "discountinued", default: false
+    t.boolean "discontinued", default: false
     t.bigint "department_id", null: false
-    t.bigint "requirement_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["department_id"], name: "index_courses_on_department_id"
-    t.index ["requirement_id"], name: "index_courses_on_requirement_id"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -111,6 +109,7 @@ ActiveRecord::Schema.define(version: 2022_04_21_171626) do
     t.integer "minimum_amount_of_credits"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "course_ids", array: true
     t.index ["requirement_group_id"], name: "index_requirements_on_requirement_group_id"
   end
 
@@ -138,7 +137,6 @@ ActiveRecord::Schema.define(version: 2022_04_21_171626) do
   end
 
   add_foreign_key "courses", "departments"
-  add_foreign_key "courses", "requirements"
   add_foreign_key "departments", "faculties"
   add_foreign_key "faculties", "campuses"
   add_foreign_key "majors", "programmes"

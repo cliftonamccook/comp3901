@@ -1,5 +1,7 @@
-<h1>New Minor</h1>
+<%= render 'shared/page_header', title: "New Minor", back_action: @programme %>
 
-<%= render 'form', minor: @minor %>
-
-<%= link_to 'Back', minors_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', minor: @minor %>
+  </div>
+</div>

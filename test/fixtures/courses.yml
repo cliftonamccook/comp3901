@@ -7,7 +7,7 @@ one:
   credit_amount: 1
   level: 1
   semester_offered_in: 1
-  discountinued: false
+  discontinued: false
   department: one
   requirement: one
 
@@ -18,6 +18,6 @@ two:
   credit_amount: 1
   level: 1
   semester_offered_in: 1
-  discountinued: false
+  discontinued: false
   department: two
   requirement: two

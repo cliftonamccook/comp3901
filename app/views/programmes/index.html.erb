@@ -1,14 +1,14 @@
-<%= render 'shared/page_header', title: "Programmes", action: new_programme_path, action_name: "New Programme" %>
+<%= render 'shared/page_header', pre_title: "Manage Programmes", title: "Programmes", action: new_programme_path, action_name: "New Programme" %>
 
 <div class="card">
   <div class="table-responsive">
-    <table class="table table-vcenter card-table">
+    <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable">
       <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
           <th>Department</th>
-          <th colspan="3">Actions</th>
+          <th class="w-3">Actions</th>
         </tr>
       </thead>
 
@@ -19,8 +19,10 @@
             <td><%= programme.name %></td>
             <td><%= programme.department.name %></td>
             <td>
-              <%= link_to 'Show', programme_path(programme, view: "major"), class: 'btn btn-sm btn-indigo' %>
-              <%= link_to 'Edit', edit_programme_path(programme), class: 'btn btn-sm' %>
+              <div class="btn-list flex-nowrap">
+                <%= link_to 'Show', programme, class: 'btn btn-primary' %>
+                <%= link_to 'Edit', edit_programme_path(programme), class: 'btn' %>
+              </div>
             </td>
           </tr>
         <% end %>

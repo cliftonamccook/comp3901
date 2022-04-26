@@ -1,14 +1,15 @@
-<p id="notice"><%= notice %></p>
+<%= render 'shared/page_header', pre_title: "Manage Requirement Group", title: "#{@requirement_group.name.titleize}", action: new_requirement_path(requirement_group: @requirement_group), action_name: "Add Requirement", back_action: :back %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @requirement_group.name %>
-</p>
-
-<p>
-  <strong>Requirement groupable:</strong>
-  <%= @requirement_group.requirement_groupable_id %>
-</p>
-
-<%= link_to 'Edit', edit_requirement_group_path(@requirement_group) %> |
-<%= link_to 'Back', requirement_groups_path %>
+<% if @requirement_group.has_requirements? %>
+  
+<% else %>
+  <div class="empty">
+    <div class="empty-img">
+      <%= image_tag "empty.svg", alt: "empty svg" %>
+    </div>
+    <p class="empty-title">No requirements found</p>
+    <div class="empty-action">
+      <%= link_to "Add your first requirement", new_requirement_path(requirement_group: @requirement_group), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

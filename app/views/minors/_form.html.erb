@@ -1,11 +1,15 @@
-
 <%= simple_form_for(@minor) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.association :programme %>
+
+    <% if !@minor.programme_id.present? %>
+      <%= f.input :programme_id, input_html: { value: params[:programme] }, as: :hidden %>      
+    <% else %>
+      <%= f.input :programme_id, as: :hidden %>      
+    <% end %>
   </div>
 
   <div class="form-actions">

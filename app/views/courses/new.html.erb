@@ -1,5 +1,7 @@
-<h1>New Course</h1>
+<%= render 'shared/page_header', title: "New Course", back_action: courses_path %>
 
-<%= render 'form', course: @course %>
-
-<%= link_to 'Back', courses_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', course: @course %>
+  </div>
+</div>

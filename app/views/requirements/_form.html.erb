@@ -1,15 +1,58 @@
-
 <%= simple_form_for(@requirement) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :requirement_group %>
-    <%= f.input :operation %>
-    <%= f.input :minimum_amount_of_credits %>
-  </div>
+    <% if !@requirement.requirement_group.present? %>
+      <%= f.input :requirement_group_id, input_html: { value: params[:requirement_group] }, as: :hidden %>      
+    <% else %>
+      <%= f.input :requirement_group_id, as: :hidden %>      
+    <% end %>
 
-  <div class="form-actions">
+    <%= f.input :operation, as: :select, collection: Requirement::OPERATIONS, input_html: { class: "form-select" }, prompt: "Please select and operation" %>
+    <%= f.input :minimum_amount_of_credits %>
+
+    <h4>Please select courses</h4>
+    <% if @course.present? %> 
+      <div class="row m-0 mb-3">
+        <div class="card p-0">
+          <div class="table-responsive">
+            <table class="table card-table table-vcenter text-nowrap datatable" id="dataTable">
+              <thead>
+                <tr>
+                  <th class="w-1"><input type="checkbox" id="selectAll" value="selectAll" class="form-check-input"> </th>
+                  <th>Course Code</th>
+                  <th>Course Name</th>
+                  <th>Credit Amount</th>
+                  <th>Level</th>
+                  <th>Semester Offered In</th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= @courses.each.with_index do |course, index| %>
+                  <tr>
+                    <td>
+                      <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, applicant.id, nil) %>
+                    </td>
+                    <td><%= course.code.upcase %></td>
+                    <td><%= course.name.titleize %></td>
+                    <td><%= course.credit_amount %></td>
+                    <td><%= course.level %></td>
+                    <td><%= course.semester_offered_in %></td>
+                  </tr>
+                <% end %>                
+              </tbody>     
+            </table>
+          </div>
+        </div><!--/.card-->
+      </div><!--/.row-->  
+    <% else %>
+      <p class="text-danger">no courses found. Please add courses to continue.</p>
+      <%= link_to "Add Course", new_course_path, class: "btn" %>
+    <% end %>
+  </div><!--/.form-input-->
+
+  <div class="form-actions mt-3">
     <%= f.button :submit %>
   </div>
 <% end %>

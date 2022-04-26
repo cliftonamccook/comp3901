@@ -1,31 +1,30 @@
 class MajorsController < ApplicationController
   before_action :set_major, only: %i[ show edit update destroy ]
 
-  # GET /majors or /majors.json
   def index
     @majors = Major.all
   end
 
-  # GET /majors/1 or /majors/1.json
   def show
   end
 
-  # GET /majors/new
   def new
     @major = Major.new
+
+    if params[:programme].present?
+      @programme = Programme.find(params[:programme])
+    end
   end
 
-  # GET /majors/1/edit
   def edit
   end
 
-  # POST /majors or /majors.json
   def create
     @major = Major.new(major_params)
 
     respond_to do |format|
       if @major.save
-        format.html { redirect_to major_url(@major), notice: "Major was successfully created." }
+        format.html { redirect_to @major.programme, notice: "Major was successfully created." }
         format.json { render :show, status: :created, location: @major }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -34,11 +33,10 @@ class MajorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /majors/1 or /majors/1.json
   def update
     respond_to do |format|
       if @major.update(major_params)
-        format.html { redirect_to major_url(@major), notice: "Major was successfully updated." }
+        format.html { redirect_to @major.programme, notice: "Major was successfully updated." }
         format.json { render :show, status: :ok, location: @major }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -47,7 +45,6 @@ class MajorsController < ApplicationController
     end
   end
 
-  # DELETE /majors/1 or /majors/1.json
   def destroy
     @major.destroy
 
@@ -58,12 +55,10 @@ class MajorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_major
       @major = Major.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def major_params
       params.require(:major).permit(:name, :programme_id)
     end

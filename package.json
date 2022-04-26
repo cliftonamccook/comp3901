@@ -7,6 +7,7 @@
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.3",
     "@tabler/core": "1.0.0-beta3",
+    "datatables.net-bs4": "^1.11.5",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
     "toastr": "^2.1.4",

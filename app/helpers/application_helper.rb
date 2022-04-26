@@ -16,6 +16,14 @@ module ApplicationHelper
     enum.gsub("_", " ")
   end
 
+  def zero_to_human(number)
+    number == 0 ? "Nothing to show" : number
+  end
+
+  def boolean_to_human(boolean)
+    boolean ? "Yes" : "No"
+  end
+
   def link_to_add_card(name, f, association, type, **args)
     new_object = f.object.send(association).klass.new
     id = new_object.object_id

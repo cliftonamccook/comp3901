@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
   resources :permission_groups
-  resources :courses, except: [:destroy]
   resources :requirements, except: [:destroy]
-  resources :requirement_groups, except: [:destroy]
   resources :minors, except: [:destroy]
   resources :majors, except: [:destroy]
-  resources :programmes, except: [:destroy]
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
@@ -16,6 +13,16 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', :as => 'user_registration'
   end
   
+  resources :courses, except: [:destroy] do 
+    patch 'discontinue', on: :member
+    patch 'continue', on: :member
+    resources :requirement_groups, except: [:destroy]
+  end
+
+  resources :programmes, except: [:destroy] do 
+    resources :requirement_groups, except: [:destroy]
+  end
+
   resources :users, except: [:destroy] do
     member do
       patch 'activate_account'

@@ -18,7 +18,7 @@ class CoursesTest < ApplicationSystemTestCase
     fill_in "Credit amount", with: @course.credit_amount
     fill_in "Department", with: @course.department_id
     fill_in "Description", with: @course.description
-    check "Discountinued" if @course.discountinued
+    check "Discountinued" if @course.discontinued
     fill_in "Level", with: @course.level
     fill_in "Name", with: @course.name
     fill_in "Requirement", with: @course.requirement_id
@@ -37,7 +37,7 @@ class CoursesTest < ApplicationSystemTestCase
     fill_in "Credit amount", with: @course.credit_amount
     fill_in "Department", with: @course.department_id
     fill_in "Description", with: @course.description
-    check "Discountinued" if @course.discountinued
+    check "Discountinued" if @course.discontinued
     fill_in "Level", with: @course.level
     fill_in "Name", with: @course.name
     fill_in "Requirement", with: @course.requirement_id

@@ -1,6 +1,7 @@
-<h1>Editing Major</h1>
+<%= render 'shared/page_header', title: "Editing Major", back_action: @major.programme %>
 
-<%= render 'form', major: @major %>
-
-<%= link_to 'Show', @major %> |
-<%= link_to 'Back', majors_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', major: @major %>
+  </div>
+</div>
