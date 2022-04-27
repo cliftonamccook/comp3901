@@ -59,4 +59,9 @@ $(document).on('turbolinks:load', function() {
       });
     } 
   });
+
+  window.addEventListener("trix-file-accept", function(event) {
+    event.preventDefault()
+    alert("File attachment not supported!")
+  })
 });
