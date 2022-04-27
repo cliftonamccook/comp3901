@@ -14,6 +14,7 @@ class RequirementGroupsController < ApplicationController
   end
 
   def edit
+    @requirement_groupable = find_requirement_groupable
   end
 
   def create

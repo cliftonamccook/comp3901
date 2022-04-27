@@ -1,7 +1,52 @@
 <%= render 'shared/page_header', pre_title: "Manage Requirement Group", title: "#{@requirement_group.name.titleize}", action: new_requirement_path(requirement_group: @requirement_group), action_name: "Add Requirement", back_action: :back %>
 
 <% if @requirement_group.has_requirements? %>
-  
+  <div class="row">
+    <% @requirement_group.requirements.each.with_index do |requirement, index| %>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Requirement <%= index + 1 %></h3>
+            <div class="card-actions">
+              <%= link_to edit_requirement_path(requirement) do %>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                   <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                   <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
+                   <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                Edit
+              <% end %>
+            </div>
+          </div>
+          <div class="card-body"> 
+            <div class="mb-2">
+              Operation: <strong><%= Requirement::OPERATIONS[requirement.operation] %></strong>
+            </div>
+            <div class="card" style="height: 18rem">
+              <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+                <h4>Courses</h4>
+                <div class="divide-y">
+                  <div>
+                    <% requirement.course_ids.each do |course_id| %>
+                      <% course = Course.find(course_id) %>
+                      <div class="row">
+                        <div class="col">
+                          <div class="text-truncate">
+                            <%= link_to course.name, course_path(course) %>
+                            <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                  </div>
+                </div><!--/.divide-y-->
+              </div>
+            </div><!--/.card-->
+          </div><!--/.card.body-->
+        </div><!--/.card-->
+      </div><!--/.col-->
+    <% end %>
+  </div><!--/.row-->
 <% else %>
   <div class="empty">
     <div class="empty-img">

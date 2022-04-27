@@ -13,7 +13,7 @@
     <%= f.input :minimum_amount_of_credits %>
 
     <h4>Please select courses</h4>
-    <% if @course.present? %> 
+    <% if @courses.present? %> 
       <div class="row m-0 mb-3">
         <div class="card p-0">
           <div class="table-responsive">
@@ -29,16 +29,16 @@
                 </tr>
               </thead>
               <tbody>
-                <%= @courses.each.with_index do |course, index| %>
+                <% @courses.each.with_index do |course, index| %>
                   <tr>
                     <td>
-                      <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, applicant.id, nil) %>
+                      <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, course.id, nil) %>
                     </td>
                     <td><%= course.code.upcase %></td>
                     <td><%= course.name.titleize %></td>
                     <td><%= course.credit_amount %></td>
-                    <td><%= course.level %></td>
-                    <td><%= course.semester_offered_in %></td>
+                    <td><%= enum_to_human(course.level).titleize %></td>
+                    <td><%= enum_to_human(course.semester_offered_in).titleize %></td>
                   </tr>
                 <% end %>                
               </tbody>     
@@ -47,8 +47,8 @@
         </div><!--/.card-->
       </div><!--/.row-->  
     <% else %>
-      <p class="text-danger">no courses found. Please add courses to continue.</p>
-      <%= link_to "Add Course", new_course_path, class: "btn" %>
+      <p class="text-danger">no courses found. Please ensure courses are present.</p>
+      <%= link_to "View Courses", courses_path, class: "btn btn-link" %>
     <% end %>
   </div><!--/.form-input-->
 

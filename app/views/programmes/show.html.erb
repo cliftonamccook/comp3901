@@ -134,8 +134,8 @@
                   <td><%= zero_to_human(requirement_group.requirements.count) %></td>
                   <td>
                     <div class="btn-list flex-nowrap">
-                      <%= link_to 'Show', programme_requirement_group_path(@programme, requirement_group), class: 'btn btn-primary' %>
-                      <%= link_to 'Edit', edit_programme_requirement_group_path(requirement_group), class: 'btn' %> 
+                      <%= link_to 'Show', polymophic_path_builder('show', @programme, requirement_group), class: 'btn btn-primary' %>
+                      <%= link_to 'Edit', polymophic_path_builder('edit', @programme, requirement_group), class: 'btn' %> 
                     </div>
                   </td>
                 </tr>

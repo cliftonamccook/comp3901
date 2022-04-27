@@ -1,6 +1,7 @@
-<h1>Editing Requirement Group</h1>
+<%= render 'shared/page_header', title: "Editing Requirement Group", back_action: :back %>
 
-<%= render 'form', requirement_group: @requirement_group %>
-
-<%= link_to 'Show', @requirement_group %> |
-<%= link_to 'Back', requirement_groups_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', requirement_group: @requirement_group %>
+  </div>
+</div>

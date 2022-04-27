@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   belongs_to :department
+  has_many :requirement_groups, as: :requirement_groupable
 
   enum level: [:level_one, :level_two, :level_three]
   enum semester_offered_in: [:semester_one, :semester_two, :both]
@@ -14,4 +15,9 @@ class Course < ApplicationRecord
   def continue
     update(discontinued: false)
   end
+
+  def has_requirement_groups?
+    requirement_groups.present?
+  end
 end
+

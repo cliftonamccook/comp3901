@@ -1,6 +1,7 @@
-<h1>Editing Requirement</h1>
+<%= render 'shared/page_header', title: "Editing Requirement", back_action: :back %>
 
-<%= render 'form', requirement: @requirement %>
-
-<%= link_to 'Show', @requirement %> |
-<%= link_to 'Back', requirements_path %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', requirement: @requirement %>
+  </div>
+</div>

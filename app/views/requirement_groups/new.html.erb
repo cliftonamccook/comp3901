@@ -1,3 +1,7 @@
-<h1>New Requirement Group</h1>
+<%= render 'shared/page_header', title: "New Requirement Group", back_action: :back %>
 
-<%= render 'form', requirement_group: @requirement_group %>
+<div class="card">
+  <div class="card-body">
+    <%= render 'form', requirement_group: @requirement_group %>
+  </div>
+</div>

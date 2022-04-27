@@ -1,5 +1,5 @@
 <% if staff_member? or staff_admin? %>
-  <%= render 'shared/page_header', pre_title: "Manage Course", title: "#{@course.name.titleize}", action: new_course_requirement_group_path(@course), action_name: "New Requirement Group", back_action: courses_path %>
+  <%= render 'shared/page_header', pre_title: "Manage Course", title: "#{@course.name.titleize}", back_action: :back %>
 <% else %>
   <%= render 'shared/page_header', pre_title: "Department: #{@course.department.name.titleize}", title: "#{@course.name.titleize}", back_action: :back %>
 <% end %>
@@ -51,7 +51,47 @@
         </div>
       </div>
       <div class="tab-pane" id="tabs-profile-7">
-        <div>Fringilla egestas nunc quis tellus diam rhoncus ultricies tristique enim at diam, sem nunc amet, pellentesque id egestas velit sed</div>
+        <% if staff_member? or staff_admin? %>
+          <%= link_to 'Add Requirement Group', polymophic_path_builder('new', @course, RequirementGroup.new), class: "btn btn-primary" %>
+        <% end %>
+
+        <% if @course.has_requirement_groups? %>
+          <div class="row mt-4">
+            <% @course.requirement_groups.each do |requirement_group| %>
+              <div class="col-md-4">
+                <% if requirement_group.has_requirements? %>
+                  <h3><%= requirement_group.name.titleize %></h3>
+                  
+                  <% if staff_member? or staff_admin? %>
+                    <div class="actions">
+                      <div class="row">
+                        <div class="col-md-2"><%= link_to "View", polymophic_path_builder('show', @course, requirement_group) %></div>                    
+                        <div class="col-md-2"><%= link_to "Edit", polymophic_path_builder('edit', @course, requirement_group) %></div>                    
+                      </div><!--/.row-->
+                    </div>  
+                  <% end %>
+                  
+                  <% requirement_group.requirements.each do |requirement| %>
+                    <% requirement.course_ids.each do |course_id| %>
+                      <% course = Course.find(course_id) %>
+                      <div class="text-truncate mt-2">
+                        <%= link_to course.name, course_path(course) %>
+                        <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+                      </div>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            <% end %>
+          </div><!--/.rows-->
+        <% else %>
+          <div class="empty">
+            <div class="empty-img">
+              <%= image_tag "empty.svg", alt: "empty svg" %>
+            </div>
+            <p class="empty-title">This course has no requirements</p>
+          </div>
+        <% end %>
       </div>
       <div class="tab-pane" id="tabs-settings-7">
         <h4>Actions</h4>
