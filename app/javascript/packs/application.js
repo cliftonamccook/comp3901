@@ -23,6 +23,8 @@ global.toastr = require("toastr")
 // datatables
 require('datatables.net-bs4')
 require('packs/datatables')
+require("trix")
+require("@rails/actiontext")
 
 $(document).on('turbolinks:load', function() {
   // Handle adding and removing of permissions
