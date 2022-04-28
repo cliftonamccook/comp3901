@@ -1,5 +1,12 @@
 <%= render 'shared/page_header', pre_title: "Manage Requirement Group", title: "#{@requirement_group.name.titleize}", action: new_requirement_path(requirement_group: @requirement_group), action_name: "Add Requirement", back_action: :back %>
 
+<div class="mb-2">
+  <h3 class="mb-0"><strong>Description</strong></h3> 
+  <div class="text-truncate">
+    <p><%= @requirement_group.description %></p>
+  </div>
+</div>
+
 <% if @requirement_group.has_requirements? %>
   <div class="row">
     <% @requirement_group.requirements.each.with_index do |requirement, index| %>
@@ -22,6 +29,14 @@
             <div class="mb-2">
               Operation: <strong><%= Requirement::OPERATIONS[requirement.operation] %></strong>
             </div>
+            <% if !requirement.description.nil? %>
+              <div class="mb-2">
+                <p class="mb-0"><strong>Description:</strong></p> 
+                <div class="text-truncate">
+                  <p><%= requirement.description %></p>
+                </div>
+              </div>
+            <% end %>
             <div class="card" style="height: 18rem">
               <div class="card-body card-body-scrollable card-body-scrollable-shadow">
                 <h4>Courses</h4>

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :permission_groups
   resources :requirements, except: [:destroy]
-  resources :minors, except: [:destroy]
-  resources :majors, except: [:destroy]
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
@@ -20,6 +18,13 @@ Rails.application.routes.draw do
   end
 
   resources :programmes, except: [:destroy] do 
+    resources :requirement_groups, except: [:destroy]
+  end
+
+  resources :minors, except: [:destroy] do 
+    resources :requirement_groups, except: [:destroy]
+  end
+  resources :majors, except: [:destroy] do 
     resources :requirement_groups, except: [:destroy]
   end
 

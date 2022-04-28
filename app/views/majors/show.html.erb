@@ -1,2 +1,44 @@
-<%= render 'shared/page_header', title: "#{@major.name.titleize} Major", back_action: @major.programme %>
+<%= render 'shared/page_header', title: "#{@major.name.titleize} Major", back_action: @major.programme, 
+            action: polymophic_path_builder('new', @major, RequirementGroup.new), action_restricted: (!staff_admin? or !staff_member?), action_name: "Add Requirement Group"  %>
 
+<% if @major.has_requirement_group? %>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Major Information</h3>
+    </div>
+    <div class="card-body">
+      <% @major.requirement_groups.each do |requirement_group| %>
+        <h3><%= requirement_group.name.titleize %></h3>
+        <% if staff_member? or staff_admin? %>
+          <div class="actions mb-4">
+            <%= link_to "View", polymophic_path_builder('show', @major, requirement_group), style: "margin-right: 10px;" %>                    
+            <%= link_to "Edit", polymophic_path_builder('edit', @major, requirement_group) %>                    
+          </div>  
+        <% end %>
+
+        <p><%= requirement_group.description %></p>
+
+        <% requirement_group.requirements.each do |requirement| %>
+          <h4><%= requirement.description %></h4>
+
+          <div class="courses">
+            <% requirement.course_ids.each do |course_id| %>
+              <% course = Course.find(course_id) %>
+              <div class="text-truncate">
+                <%= link_to course.name, course_path(course) %>
+                <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div><!--/.card-->
+<% else %>
+  <div class="empty">
+    <div class="empty-img">
+      <%= image_tag "empty.svg", alt: "empty svg" %>
+    </div>
+    <p class="empty-title">No information present</p>
+  </div>
+<% end %>

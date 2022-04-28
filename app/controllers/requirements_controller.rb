@@ -13,12 +13,12 @@ class RequirementsController < ApplicationController
 
     if params[:requirement_group].present?
       @requirement_group = RequirementGroup.find(params[:requirement_group])
-      @courses = Course.where(department_id: @requirement_group.requirement_groupable.department_id)
+      @courses = Course.where(department_id: defined?(@requirement_group.requirement_groupable.department_id) ? @requirement_group.requirement_groupable.department_id : @requirement_group.requirement_groupable.try(:programme).department_id)
     end
   end
 
   def edit
-    @courses = Course.where(department_id: @requirement.requirement_group.requirement_groupable.id)
+    @courses = Course.where(department_id: defined?(@requirement.requirement_group.requirement_groupable.department_id) ? @requirement.requirement_group.requirement_groupable.id : @requirement.requirement_group.requirement_groupable.try(:programme).department_id)
   end
 
   def create
@@ -62,6 +62,6 @@ class RequirementsController < ApplicationController
     end
 
     def requirement_params
-      params.require(:requirement).permit(:requirement_group_id, :operation, :minimum_amount_of_credits, course_ids: [])
+      params.require(:requirement).permit(:requirement_group_id, :operation, :minimum_amount_of_credits, :description, course_ids: [])
     end
 end

@@ -1,4 +1,4 @@
-<%= render 'shared/page_header', pre_title: "Manage Courses", title: "Courses", action: new_course_path, action_name: "New Course" %>
+<%= render 'shared/page_header', pre_title: "Manage Courses", title: "Courses", action: new_course_path, action_name: "New Course", action_restricted: (!staff_admin? or !staff_member?) %>
 
 <div class="card">
   <div class="table-responsive">

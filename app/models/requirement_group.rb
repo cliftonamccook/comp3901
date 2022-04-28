@@ -3,6 +3,8 @@ class RequirementGroup < ApplicationRecord
   has_many :requirement_groups, as: :requirement_groupable, dependent: :destroy
   has_many :requirements, dependent: :destroy
 
+  has_rich_text :description
+
   validates_presence_of :name
 
   def has_requirements?
