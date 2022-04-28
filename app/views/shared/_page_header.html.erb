@@ -22,7 +22,7 @@
         <%= title %>
       </h2>
     </div>
-    <% if defined?(action) and defined?(action_restricted) and action_restricted %>
+    <% if defined?(action) and defined?(action_restricted) and !action_restricted %>
       <div class="col-auto ms-auto d-print-none">
         <div class="btn-list">
           <%= link_to action, class: "btn btn-primary" do %>

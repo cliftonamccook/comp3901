@@ -59,20 +59,20 @@
           <div class="row mt-4">
             <% @course.requirement_groups.each do |requirement_group| %>
               <div class="col-md-4">
+                <h3><%= requirement_group.name.pluralize(requirement_group.requirements.pluck(:course_ids).flatten.count) %></h3>
+                
+                <% if staff_member? or staff_admin? %>
+                  <div class="actions mb-4">
+                      <%= link_to "View", polymophic_path_builder('show', @course, requirement_group), style: "margin-right: 10px;" %>                    
+                      <%= link_to "Edit", polymophic_path_builder('edit', @course, requirement_group) %>                    
+                  </div>  
+                <% end %>
+
                 <% if requirement_group.has_requirements? %>
-                  <h3><%= requirement_group.name.titleize %></h3>
-                  
-                  <% if staff_member? or staff_admin? %>
-                    <div class="actions mb-4">
-                        <%= link_to "View", polymophic_path_builder('show', @course, requirement_group), style: "margin-right: 10px;" %>                    
-                        <%= link_to "Edit", polymophic_path_builder('edit', @course, requirement_group) %>                    
-                    </div>  
-                  <% end %>
-                  
                   <% requirement_group.requirements.each do |requirement| %>
                     <% requirement.course_ids.each do |course_id| %>
                       <% course = Course.find(course_id) %>
-                      <div class="text-truncate mt-2">
+                      <div class="text-truncate mt-3">
                         <%= link_to course.name, course_path(course) %>
                         <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
                       </div>
