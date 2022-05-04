@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     resources :requirement_groups, except: [:destroy]
   end
 
+  resources :requirement_groups, except: [:destroy] do 
+    resources :requirement_groups, except: [:destroy]
+  end
+
   resources :users, except: [:destroy] do
     member do
       patch 'activate_account'
@@ -35,7 +39,6 @@ Rails.application.routes.draw do
       patch 'reset_password'
     end
   end
-
 
   root 'home#index'
 end

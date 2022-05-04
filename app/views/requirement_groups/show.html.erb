@@ -1,11 +1,49 @@
-<%= render 'shared/page_header', pre_title: "Manage Requirement Group", title: "#{@requirement_group.name.titleize}", action: new_requirement_path(requirement_group: @requirement_group), action_name: "Add Requirement", back_action: :back %>
+<div class="page-header d-print-none mb-4">
+  <div class="row g-3 align-items-center">
+    <div class="col-auto">
+      <%= link_to :back do %>
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+           <line x1="5" y1="12" x2="19" y2="12"></line>
+           <line x1="5" y1="12" x2="11" y2="18"></line>
+           <line x1="5" y1="12" x2="11" y2="6"></line>
+        </svg>
+      <% end %>
+    </div>
+    <div class="col">
+        <h2 class="page-pretitle mb-0">
+          <%= "Manage Requirement Group" %>
+        </h2>
+      <h2 class="page-title">
+        <%= @requirement_group.name.titleize %>
+      </h2>
+    </div>
+    <% if staff_member? or staff_admin? %>      
+      <div class="col-auto ms-auto d-print-none">
+        <div class="btn-list">
+          <%= link_to new_requirement_path(requirement_group: @requirement_group), class: "btn" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add Requirement
+          <% end %>
 
-<div class="mb-2">
-  <h3 class="mb-0"><strong>Description</strong></h3> 
-  <div class="text-truncate">
-    <p><%= @requirement_group.description %></p>
+          <%= link_to polymophic_path_builder('new', @requirement_group, RequirementGroup.new), class: "btn btn-primary" do %>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            Add Requirement Group
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
+<% if @requirement_group.description.present? %>
+  <div class="mb-2">
+    <h3 class="mb-0"><strong>Description</strong></h3> 
+    <div class="text-truncate">
+      <p><%= @requirement_group.description %></p>
+    </div>
+  </div>
+<% end %>
 
 <% if @requirement_group.has_requirements? %>
   <div class="row">
@@ -72,4 +110,41 @@
       <%= link_to "Add your first requirement", new_requirement_path(requirement_group: @requirement_group), class: "btn btn-primary" %>
     </div>
   </div>
+<% end %>
+
+<% if @requirement_group.has_requirement_groups? %>
+  <div class="col-md-12 mt-4">
+    <h2 class="mb-4"><%= pluralize(@requirement_group.requirement_groups.count, 'Requirement Group') %></h2>
+    <div>
+      <div class="card">
+        <div class="table-responsive">
+          <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Requirements</th>
+                <th class="w-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody> 
+              <% @requirement_group.requirement_groups.each do |requirement_group| %>
+                <tr>
+                  <td><%= requirement_group.id %></td>
+                  <td><%= requirement_group.name %></td>
+                  <td><%= zero_to_human(requirement_group.requirements.count) %></td>
+                  <td>
+                    <div class="btn-list flex-nowrap">
+                      <%= link_to 'Show', requirement_group, class: 'btn btn-primary' %>
+                      <%= link_to 'Edit', edit_requirement_group_path(requirement_group), class: 'btn' %> 
+                    </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div><!--/.col-->
 <% end %>

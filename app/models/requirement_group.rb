@@ -10,6 +10,10 @@ class RequirementGroup < ApplicationRecord
   def has_requirements?
     requirements.present?
   end
+  
+  def has_requirement_groups?
+    requirement_groups.present?
+  end
 
   def parent(model)
     model.name == requirement_groupable_type
