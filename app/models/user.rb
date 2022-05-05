@@ -13,7 +13,7 @@ class User < ApplicationRecord
   GENDER = ['Male', 'Female']
 
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true
-  validates_presence_of :title, :first_name, :last_name, :gender, :account_type, :permission_group_id
+  validates_presence_of :title, :first_name, :last_name, :gender, :account_type
 
   def login
     @login || self.uwi_id || self.email
