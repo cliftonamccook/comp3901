@@ -13,12 +13,12 @@ class RequirementsController < ApplicationController
 
     if params[:requirement_group].present?
       @requirement_group = RequirementGroup.find(params[:requirement_group])
-      @courses = Course.where(department_id: defined?(@requirement_group.requirement_groupable.department_id) ? @requirement_group.requirement_groupable.department_id : @requirement_group.requirement_groupable.try(:programme).department_id)
+      @courses = Course.not_discontinued
     end
   end
 
   def edit
-    @courses = Course.where(department_id: defined?(@requirement.requirement_group.requirement_groupable.department_id) ? @requirement.requirement_group.requirement_groupable.id : @requirement.requirement_group.requirement_groupable.try(:programme).department_id)
+    @courses = Course.not_discontinued
   end
 
   def create
@@ -26,7 +26,7 @@ class RequirementsController < ApplicationController
 
     respond_to do |format|
       if @requirement.save
-        format.html { redirect_to requirement_url(@requirement), notice: "Requirement was successfully created." }
+        format.html { redirect_to @requirement.requirement_group, notice: "Requirement was successfully created." }
         format.json { render :show, status: :created, location: @requirement }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class RequirementsController < ApplicationController
   def update
     respond_to do |format|
       if @requirement.update(requirement_params)
-        format.html { redirect_to requirement_url(@requirement), notice: "Requirement was successfully updated." }
+        format.html { redirect_to @requirement.requirement_group, notice: "Requirement was successfully updated." }
         format.json { render :show, status: :ok, location: @requirement }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -62,6 +62,6 @@ class RequirementsController < ApplicationController
     end
 
     def requirement_params
-      params.require(:requirement).permit(:requirement_group_id, :operation, :minimum_amount_of_credits, :description, course_ids: [])
+      params.require(:requirement).permit(:requirement_group_id, :operation, :minimum_amount_of_credits, :description_only, :description, course_ids: [])
     end
 end

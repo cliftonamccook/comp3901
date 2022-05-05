@@ -5,7 +5,7 @@ class RequirementGroup < ApplicationRecord
 
   has_rich_text :description
 
-  validates_presence_of :name
+  OPERATIONS = ['AND', 'OR']
 
   def has_requirements?
     requirements.present?

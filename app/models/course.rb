@@ -21,5 +21,9 @@ class Course < ApplicationRecord
   def has_requirement_groups?
     requirement_groups.present?
   end
+
+  def self.not_discontinued
+    self.where(discontinued: false)
+  end
 end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_28_024106) do
+ActiveRecord::Schema.define(version: 2022_05_05_041958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -139,6 +139,7 @@ ActiveRecord::Schema.define(version: 2022_04_28_024106) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description"
+    t.integer "operation"
     t.index ["requirement_groupable_type", "requirement_groupable_id"], name: "index_requirement_groups_on_requirement_groupable"
   end
 
@@ -150,6 +151,7 @@ ActiveRecord::Schema.define(version: 2022_04_28_024106) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "course_ids", array: true
     t.text "description"
+    t.boolean "description_only"
     t.index ["requirement_group_id"], name: "index_requirements_on_requirement_group_id"
   end
 

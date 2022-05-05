@@ -64,4 +64,18 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault()
     alert("File attachment not supported!")
   })
+
+  let min_number_of_credits_form_input = $('.requirement_minimum_amount_of_credits')
+  let requirement_courses = $('.requirement_courses')
+
+  $('#requirement_description_only').on('change', function() {
+    if ($(this).is(':checked')) {
+      min_number_of_credits_form_input.hide()
+      requirement_courses.hide()
+    } else {
+      min_number_of_credits_form_input.show()
+      requirement_courses.show()
+    }
+  })
+
 });

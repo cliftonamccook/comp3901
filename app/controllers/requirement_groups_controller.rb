@@ -69,6 +69,6 @@ class RequirementGroupsController < ApplicationController
     end
 
     def requirement_group_params
-      params.require(:requirement_group).permit(:name, :requirement_groupable_id, :requirement_groupable_type, :description)
+      params.require(:requirement_group).permit(:name, :requirement_groupable_id, :requirement_groupable_type, :description, :operation)
     end
 end

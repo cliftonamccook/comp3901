@@ -75,26 +75,28 @@
                 </div>
               </div>
             <% end %>
-            <div class="card" style="height: 18rem">
-              <div class="card-body card-body-scrollable card-body-scrollable-shadow">
-                <h4>Courses</h4>
-                <div class="divide-y">
-                  <div>
-                    <% requirement.course_ids.each do |course_id| %>
-                      <% course = Course.find(course_id) %>
-                      <div class="row">
-                        <div class="col">
-                          <div class="text-truncate">
-                            <%= link_to course.name, course_path(course) %>
-                            <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+            <% if requirement.course_ids.present? %>
+              <div class="card" style="height: 18rem">
+                <div class="card-body card-body-scrollable card-body-scrollable-shadow">
+                  <h4>Courses</h4>
+                  <div class="divide-y">
+                    <div>
+                      <% requirement.course_ids.each do |course_id| %>
+                        <% course = Course.find(course_id) %>
+                        <div class="row">
+                          <div class="col">
+                            <div class="text-truncate">
+                              <%= link_to course.name, course_path(course) %>
+                              <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    <% end %>
-                  </div>
-                </div><!--/.divide-y-->
-              </div>
-            </div><!--/.card-->
+                      <% end %>
+                    </div>
+                  </div><!--/.divide-y-->
+                </div>
+              </div><!--/.card-->
+            <% end %>
           </div><!--/.card.body-->
         </div><!--/.card-->
       </div><!--/.col-->
@@ -118,12 +120,13 @@
     <div>
       <div class="card">
         <div class="table-responsive">
-          <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable">
+          <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable_none">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Name</th>
                 <th>Requirements</th>
+                <th>Operation</th>
                 <th class="w-3">Actions</th>
               </tr>
             </thead>
@@ -133,6 +136,7 @@
                   <td><%= requirement_group.id %></td>
                   <td><%= requirement_group.name %></td>
                   <td><%= zero_to_human(requirement_group.requirements.count) %></td>
+                  <td><%= requirement_group.operation.present? ? RequirementGroup::OPERATIONS[requirement_group.operation] : "Nothing to show" %></td>
                   <td>
                     <div class="btn-list flex-nowrap">
                       <%= link_to 'Show', requirement_group, class: 'btn btn-primary' %>

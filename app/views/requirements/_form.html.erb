@@ -9,49 +9,53 @@
       <%= f.input :requirement_group_id, as: :hidden %>      
     <% end %>
 
-    <%= f.input :operation, as: :select, collection: Requirement::OPERATIONS, input_html: { class: "form-select" }, prompt: "Please select and operation" %>
+    <%= f.input :operation, as: :select, value_method: lambda { |args| Requirement::OPERATIONS.find_index(args) }, collection: Requirement::OPERATIONS, input_html: { class: "form-select" }, prompt: "Please select and operation" %>
     <%= f.input :minimum_amount_of_credits %>
+
+    <%= f.input :description_only %>
 
     <%= f.input :description, as: :rich_text_area %>
 
-    <h4>Please select courses</h4>
-    <% if @courses.present? %> 
-      <div class="row m-0 mb-3">
-        <div class="card p-0">
-          <div class="table-responsive">
-            <table class="table card-table table-vcenter text-nowrap datatable" id="dataTable">
-              <thead>
-                <tr>
-                  <th class="w-1"><input type="checkbox" id="selectAll" value="selectAll" class="form-check-input"> </th>
-                  <th>Course Code</th>
-                  <th>Course Name</th>
-                  <th>Credit Amount</th>
-                  <th>Level</th>
-                  <th>Semester Offered In</th>
-                </tr>
-              </thead>
-              <tbody>
-                <% @courses.each.with_index do |course, index| %>
+    <div class="requirement_courses">
+      <h4>Please select courses</h4>
+      <% if @courses.present? %> 
+        <div class="row m-0 mb-3">
+          <div class="card p-0">
+            <div class="table-responsive">
+              <table class="table card-table table-vcenter text-nowrap datatable" id="dataTable">
+                <thead>
                   <tr>
-                    <td>
-                      <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, course.id, nil) %>
-                    </td>
-                    <td><%= course.code.upcase %></td>
-                    <td><%= course.name.titleize %></td>
-                    <td><%= course.credit_amount %></td>
-                    <td><%= enum_to_human(course.level).titleize %></td>
-                    <td><%= enum_to_human(course.semester_offered_in).titleize %></td>
+                    <th class="w-1"><input type="checkbox" id="selectAll" value="selectAll" class="form-check-input"> </th>
+                    <th>Course Code</th>
+                    <th>Course Name</th>
+                    <th>Credit Amount</th>
+                    <th>Level</th>
+                    <th>Semester Offered In</th>
                   </tr>
-                <% end %>                
-              </tbody>     
-            </table>
-          </div>
-        </div><!--/.card-->
-      </div><!--/.row-->  
-    <% else %>
-      <p class="text-danger">no courses found. Please ensure courses are present.</p>
-      <%= link_to "View Courses", courses_path, class: "btn btn-link" %>
-    <% end %>
+                </thead>
+                <tbody>
+                  <% @courses.each.with_index do |course, index| %>
+                    <tr>
+                      <td>
+                        <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, course.id, nil) %>
+                      </td>
+                      <td><%= course.code.upcase %></td>
+                      <td><%= course.name.titleize %></td>
+                      <td><%= course.credit_amount %></td>
+                      <td><%= enum_to_human(course.level).titleize %></td>
+                      <td><%= enum_to_human(course.semester_offered_in).titleize %></td>
+                    </tr>
+                  <% end %>                
+                </tbody>     
+              </table>
+            </div>
+          </div><!--/.card-->
+        </div><!--/.row-->  
+      <% else %>
+        <p class="text-danger">no courses found. Please ensure courses are present.</p>
+        <%= link_to "View Courses", courses_path, class: "btn btn-link" %>
+      <% end %>
+    </div>
   </div><!--/.form-input-->
 
   <div class="form-actions mt-3">
