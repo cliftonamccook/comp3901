@@ -4,7 +4,8 @@ class Report:
         self.name = name
         self.fulfilled = False
         self.credits = 0
-        self.summary = {"incomplete": []}
+        self.percentage = 0
+        self.summary = []
 
 
 class Node:
@@ -32,7 +33,7 @@ class Threshold(Node):
         return value >= self.minimum_credits
 
 
-class ANDThreshold(Threshold):
+class ANDNode(Threshold):
     def __init__(self, min_credits):
         super().__init__(min_credits)
 
@@ -41,21 +42,20 @@ class ANDThreshold(Threshold):
         requirement_states = []
         for requirement in self.requirements:
             sub_report = requirement.audit(record)
+            report.summary.append(sub_report)
             if sub_report.fulfilled:
                 report.credits += sub_report.credits
-                report.summary[f'{requirement.name}'] = sub_report
             else:
                 if isinstance(requirement, Threshold):
                     report.credits += sub_report.credits
-                    sub_report.summary["incomplete"].extend([requirement.name])
             requirement_states.extend([sub_report.fulfilled])
         report.fulfilled = all(requirement_states) and self.within_threshold(report.credits)
-        if report.fulfilled:
-            report.summary["incomplete"].clear
+        if self.minimum_credits > 0:
+            report.percentage = (report.credits / self.minimum_credits) * 100
         return report
 
 
-class ORThreshold(Threshold):
+class ORNode(Threshold):
     def __init__(self, min_credits):
         super().__init__(min_credits)
 
@@ -64,17 +64,16 @@ class ORThreshold(Threshold):
         requirement_states = []
         for requirement in self.requirements:
             sub_report = requirement.audit(record)
+            report.summary.append(sub_report)
             if sub_report.fulfilled:
                 report.credits += sub_report.credits
-                report.summary[f'{requirement.name}'] = sub_report
             else:
                 if isinstance(requirement, Threshold):
                     report.credits += sub_report.credits
-                    sub_report.summary["incomplete"].extend([requirement.name])
             requirement_states.extend([sub_report.fulfilled])
         report.fulfilled = any(requirement_states) and self.within_threshold(report.credits)
-        if report.fulfilled:
-            report.summary["incomplete"].clear
+        if self.minimum_credits > 0:
+            report.percentage = (report.credits / self.minimum_credits) * 100
         return report
 
 
@@ -82,38 +81,50 @@ class Course(Node):
     def __init__(self):
         super().__init__()
         self.credits = 3
-        self.prerequisites = []
-        self.corequisites = []
-        self.antirequisites = []
-        self.description = ""
-        self.tags = []
+        # self.prerequisites = []
+        # self.corequisites = []
+        # self.antirequisites = []
+        # self.description = ""
+        # self.tags = []
+        # self.report = {}
 
-    def audit(self, record):
-        grades = {}
-        for term in record["course history"]:
-            for course_record in term["course records"]:
-                grades[course_record["code"]] = {"name":course_record["name"], "grade":course_record["grade"]}
+    def audit(self, grades):
         report = Report(self.code, self.name)
         if self.code in grades.keys():
-            if grades[f'{self.code}']["grade"] <= 'C':
+            if grades[f'{self.code}']["grade"][0] <= 'C':
                 report.fulfilled = True
                 report.credits = self.credits
-        else:
-            report.summary["incomplete"].extend(self.name)
+                report.percentage = 100
         return report
 
 
 class Auditor:
     def __init__(self, studentrecord, programmedata):
-        self.programmedata = programmedata
-        self.studentrecord = studentrecord
+        self.grades = self.flatten(studentrecord)
+        self.tree = self.buildtree(programmedata)
 
+    def gettree(self):
+        return self.tree
+
+    def settree(self, tree):
+        self.tree = tree
+
+    def flatten(self, record):
+        grades = {}
+        for term in record["course history"]:
+            for course_record in term["course records"]:
+                if course_record["grade"][0] <= 'C':
+                    grades[course_record["code"]] = {"name":course_record["name"], "grade":course_record["grade"]}
+        return grades
+    
     def buildtree(self, obj):
+        if obj is None:
+            return None
         try:
             if obj["operation"] == "AND":
-                tree = ANDThreshold(obj["minimum_credits"])
+                tree = ANDNode(obj["minimum_credits"])
             if obj["operation"] == "OR":
-                tree = ORThreshold(obj["minimum_credits"])
+                tree = ORNode(obj["minimum_credits"])
             for children in obj["requirements"]:
                 tree.addchild(self.buildtree(children))
         except:
@@ -123,6 +134,6 @@ class Auditor:
             tree.code = obj["code"]
             return tree
 
-    def walktree(self, tree):
-        report = tree.audit(self.studentrecord)
+    def walktree(self):
+        report = self.tree.audit(self.grades)
         return report
