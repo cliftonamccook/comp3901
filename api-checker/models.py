@@ -4,7 +4,7 @@ class Report:
         self.name = name
         self.fulfilled = False
         self.credits = 0
-        self.percentage = 0
+        self.percentage = f'{0.00}%'
         self.summary = []
 
 
@@ -135,3 +135,4 @@ class Auditor:
     def walktree(self):
         report = self.tree.audit(self.grades)
         return report
+
