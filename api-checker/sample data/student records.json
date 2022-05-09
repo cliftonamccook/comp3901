@@ -219,7 +219,116 @@
             
         ]
     },
-    "620000001": {},
+
+    "620000001": {
+            "name": "John Smith",
+            "id": 620000001,
+            "campus": "Mona",
+            "faculty": "Science and Technology",
+            "programme": "BSc General Chemistry",
+            "course history": [
+                {
+                    "term": "2019-2020-S1",
+                    "course records": [
+                        {
+                            "name": "Introductory Chemistry I",
+                            "code": "CHEM1901",
+                            "grade": "A-"
+                        },
+                        {
+                            "name": "Calculus I",
+                            "code": "MATH1142",
+                            "grade": "B+"
+                        },
+                        {
+                            "name": "Introductory Linear Algebra and Analytic Geometry",
+                            "code": "MATH1141",
+                            "grade": "A"
+                        },
+                        {
+                            "name": "Chemical Analysis A",
+                            "code": "CHEM2010",
+                            "grade": "A+"
+                        },
+                        {
+                            "name": "Chemical Analysis Laboratory I",
+                            "code": "CHEM2011",
+                            "grade": "A+"
+                        },
+                        {
+                            "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
+                            "code": "FOUN1401",
+                            "grade": "A-"
+                        }
+                    ]
+                },
+                {
+                    "term": "2019-2020-S2",
+                    "course records": [
+                        {
+                            "name": "Inorganic Chemistry A",
+                            "code": "CHEM2110",
+                            "grade": "A+"
+                        },
+                        {
+                            "name": "Inorganic Chemistry Laboratory I",
+                            "code": "CHEM2111",
+                            "grade": "A+"
+                        },
+                        {
+                            "name": "Introductory Chemistry II",
+                            "code": "CHEM1902",
+                            "grade": "A"
+                        },
+                        {
+                            "name": "Principles of Economics I",
+                            "code": "ECON1000",
+                            "grade": "A"
+                        },
+                        {
+                            "name": "Statistics For The Scientists",
+                            "code": "STAT1001",
+                            "grade": "A"
+                        },
+                        {
+                            "name": "Law, Governance, Economy & Society",
+                            "code": "FOUN1301",
+                            "grade": "B+"
+                        }
+                    ]
+                },
+                {
+                    "term": "2020-2021-S1",
+                    "course records": [
+                        {
+                            "name": "Beginners' Spanish",
+                            "code": "SPAN0101",
+                            "grade": "B+"
+                        }
+                    ]
+                },
+                {
+                    "term": "2020-2021-S2",
+                    "course records": [
+                        
+                    ]
+                },
+                {
+                    "term": "2021-2022-S1",
+                    "course records": [
+                        
+                    ]
+                },
+                {
+                    "term": "2021-2022-S2",
+                    "course records": [
+                        
+                    ]
+                }
+                
+            ]
+    },
+
     "620000002": {},
     "620000003": {},
     "620000004": {}
