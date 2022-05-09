@@ -1,6 +1,6 @@
 import json
 
-with open('sampledata/courses.json', 'r') as coursefile:
+with open('sampledata/json/courses.json', 'r') as coursefile:
     courses = json.load(coursefile)
 
 programmedata = {
@@ -75,11 +75,15 @@ programmedata = {
                         {
                             "name": "GENERAL CHEMISTRY L1 CORE",
                             "code": "FSTGCMATHL1",
-                            "operation": "OR",
+                            "operation": "AND",
                             "minimum_credits": 12,
                             "requirements": [
-                                courses["CHEM1901"],
-                                courses["CHEM1902"]
+                                courses["CHEM1910"],
+                                courses["CHEM1911"],
+                                courses["CHEM1810"],
+                                courses["CHEM1811"],
+                                courses["CHEM1820"],
+                                courses["CHEM1920"]
                             ]
                         }
                     ]
@@ -90,12 +94,12 @@ programmedata = {
                     "operation": "OR",
                     "minimum_credits": 6,
                     "requirements": [
-                        courses["MATH1142"],
-                        courses["MATH1151"],
-                        courses["MATH1141"],
-                        courses["STAT1001"],
                         courses["GEOG1131"],
-                        courses["GEOG1132"]
+                        courses["GEOG1132"],
+                        courses["HIST1703"],
+                        courses["SOCI1002"],
+                        courses["ECON1012"],
+                        courses["ECON1000"]
                     ]
                 }
             ]
@@ -180,7 +184,24 @@ programmedata = {
                                         courses["CHEM2410"],
                                         courses["CHEM2510"],
                                         courses["CHEM2511"],
-                                        courses["CHEM3010"]
+                                        courses["CHEM2512"],
+                                        courses["CHEM3112"],
+                                        courses["CHEM3212"],
+                                        courses["CHEM3213"],
+                                        courses["CHEM3312"],
+                                        courses["CHEM3313"],
+                                        courses["CHEM3402"],
+                                        courses["CHEM3510"],
+                                        courses["CHEM3512"],
+                                        courses["CHEM3610"],
+                                        courses["CHEM3612"],
+                                        courses["CHEM3111"],
+                                        courses["CHEM3211"],
+                                        courses["CHEM3311"],
+                                        courses["CHEM3511"],
+                                        courses["CHEM3611"],
+                                        courses["CHEM3621"],
+                                        courses["CHEM3711"]
                                     ]
                                 }
                             ]
@@ -212,5 +233,5 @@ programmedata = {
 }
 
 
-# with open('chem.json', 'w') as json_file:
-#   json.dump(programmedata, json_file)
+with open('sampledata/json/bscgenchem.json', 'w') as json_file:
+  json.dump(programmedata, json_file)
