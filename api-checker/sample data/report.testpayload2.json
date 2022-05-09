@@ -2,8 +2,8 @@
   "code": "BSCGENCHEM",
   "name": "BACHELOR OF SCIENCE - GENERAL CHEMISTRY",
   "fulfilled": false,
-  "credits": 51,
-  "percentage": "54.84%",
+  "credits": 33,
+  "percentage": "35.48%",
   "summary": [
     {
       "code": "UWIINST",
@@ -32,7 +32,7 @@
               "name": "Critical Reading and Writing in the Disciplines",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             }
           ]
@@ -64,7 +64,7 @@
                   "name": "Spanish Language I",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 }
               ]
@@ -82,7 +82,7 @@
               "name": "Caribbean Civilization",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             }
           ]
@@ -92,16 +92,16 @@
     {
       "code": "INTRO",
       "name": "FST INTRODUCTORY",
-      "fulfilled": true,
-      "credits": 30,
-      "percentage": "125.00%",
+      "fulfilled": false,
+      "credits": 12,
+      "percentage": "50.00%",
       "summary": [
         {
           "code": "FSTGCCOREINTRO",
           "name": "GENERAL CHEMISTRY MAJOR INTRODUCTORY CORE",
-          "fulfilled": true,
-          "credits": 21,
-          "percentage": "116.67%",
+          "fulfilled": false,
+          "credits": 9,
+          "percentage": "50.00%",
           "summary": [
             {
               "code": "FSTGCMATHL1",
@@ -123,7 +123,7 @@
                   "name": "Calculus II",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 },
                 {
@@ -147,24 +147,56 @@
             {
               "code": "FSTGCMATHL1",
               "name": "GENERAL CHEMISTRY L1 CORE",
-              "fulfilled": true,
-              "credits": 12,
-              "percentage": "100.00%",
+              "fulfilled": false,
+              "credits": 0,
+              "percentage": "0.00%",
               "summary": [
                 {
-                  "code": "CHEM1901",
-                  "name": "Introductory Chemistry I",
-                  "fulfilled": true,
-                  "credits": 6,
-                  "percentage": "100.0%",
+                  "code": "CHEM1910",
+                  "name": "Introductory Chemistry III",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 },
                 {
-                  "code": "CHEM1902",
+                  "code": "CHEM1911",
+                  "name": "Introductory Chemistry Laboratory II",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1810",
+                  "name": "Introductory Chemistry I",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1811",
+                  "name": "Introductory Chemistry Laboratory I",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1820",
                   "name": "Introductory Chemistry II",
-                  "fulfilled": true,
-                  "credits": 6,
-                  "percentage": "100.0%",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1920",
+                  "name": "Introductory Chemistry IV",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 }
               ]
@@ -174,48 +206,16 @@
         {
           "code": "INTRORELECTGENCHEM",
           "name": "INTRODUCTORY RESTRICTED ELECTIVES GEN CHEM",
-          "fulfilled": true,
-          "credits": 9,
-          "percentage": "150.00%",
+          "fulfilled": false,
+          "credits": 3,
+          "percentage": "50.00%",
           "summary": [
-            {
-              "code": "MATH1142",
-              "name": "Calculus I",
-              "fulfilled": true,
-              "credits": 3,
-              "percentage": "100.0%",
-              "summary": []
-            },
-            {
-              "code": "MATH1151",
-              "name": "Calculus II",
-              "fulfilled": false,
-              "credits": 0,
-              "percentage": 0,
-              "summary": []
-            },
-            {
-              "code": "MATH1141",
-              "name": "Introductory Linear Algebra and Analytic Geometry",
-              "fulfilled": true,
-              "credits": 3,
-              "percentage": "100.0%",
-              "summary": []
-            },
-            {
-              "code": "STAT1001",
-              "name": "Statistics For The Scientists",
-              "fulfilled": true,
-              "credits": 3,
-              "percentage": "100.0%",
-              "summary": []
-            },
             {
               "code": "GEOG1131",
               "name": "Human Geography I",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -223,7 +223,39 @@
               "name": "Human Geography II",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "HIST1703",
+              "name": "Introduction to History",
+              "fulfilled": false,
+              "credits": 0,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "SOCI1002",
+              "name": "Introduction to Sociology I",
+              "fulfilled": false,
+              "credits": 0,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON1012",
+              "name": "Principles of Economics II",
+              "fulfilled": false,
+              "credits": 0,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON1000",
+              "name": "Principles of Economics I",
+              "fulfilled": true,
+              "credits": 3,
+              "percentage": "100.0%",
               "summary": []
             }
           ]
@@ -288,7 +320,7 @@
                   "name": "Organic Chemistry A",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 },
                 {
@@ -296,7 +328,7 @@
                   "name": "Organic Chemistry Laboratory I",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 },
                 {
@@ -304,7 +336,7 @@
                   "name": "Physical Chemistry I",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 },
                 {
@@ -312,7 +344,7 @@
                   "name": "Physical Chemistry Laboratory I",
                   "fulfilled": false,
                   "credits": 0,
-                  "percentage": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 }
               ]
@@ -336,7 +368,7 @@
                       "name": "Chemical Analysis B",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -344,7 +376,7 @@
                       "name": "Inorganic Chemistry B",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -352,7 +384,7 @@
                       "name": "Organic Chemistry B",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -360,7 +392,7 @@
                       "name": "Physical Chemistry B",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     }
                   ]
@@ -377,7 +409,7 @@
                       "name": "Chemical Analysis Laboratory II",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -385,7 +417,7 @@
                       "name": "Inorganic Chemistry Laboratory II",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -393,7 +425,7 @@
                       "name": "Organic Chemistry Laboratory II",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -401,7 +433,7 @@
                       "name": "Physical Chemistry Laboratory II",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     }
                   ]
@@ -418,7 +450,7 @@
                       "name": "The Inorganic Chemistry of Biological Systems",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -426,7 +458,7 @@
                       "name": "Natural Products Chemistry",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -434,7 +466,7 @@
                       "name": "Applications of Organic Chemistry in Medicine and Agriculture",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -442,7 +474,7 @@
                       "name": "Chemistry of Materials",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -450,7 +482,7 @@
                       "name": "Topics in Advanced Physical Chemistry",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     }
                   ]
@@ -467,7 +499,7 @@
                       "name": "Water Treatment",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -475,7 +507,7 @@
                       "name": "Food Processing Principles I",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
@@ -483,15 +515,151 @@
                       "name": "Food Processing Laboratory",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     },
                     {
-                      "code": "CHEM3010",
-                      "name": "Chemical Analysis B",
+                      "code": "CHEM2512",
+                      "name": "Food Processing Principles",
                       "fulfilled": false,
                       "credits": 0,
-                      "percentage": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3112",
+                      "name": "The Inorganic Chemistry of Biological Systems",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3212",
+                      "name": "Natural Products Chemistry",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3213",
+                      "name": "Applications of Organic Chemistry in Medicine and Agriculture",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3312",
+                      "name": "Chemistry of Materials",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3313",
+                      "name": "Topics in Advanced Physical Chemistry",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3402",
+                      "name": "The Chemical Industries",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3510",
+                      "name": "Food Chemistry I",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3512",
+                      "name": "Food Chemistry II",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3610",
+                      "name": "Marine & Freshwater Chemistry",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3612",
+                      "name": "Atmospheric Chemistry & Biogeochemical Cycles",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3111",
+                      "name": "Inorganic Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3211",
+                      "name": "Organic Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3311",
+                      "name": "Physical Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3511",
+                      "name": "Food Chemistry Laboratory",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3611",
+                      "name": "Environmental Chemistry Laboratory",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3621",
+                      "name": "Marine and Freshwater Chemistry Field Course",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3711",
+                      "name": "Chemistry Undergraduate Research Project",
+                      "fulfilled": false,
+                      "credits": 0,
+                      "percentage": "0.0%",
                       "summary": []
                     }
                   ]
@@ -512,7 +680,7 @@
               "name": "War and Conflict",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -520,7 +688,7 @@
               "name": "History of Modern China",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -528,7 +696,7 @@
               "name": "Imperialism Since 1918",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -536,7 +704,7 @@
               "name": "Sports Ethics",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -544,7 +712,7 @@
               "name": "African Philosophy I",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -552,7 +720,7 @@
               "name": "African Philosophy II",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -560,7 +728,7 @@
               "name": "Game Theory",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -568,7 +736,7 @@
               "name": "Monetary Theory and Policy",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -576,7 +744,7 @@
               "name": "New Venture Management",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             },
             {
@@ -584,7 +752,7 @@
               "name": "Business Strategy & Policy",
               "fulfilled": false,
               "credits": 0,
-              "percentage": 0,
+              "percentage": "0.0%",
               "summary": []
             }
           ]
