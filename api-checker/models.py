@@ -45,13 +45,15 @@ class ANDNode(Threshold):
             report.summary.append(sub_report)
             if sub_report.fulfilled:
                 report.credits += sub_report.credits
+                if self.minimum_credits == 0:
+                    report.percentage = f'{100.00}%'
             else:
                 if isinstance(requirement, Threshold):
                     report.credits += sub_report.credits
             requirement_states.extend([sub_report.fulfilled])
         report.fulfilled = all(requirement_states) and self.within_threshold(report.credits)
         if self.minimum_credits > 0:
-            report.percentage = (report.credits / self.minimum_credits) * 100
+            report.percentage = f'{(report.credits / self.minimum_credits) * 100 :.2f}%'
         return report
 
 
@@ -67,26 +69,22 @@ class ORNode(Threshold):
             report.summary.append(sub_report)
             if sub_report.fulfilled:
                 report.credits += sub_report.credits
+                if self.minimum_credits == 0:
+                    report.percentage = f'{100.00}%'
             else:
                 if isinstance(requirement, Threshold):
                     report.credits += sub_report.credits
             requirement_states.extend([sub_report.fulfilled])
         report.fulfilled = any(requirement_states) and self.within_threshold(report.credits)
         if self.minimum_credits > 0:
-            report.percentage = (report.credits / self.minimum_credits) * 100
+            report.percentage = f'{(report.credits / self.minimum_credits) * 100 :.2f}%'
         return report
 
 
 class Course(Node):
-    def __init__(self):
+    def __init__(self, credits):
         super().__init__()
-        self.credits = 3
-        # self.prerequisites = []
-        # self.corequisites = []
-        # self.antirequisites = []
-        # self.description = ""
-        # self.tags = []
-        # self.report = {}
+        self.credits = credits
 
     def audit(self, grades):
         report = Report(self.code, self.name)
@@ -94,7 +92,7 @@ class Course(Node):
             if grades[f'{self.code}']["grade"][0] <= 'C':
                 report.fulfilled = True
                 report.credits = self.credits
-                report.percentage = 100
+                report.percentage = f'{100.00}%'
         return report
 
 
@@ -128,7 +126,7 @@ class Auditor:
             for children in obj["requirements"]:
                 tree.addchild(self.buildtree(children))
         except:
-            tree = Course()
+            tree = Course(obj["credits"])
         finally:
             tree.name = obj["name"]
             tree.code = obj["code"]
