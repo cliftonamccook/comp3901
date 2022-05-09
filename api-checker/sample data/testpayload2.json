@@ -345,16 +345,64 @@
                         {
                             "name": "GENERAL CHEMISTRY L1 CORE",
                             "code": "FSTGCMATHL1",
-                            "operation": "OR",
+                            "operation": "AND",
                             "minimum_credits": 12,
                             "requirements": [
                                 {
-                                    "name": "Introductory Chemistry I",
-                                    "code": "CHEM1901",
+                                    "name": "Introductory Chemistry III",
+                                    "code": "CHEM1910",
                                     "semester": [
                                         1
                                     ],
-                                    "credits": 6,
+                                    "credits": 2,
+                                    "campus": "Mona",
+                                    "faculty": "Science and Technology",
+                                    "department": "Department of Chemistry",
+                                    "prerequisite": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Introductory Chemistry Laboratory II",
+                                    "code": "CHEM1911",
+                                    "semester": [
+                                        1
+                                    ],
+                                    "credits": 2,
+                                    "campus": "Mona",
+                                    "faculty": "Science and Technology",
+                                    "department": "Department of Chemistry",
+                                    "prerequisite": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Introductory Chemistry I",
+                                    "code": "CHEM1810",
+                                    "semester": [
+                                        1
+                                    ],
+                                    "credits": 2,
+                                    "campus": "Mona",
+                                    "faculty": "Science and Technology",
+                                    "department": "Department of Chemistry",
+                                    "prerequisite": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Introductory Chemistry Laboratory I",
+                                    "code": "CHEM1811",
+                                    "semester": [
+                                        1
+                                    ],
+                                    "credits": 2,
                                     "campus": "Mona",
                                     "faculty": "Science and Technology",
                                     "department": "Department of Chemistry",
@@ -366,11 +414,27 @@
                                 },
                                 {
                                     "name": "Introductory Chemistry II",
-                                    "code": "CHEM1902",
+                                    "code": "CHEM1820",
                                     "semester": [
                                         1
                                     ],
-                                    "credits": 6,
+                                    "credits": 2,
+                                    "campus": "Mona",
+                                    "faculty": "Science and Technology",
+                                    "department": "Department of Chemistry",
+                                    "prerequisite": [],
+                                    "corerequisite": [],
+                                    "antirequisite": [],
+                                    "description": "",
+                                    "tags": []
+                                },
+                                {
+                                    "name": "Introductory Chemistry IV",
+                                    "code": "CHEM1920",
+                                    "semester": [
+                                        1
+                                    ],
+                                    "credits": 2,
                                     "campus": "Mona",
                                     "faculty": "Science and Technology",
                                     "department": "Department of Chemistry",
@@ -390,71 +454,6 @@
                     "operation": "OR",
                     "minimum_credits": 6,
                     "requirements": [
-                        {
-                            "name": "Calculus I",
-                            "code": "MATH1142",
-                            "semester": [
-                                1
-                            ],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Science and Technology",
-                            "department": "Department of Mathematics",
-                            "prerequisite": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
-                        },
-                        {
-                            "name": "Calculus II",
-                            "code": "MATH1151",
-                            "semester": [
-                                2
-                            ],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Science and Technology",
-                            "department": "Department of Mathematics",
-                            "prerequisite": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
-                        },
-                        {
-                            "name": "Introductory Linear Algebra and Analytic Geometry",
-                            "code": "MATH1141",
-                            "semester": [
-                                1
-                            ],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Science and Technology",
-                            "department": "Department of Mathematics",
-                            "prerequisite": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
-                        },
-                        {
-                            "name": "Statistics For The Scientists",
-                            "code": "STAT1001",
-                            "semester": [
-                                1,
-                                2
-                            ],
-                            "credits": 3,
-                            "campus": "Mona",
-                            "faculty": "Science and Technology",
-                            "department": "Department of Mathematics",
-                            "prerequisite": [],
-                            "corerequisite": [],
-                            "antirequisite": [],
-                            "description": "",
-                            "tags": []
-                        },
                         {
                             "name": "Human Geography I",
                             "code": "GEOG1131",
@@ -481,6 +480,70 @@
                             "campus": "Mona",
                             "faculty": "Science and Technology",
                             "department": "Department of Geography and Geology",
+                            "prerequisite": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Introduction to History",
+                            "code": "HIST1703",
+                            "semester": [
+                                1
+                            ],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Humanities and Education",
+                            "department": "Department of History and Archaeology",
+                            "prerequisite": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Introduction to Sociology I",
+                            "code": "SOCI1002",
+                            "semester": [
+                                1
+                            ],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Social Sciences",
+                            "department": "Department of Economics",
+                            "prerequisite": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Principles of Economics II",
+                            "code": "ECON1012",
+                            "semester": [
+                                2
+                            ],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Social Sciences",
+                            "department": "Department of Economics",
+                            "prerequisite": [],
+                            "corerequisite": [],
+                            "antirequisite": [],
+                            "description": "",
+                            "tags": []
+                        },
+                        {
+                            "name": "Principles of Economics I",
+                            "code": "ECON1000",
+                            "semester": [
+                                1
+                            ],
+                            "credits": 3,
+                            "campus": "Mona",
+                            "faculty": "Social Sciences",
+                            "department": "Department of Economics",
                             "prerequisite": [],
                             "corerequisite": [],
                             "antirequisite": [],
@@ -932,8 +995,280 @@
                                             "tags": []
                                         },
                                         {
-                                            "name": "Chemical Analysis B",
-                                            "code": "CHEM3010",
+                                            "name": "Food Processing Principles",
+                                            "code": "CHEM2512",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "The Inorganic Chemistry of Biological Systems",
+                                            "code": "CHEM3112",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Natural Products Chemistry",
+                                            "code": "CHEM3212",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Applications of Organic Chemistry in Medicine and Agriculture",
+                                            "code": "CHEM3213",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Chemistry of Materials",
+                                            "code": "CHEM3312",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Topics in Advanced Physical Chemistry",
+                                            "code": "CHEM3313",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "The Chemical Industries",
+                                            "code": "CHEM3402",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Food Chemistry I",
+                                            "code": "CHEM3510",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Food Chemistry II",
+                                            "code": "CHEM3512",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Marine & Freshwater Chemistry",
+                                            "code": "CHEM3610",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Atmospheric Chemistry & Biogeochemical Cycles",
+                                            "code": "CHEM3612",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Inorganic Chemistry Laboratory II",
+                                            "code": "CHEM3111",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Organic Chemistry Laboratory II",
+                                            "code": "CHEM3211",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Physical Chemistry Laboratory II",
+                                            "code": "CHEM3311",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Food Chemistry Laboratory",
+                                            "code": "CHEM3511",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Environmental Chemistry Laboratory",
+                                            "code": "CHEM3611",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Marine and Freshwater Chemistry Field Course",
+                                            "code": "CHEM3621",
+                                            "semester": [
+                                                1
+                                            ],
+                                            "credits": 3,
+                                            "campus": "Mona",
+                                            "faculty": "Science and Technology",
+                                            "department": "Department of Chemistry",
+                                            "prerequisite": [],
+                                            "corerequisite": [],
+                                            "antirequisite": [],
+                                            "description": "",
+                                            "tags": []
+                                        },
+                                        {
+                                            "name": "Chemistry Undergraduate Research Project",
+                                            "code": "CHEM3711",
                                             "semester": [
                                                 1
                                             ],
