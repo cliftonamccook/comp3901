@@ -8,7 +8,7 @@ class Course < ApplicationRecord
   has_rich_text :description
 
   validates_presence_of :name, :code, :description, :credit_amount, :level, :semester_offered_in
-  validates :credit_amount, numericality: { greater_than: 0 }
+  validates :credit_amount, numericality: { greater_than_or_equal: 0 }
 
   def discontinue
     update(discontinued: true)
