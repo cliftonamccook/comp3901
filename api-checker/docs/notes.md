@@ -7,3 +7,6 @@ The nested hierarchical structure of a degree programme is modelled using an AND
 
 ## Tree Model - BSc General Chemistry
 ![tree-general-chemistry](https://i.imgur.com/5swfGk9.png)
+
+## Degree Audit/Progress Check
+To perform an audit or progress check, a student record and tree are passed to an auditor object that calls an audit function on the root node of the tree. All child nodes of the programme tree have a defined audit function which is invoked during an audit. Each node performs an evaluation and a report object is generated and passed back up the tree. The complete report is a nested object containing the results of the audit on each node and is analogous in structure to the tree from which it was generated.
