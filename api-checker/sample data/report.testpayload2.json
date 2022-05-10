@@ -2,8 +2,8 @@
   "code": "BSCGENCHEM",
   "name": "BACHELOR OF SCIENCE - GENERAL CHEMISTRY",
   "fulfilled": false,
-  "credits": 33,
-  "percentage": "35.48%",
+  "credits": 83,
+  "percentage": "89.25%",
   "summary": [
     {
       "code": "UWIINST",
@@ -92,23 +92,23 @@
     {
       "code": "INTRO",
       "name": "FST INTRODUCTORY",
-      "fulfilled": false,
-      "credits": 12,
-      "percentage": "50.00%",
+      "fulfilled": true,
+      "credits": 24,
+      "percentage": "100.00%",
       "summary": [
         {
           "code": "FSTGCCOREINTRO",
           "name": "GENERAL CHEMISTRY MAJOR INTRODUCTORY CORE",
-          "fulfilled": false,
-          "credits": 9,
-          "percentage": "50.00%",
+          "fulfilled": true,
+          "credits": 18,
+          "percentage": "100.00%",
           "summary": [
             {
               "code": "FSTGCMATHL1",
               "name": "GENERAL CHEMISTRY L1 MATH REQUIREMENT",
               "fulfilled": true,
-              "credits": 9,
-              "percentage": "150.00%",
+              "credits": 6,
+              "percentage": "100.00%",
               "summary": [
                 {
                   "code": "MATH1142",
@@ -137,66 +137,66 @@
                 {
                   "code": "STAT1001",
                   "name": "Statistics For The Scientists",
-                  "fulfilled": true,
-                  "credits": 3,
-                  "percentage": "100.0%",
+                  "fulfilled": false,
+                  "credits": 0,
+                  "percentage": "0.0%",
                   "summary": []
                 }
               ]
             },
             {
-              "code": "FSTGCMATHL1",
+              "code": "FSTGCL1CORE",
               "name": "GENERAL CHEMISTRY L1 CORE",
-              "fulfilled": false,
-              "credits": 0,
-              "percentage": "0.00%",
+              "fulfilled": true,
+              "credits": 12,
+              "percentage": "100.00%",
               "summary": [
                 {
                   "code": "CHEM1910",
                   "name": "Introductory Chemistry III",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM1911",
                   "name": "Introductory Chemistry Laboratory II",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM1810",
                   "name": "Introductory Chemistry I",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM1811",
                   "name": "Introductory Chemistry Laboratory I",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM1820",
                   "name": "Introductory Chemistry II",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM1920",
                   "name": "Introductory Chemistry IV",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 }
               ]
@@ -205,10 +205,10 @@
         },
         {
           "code": "INTRORELECTGENCHEM",
-          "name": "INTRODUCTORY RESTRICTED ELECTIVES GEN CHEM",
-          "fulfilled": false,
-          "credits": 3,
-          "percentage": "50.00%",
+          "name": "INTRODUCTORY FREE ELECTIVES GEN CHEM",
+          "fulfilled": true,
+          "credits": 6,
+          "percentage": "100.00%",
           "summary": [
             {
               "code": "GEOG1131",
@@ -229,9 +229,9 @@
             {
               "code": "HIST1703",
               "name": "Introduction to History",
-              "fulfilled": false,
-              "credits": 0,
-              "percentage": "0.0%",
+              "fulfilled": true,
+              "credits": 3,
+              "percentage": "100.0%",
               "summary": []
             },
             {
@@ -266,22 +266,22 @@
       "code": "FSTADV",
       "name": "FST ADVANCED",
       "fulfilled": false,
-      "credits": 12,
-      "percentage": "20.00%",
+      "credits": 50,
+      "percentage": "83.33%",
       "summary": [
         {
           "code": "FSTGCADV",
           "name": "GENERAL CHEMISTRY MAJOR ADVANCED",
-          "fulfilled": false,
-          "credits": 12,
-          "percentage": "30.77%",
+          "fulfilled": true,
+          "credits": 50,
+          "percentage": "128.21%",
           "summary": [
             {
               "code": "FSTGCADVL2CORE",
               "name": "GENERAL CHEMISTRY MAJOR LEVEL 2 CORE",
-              "fulfilled": false,
-              "credits": 12,
-              "percentage": "60.00%",
+              "fulfilled": true,
+              "credits": 20,
+              "percentage": "100.00%",
               "summary": [
                 {
                   "code": "CHEM2010",
@@ -295,7 +295,7 @@
                   "code": "CHEM2011",
                   "name": "Chemical Analysis Laboratory I",
                   "fulfilled": true,
-                  "credits": 3,
+                  "credits": 2,
                   "percentage": "100.0%",
                   "summary": []
                 },
@@ -311,40 +311,40 @@
                   "code": "CHEM2111",
                   "name": "Inorganic Chemistry Laboratory I",
                   "fulfilled": true,
-                  "credits": 3,
+                  "credits": 2,
                   "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM2210",
                   "name": "Organic Chemistry A",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 3,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM2211",
                   "name": "Organic Chemistry Laboratory I",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM2310",
                   "name": "Physical Chemistry I",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 3,
+                  "percentage": "100.0%",
                   "summary": []
                 },
                 {
                   "code": "CHEM2311",
                   "name": "Physical Chemistry Laboratory I",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.0%",
+                  "fulfilled": true,
+                  "credits": 2,
+                  "percentage": "100.0%",
                   "summary": []
                 }
               ]
@@ -352,16 +352,16 @@
             {
               "code": "FSTGCADVL3CORE",
               "name": "GENERAL CHEMISTRY MAJOR LEVEL 3 CORE",
-              "fulfilled": false,
-              "credits": 0,
-              "percentage": "0.00%",
+              "fulfilled": true,
+              "credits": 30,
+              "percentage": "157.89%",
               "summary": [
                 {
                   "code": "FSTORGPHYSCHEMADV1",
                   "name": "ORGANIC+PHYSICAL CHEMISTRY 1",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.00%",
+                  "fulfilled": true,
+                  "credits": 6,
+                  "percentage": "100.00%",
                   "summary": [
                     {
                       "code": "CHEM3010",
@@ -374,9 +374,9 @@
                     {
                       "code": "CHEM3110",
                       "name": "Inorganic Chemistry B",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
@@ -390,9 +390,9 @@
                     {
                       "code": "CHEM3310",
                       "name": "Physical Chemistry B",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     }
                   ]
@@ -400,24 +400,24 @@
                 {
                   "code": "FSTORGPHYSCHEMADV2",
                   "name": "ORGANIC+PHYSICAL CHEMISTRY 2",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.00%",
+                  "fulfilled": true,
+                  "credits": 4,
+                  "percentage": "100.00%",
                   "summary": [
                     {
                       "code": "CHEM3011",
                       "name": "Chemical Analysis Laboratory II",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 2,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
                       "code": "CHEM3111",
                       "name": "Inorganic Chemistry Laboratory II",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 2,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
@@ -441,9 +441,9 @@
                 {
                   "code": "FSTCHEMG",
                   "name": "CHEM GROUPING",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.00%",
+                  "fulfilled": true,
+                  "credits": 9,
+                  "percentage": "300.00%",
                   "summary": [
                     {
                       "code": "CHEM3112",
@@ -456,25 +456,25 @@
                     {
                       "code": "CHEM3212",
                       "name": "Natural Products Chemistry",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
                       "code": "CHEM3213",
                       "name": "Applications of Organic Chemistry in Medicine and Agriculture",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
                       "code": "CHEM3312",
                       "name": "Chemistry of Materials",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
@@ -490,9 +490,9 @@
                 {
                   "code": "FSTGCRADVELECT",
                   "name": "CHEM RESTRICTED ELECTIVES ADV",
-                  "fulfilled": false,
-                  "credits": 0,
-                  "percentage": "0.00%",
+                  "fulfilled": true,
+                  "credits": 11,
+                  "percentage": "183.33%",
                   "summary": [
                     {
                       "code": "CHEM2410",
@@ -537,25 +537,25 @@
                     {
                       "code": "CHEM3212",
                       "name": "Natural Products Chemistry",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
                       "code": "CHEM3213",
                       "name": "Applications of Organic Chemistry in Medicine and Agriculture",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
                       "code": "CHEM3312",
                       "name": "Chemistry of Materials",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 3,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
@@ -609,9 +609,9 @@
                     {
                       "code": "CHEM3111",
                       "name": "Inorganic Chemistry Laboratory II",
-                      "fulfilled": false,
-                      "credits": 0,
-                      "percentage": "0.0%",
+                      "fulfilled": true,
+                      "credits": 2,
+                      "percentage": "100.0%",
                       "summary": []
                     },
                     {
