@@ -74,7 +74,7 @@ programmedata = {
                         },
                         {
                             "name": "GENERAL CHEMISTRY L1 CORE",
-                            "code": "FSTGCMATHL1",
+                            "code": "FSTGCL1CORE",
                             "operation": "AND",
                             "minimum_credits": 12,
                             "requirements": [
@@ -89,7 +89,7 @@ programmedata = {
                     ]
                 },
                 {
-                    "name": "INTRODUCTORY RESTRICTED ELECTIVES GEN CHEM",
+                    "name": "INTRODUCTORY FREE ELECTIVES GEN CHEM",
                     "code": "INTRORELECTGENCHEM",
                     "operation": "OR",
                     "minimum_credits": 6,
@@ -178,7 +178,7 @@ programmedata = {
                                 {
                                     "name": "CHEM RESTRICTED ELECTIVES ADV",
                                     "code": "FSTGCRADVELECT",
-                                    "operation": "AND",
+                                    "operation": "OR",
                                     "minimum_credits": 6,
                                     "requirements": [
                                         courses["CHEM2410"],
