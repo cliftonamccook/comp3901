@@ -3,7 +3,9 @@ class Report:
         self.code = code
         self.name = name
         self.fulfilled = False
-        self.credits = 0
+        self.node_type = None
+        self.credits_earned = 0
+        self.credit_threshold = 0
         self.percentage = f'{0.00}%'
         self.summary = []
 
@@ -39,21 +41,23 @@ class ANDNode(Threshold):
 
     def audit(self, record) -> Report:
         report = Report(self.code, self.name)
+        report.node_type = "AND grouping"
+        report.credit_threshold = self.minimum_credits
         requirement_states = []
         for requirement in self.requirements:
             sub_report = requirement.audit(record)
             report.summary.append(sub_report)
             if sub_report.fulfilled:
-                report.credits += sub_report.credits
+                report.credits_earned += sub_report.credits_earned
                 if self.minimum_credits == 0:
                     report.percentage = f'{100.00}%'
             else:
                 if isinstance(requirement, Threshold):
-                    report.credits += sub_report.credits
+                    report.credits_earned += sub_report.credits_earned
             requirement_states.extend([sub_report.fulfilled])
-        report.fulfilled = all(requirement_states) and self.within_threshold(report.credits)
+        report.fulfilled = all(requirement_states) and self.within_threshold(report.credits_earned)
         if self.minimum_credits > 0:
-            report.percentage = f'{(report.credits / self.minimum_credits) * 100 :.2f}%'
+            report.percentage = f'{(report.credits_earned / self.minimum_credits) * 100 :.2f}%'
         return report
 
 
@@ -63,21 +67,23 @@ class ORNode(Threshold):
 
     def audit(self, record) -> Report:
         report = Report(self.code, self.name)
+        report.node_type = "OR grouping"
+        report.credit_threshold = self.minimum_credits
         requirement_states = []
         for requirement in self.requirements:
             sub_report = requirement.audit(record)
             report.summary.append(sub_report)
             if sub_report.fulfilled:
-                report.credits += sub_report.credits
+                report.credits_earned += sub_report.credits_earned
                 if self.minimum_credits == 0:
                     report.percentage = f'{100.00}%'
             else:
                 if isinstance(requirement, Threshold):
-                    report.credits += sub_report.credits
+                    report.credits_earned += sub_report.credits_earned
             requirement_states.extend([sub_report.fulfilled])
-        report.fulfilled = any(requirement_states) and self.within_threshold(report.credits)
+        report.fulfilled = any(requirement_states) and self.within_threshold(report.credits_earned)
         if self.minimum_credits > 0:
-            report.percentage = f'{(report.credits / self.minimum_credits) * 100 :.2f}%'
+            report.percentage = f'{(report.credits_earned / self.minimum_credits) * 100 :.2f}%'
         return report
 
 
@@ -88,10 +94,12 @@ class Course(Node):
 
     def audit(self, grades):
         report = Report(self.code, self.name)
+        report.node_type = "course"
+        report.credit_threshold = self.credits
         if self.code in grades.keys():
             if grades[f'{self.code}']["grade"][0] <= 'C':
                 report.fulfilled = True
-                report.credits = self.credits
+                report.credits_earned = self.credits
                 report.percentage = f'{100.00}%'
         return report
 
