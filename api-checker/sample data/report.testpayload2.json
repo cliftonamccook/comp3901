@@ -1,0 +1,949 @@
+{
+  "code": "BSCGENCHEM",
+  "name": "BACHELOR OF SCIENCE - GENERAL CHEMISTRY",
+  "fulfilled": false,
+  "node_type": "AND grouping",
+  "credits_earned": 83,
+  "credit_threshold": 93,
+  "percentage": "89.25%",
+  "summary": [
+    {
+      "code": "UWIINST",
+      "name": "INSTITUTIONAL",
+      "fulfilled": true,
+      "node_type": "AND grouping",
+      "credits_earned": 9,
+      "credit_threshold": 9,
+      "percentage": "100.00%",
+      "summary": [
+        {
+          "code": "FSTMANDFOUN",
+          "name": "FST INSTITUTIONAL MANDATORY",
+          "fulfilled": true,
+          "node_type": "OR grouping",
+          "credits_earned": 3,
+          "credit_threshold": 3,
+          "percentage": "100.00%",
+          "summary": [
+            {
+              "code": "FOUN1401",
+              "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
+              "fulfilled": true,
+              "node_type": "course",
+              "credits_earned": 3,
+              "credit_threshold": 3,
+              "percentage": "100.0%",
+              "summary": []
+            },
+            {
+              "code": "FOUN1019",
+              "name": "Critical Reading and Writing in the Disciplines",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            }
+          ]
+        },
+        {
+          "code": "FSTINSTOPT",
+          "name": "FST INSTITUTIONAL OPTIONS",
+          "fulfilled": true,
+          "node_type": "OR grouping",
+          "credits_earned": 6,
+          "credit_threshold": 6,
+          "percentage": "100.00%",
+          "summary": [
+            {
+              "code": "FOERIGNLANG",
+              "name": "Foreign Language",
+              "fulfilled": true,
+              "node_type": "OR grouping",
+              "credits_earned": 3,
+              "credit_threshold": 0,
+              "percentage": "100.0%",
+              "summary": [
+                {
+                  "code": "SPAN0101",
+                  "name": "Beginners' Spanish",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "SPAN1000",
+                  "name": "Spanish Language I",
+                  "fulfilled": false,
+                  "node_type": "course",
+                  "credits_earned": 0,
+                  "credit_threshold": 3,
+                  "percentage": "0.0%",
+                  "summary": []
+                }
+              ]
+            },
+            {
+              "code": "FOUN1301",
+              "name": "Law, Governance, Economy & Society",
+              "fulfilled": true,
+              "node_type": "course",
+              "credits_earned": 3,
+              "credit_threshold": 3,
+              "percentage": "100.0%",
+              "summary": []
+            },
+            {
+              "code": "FOUN1101",
+              "name": "Caribbean Civilization",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "INTRO",
+      "name": "FST INTRODUCTORY",
+      "fulfilled": true,
+      "node_type": "AND grouping",
+      "credits_earned": 24,
+      "credit_threshold": 24,
+      "percentage": "100.00%",
+      "summary": [
+        {
+          "code": "FSTGCCOREINTRO",
+          "name": "GENERAL CHEMISTRY MAJOR INTRODUCTORY CORE",
+          "fulfilled": true,
+          "node_type": "AND grouping",
+          "credits_earned": 18,
+          "credit_threshold": 18,
+          "percentage": "100.00%",
+          "summary": [
+            {
+              "code": "FSTGCMATHL1",
+              "name": "GENERAL CHEMISTRY L1 MATH REQUIREMENT",
+              "fulfilled": true,
+              "node_type": "OR grouping",
+              "credits_earned": 6,
+              "credit_threshold": 6,
+              "percentage": "100.00%",
+              "summary": [
+                {
+                  "code": "MATH1142",
+                  "name": "Calculus I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "MATH1151",
+                  "name": "Calculus II",
+                  "fulfilled": false,
+                  "node_type": "course",
+                  "credits_earned": 0,
+                  "credit_threshold": 3,
+                  "percentage": "0.0%",
+                  "summary": []
+                },
+                {
+                  "code": "MATH1141",
+                  "name": "Introductory Linear Algebra and Analytic Geometry",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "STAT1001",
+                  "name": "Statistics For The Scientists",
+                  "fulfilled": false,
+                  "node_type": "course",
+                  "credits_earned": 0,
+                  "credit_threshold": 3,
+                  "percentage": "0.0%",
+                  "summary": []
+                }
+              ]
+            },
+            {
+              "code": "FSTGCL1CORE",
+              "name": "GENERAL CHEMISTRY L1 CORE",
+              "fulfilled": true,
+              "node_type": "AND grouping",
+              "credits_earned": 12,
+              "credit_threshold": 12,
+              "percentage": "100.00%",
+              "summary": [
+                {
+                  "code": "CHEM1910",
+                  "name": "Introductory Chemistry III",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1911",
+                  "name": "Introductory Chemistry Laboratory II",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1810",
+                  "name": "Introductory Chemistry I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1811",
+                  "name": "Introductory Chemistry Laboratory I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1820",
+                  "name": "Introductory Chemistry II",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM1920",
+                  "name": "Introductory Chemistry IV",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTRORELECTGENCHEM",
+          "name": "INTRODUCTORY FREE ELECTIVES GEN CHEM",
+          "fulfilled": true,
+          "node_type": "OR grouping",
+          "credits_earned": 6,
+          "credit_threshold": 6,
+          "percentage": "100.00%",
+          "summary": [
+            {
+              "code": "GEOG1131",
+              "name": "Human Geography I",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "GEOG1132",
+              "name": "Human Geography II",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "HIST1703",
+              "name": "Introduction to History",
+              "fulfilled": true,
+              "node_type": "course",
+              "credits_earned": 3,
+              "credit_threshold": 3,
+              "percentage": "100.0%",
+              "summary": []
+            },
+            {
+              "code": "SOCI1002",
+              "name": "Introduction to Sociology I",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON1012",
+              "name": "Principles of Economics II",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON1000",
+              "name": "Principles of Economics I",
+              "fulfilled": true,
+              "node_type": "course",
+              "credits_earned": 3,
+              "credit_threshold": 3,
+              "percentage": "100.0%",
+              "summary": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "FSTADV",
+      "name": "FST ADVANCED",
+      "fulfilled": false,
+      "node_type": "AND grouping",
+      "credits_earned": 50,
+      "credit_threshold": 60,
+      "percentage": "83.33%",
+      "summary": [
+        {
+          "code": "FSTGCADV",
+          "name": "GENERAL CHEMISTRY MAJOR ADVANCED",
+          "fulfilled": true,
+          "node_type": "AND grouping",
+          "credits_earned": 50,
+          "credit_threshold": 39,
+          "percentage": "128.21%",
+          "summary": [
+            {
+              "code": "FSTGCADVL2CORE",
+              "name": "GENERAL CHEMISTRY MAJOR LEVEL 2 CORE",
+              "fulfilled": true,
+              "node_type": "AND grouping",
+              "credits_earned": 20,
+              "credit_threshold": 20,
+              "percentage": "100.00%",
+              "summary": [
+                {
+                  "code": "CHEM2010",
+                  "name": "Chemical Analysis A",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2011",
+                  "name": "Chemical Analysis Laboratory I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2110",
+                  "name": "Inorganic Chemistry A",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2111",
+                  "name": "Inorganic Chemistry Laboratory I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2210",
+                  "name": "Organic Chemistry A",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2211",
+                  "name": "Organic Chemistry Laboratory I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2310",
+                  "name": "Physical Chemistry I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 3,
+                  "credit_threshold": 3,
+                  "percentage": "100.0%",
+                  "summary": []
+                },
+                {
+                  "code": "CHEM2311",
+                  "name": "Physical Chemistry Laboratory I",
+                  "fulfilled": true,
+                  "node_type": "course",
+                  "credits_earned": 2,
+                  "credit_threshold": 2,
+                  "percentage": "100.0%",
+                  "summary": []
+                }
+              ]
+            },
+            {
+              "code": "FSTGCADVL3CORE",
+              "name": "GENERAL CHEMISTRY MAJOR LEVEL 3 CORE",
+              "fulfilled": true,
+              "node_type": "AND grouping",
+              "credits_earned": 30,
+              "credit_threshold": 19,
+              "percentage": "157.89%",
+              "summary": [
+                {
+                  "code": "FSTORGPHYSCHEMADV1",
+                  "name": "ORGANIC+PHYSICAL CHEMISTRY 1",
+                  "fulfilled": true,
+                  "node_type": "OR grouping",
+                  "credits_earned": 6,
+                  "credit_threshold": 6,
+                  "percentage": "100.00%",
+                  "summary": [
+                    {
+                      "code": "CHEM3010",
+                      "name": "Chemical Analysis B",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3110",
+                      "name": "Inorganic Chemistry B",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3210",
+                      "name": "Organic Chemistry B",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3310",
+                      "name": "Physical Chemistry B",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    }
+                  ]
+                },
+                {
+                  "code": "FSTORGPHYSCHEMADV2",
+                  "name": "ORGANIC+PHYSICAL CHEMISTRY 2",
+                  "fulfilled": true,
+                  "node_type": "OR grouping",
+                  "credits_earned": 4,
+                  "credit_threshold": 4,
+                  "percentage": "100.00%",
+                  "summary": [
+                    {
+                      "code": "CHEM3011",
+                      "name": "Chemical Analysis Laboratory II",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 2,
+                      "credit_threshold": 2,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3111",
+                      "name": "Inorganic Chemistry Laboratory II",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 2,
+                      "credit_threshold": 2,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3211",
+                      "name": "Organic Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3311",
+                      "name": "Physical Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    }
+                  ]
+                },
+                {
+                  "code": "FSTCHEMG",
+                  "name": "CHEM GROUPING",
+                  "fulfilled": true,
+                  "node_type": "OR grouping",
+                  "credits_earned": 9,
+                  "credit_threshold": 3,
+                  "percentage": "300.00%",
+                  "summary": [
+                    {
+                      "code": "CHEM3112",
+                      "name": "The Inorganic Chemistry of Biological Systems",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3212",
+                      "name": "Natural Products Chemistry",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3213",
+                      "name": "Applications of Organic Chemistry in Medicine and Agriculture",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3312",
+                      "name": "Chemistry of Materials",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3313",
+                      "name": "Topics in Advanced Physical Chemistry",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    }
+                  ]
+                },
+                {
+                  "code": "FSTGCRADVELECT",
+                  "name": "CHEM RESTRICTED ELECTIVES ADV",
+                  "fulfilled": true,
+                  "node_type": "OR grouping",
+                  "credits_earned": 11,
+                  "credit_threshold": 6,
+                  "percentage": "183.33%",
+                  "summary": [
+                    {
+                      "code": "CHEM2410",
+                      "name": "Water Treatment",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 4,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM2510",
+                      "name": "Food Processing Principles I",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM2511",
+                      "name": "Food Processing Laboratory",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM2512",
+                      "name": "Food Processing Principles",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3112",
+                      "name": "The Inorganic Chemistry of Biological Systems",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3212",
+                      "name": "Natural Products Chemistry",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3213",
+                      "name": "Applications of Organic Chemistry in Medicine and Agriculture",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3312",
+                      "name": "Chemistry of Materials",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 3,
+                      "credit_threshold": 3,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3313",
+                      "name": "Topics in Advanced Physical Chemistry",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3402",
+                      "name": "The Chemical Industries",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 4,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3510",
+                      "name": "Food Chemistry I",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3512",
+                      "name": "Food Chemistry II",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3610",
+                      "name": "Marine & Freshwater Chemistry",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3612",
+                      "name": "Atmospheric Chemistry & Biogeochemical Cycles",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 6,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3111",
+                      "name": "Inorganic Chemistry Laboratory II",
+                      "fulfilled": true,
+                      "node_type": "course",
+                      "credits_earned": 2,
+                      "credit_threshold": 2,
+                      "percentage": "100.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3211",
+                      "name": "Organic Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3311",
+                      "name": "Physical Chemistry Laboratory II",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3511",
+                      "name": "Food Chemistry Laboratory",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 3,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3611",
+                      "name": "Environmental Chemistry Laboratory",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3621",
+                      "name": "Marine and Freshwater Chemistry Field Course",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 2,
+                      "percentage": "0.0%",
+                      "summary": []
+                    },
+                    {
+                      "code": "CHEM3711",
+                      "name": "Chemistry Undergraduate Research Project",
+                      "fulfilled": false,
+                      "node_type": "course",
+                      "credits_earned": 0,
+                      "credit_threshold": 6,
+                      "percentage": "0.0%",
+                      "summary": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSTCSADV",
+          "name": "ADVANCED FREE ELECTIVES",
+          "fulfilled": false,
+          "node_type": "OR grouping",
+          "credits_earned": 0,
+          "credit_threshold": 21,
+          "percentage": "0.00%",
+          "summary": [
+            {
+              "code": "HIST2405",
+              "name": "War and Conflict",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "HIST2503",
+              "name": "History of Modern China",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "HIST2602",
+              "name": "Imperialism Since 1918",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "PHIL2028",
+              "name": "Sports Ethics",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "PHIL2601",
+              "name": "African Philosophy I",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "PHIL2602",
+              "name": "African Philosophy II",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON3003",
+              "name": "Game Theory",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "ECON3005",
+              "name": "Monetary Theory and Policy",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "MGMT3058",
+              "name": "New Venture Management",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            },
+            {
+              "code": "MGMT3031",
+              "name": "Business Strategy & Policy",
+              "fulfilled": false,
+              "node_type": "course",
+              "credits_earned": 0,
+              "credit_threshold": 3,
+              "percentage": "0.0%",
+              "summary": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

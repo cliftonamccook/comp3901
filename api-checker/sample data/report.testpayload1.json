@@ -1,0 +1,835 @@
+{
+    "code": "BSCCOMPSCI",
+    "name": "BACHELOR OF SCIENCE - COMPUTER SCIENCE",
+    "fulfilled": true,
+    "node_type": "AND grouping",
+    "credits_earned": 105,
+    "credit_threshold": 93,
+    "percentage": "112.90%",
+    "summary": [
+        {
+            "code": "UWIINST",
+            "name": "INSTITUTIONAL",
+            "fulfilled": true,
+            "node_type": "AND grouping",
+            "credits_earned": 9,
+            "credit_threshold": 9,
+            "percentage": "100.00%",
+            "summary": [
+                {
+                    "code": "FSTMANDFOUN",
+                    "name": "FST INSTITUTIONAL MANDATORY",
+                    "fulfilled": true,
+                    "node_type": "OR grouping",
+                    "credits_earned": 3,
+                    "credit_threshold": 3,
+                    "percentage": "100.00%",
+                    "summary": [
+                        {
+                            "code": "FOUN1401",
+                            "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "FOUN1019",
+                            "name": "Critical Reading and Writing in the Disciplines",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        }
+                    ]
+                },
+                {
+                    "code": "FSTINSTOPT",
+                    "name": "FST INSTITUTIONAL OPTIONS",
+                    "fulfilled": true,
+                    "node_type": "OR grouping",
+                    "credits_earned": 6,
+                    "credit_threshold": 6,
+                    "percentage": "100.00%",
+                    "summary": [
+                        {
+                            "code": "FOERIGNLANG",
+                            "name": "Foreign Language",
+                            "fulfilled": false,
+                            "node_type": "OR grouping",
+                            "credits_earned": 0,
+                            "credit_threshold": 0,
+                            "percentage": "0.0%",
+                            "summary": [
+                                {
+                                    "code": "SPAN0101",
+                                    "name": "Beginners' Spanish",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SPAN1000",
+                                    "name": "Intermediate Spanish",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                }
+                            ]
+                        },
+                        {
+                            "code": "FOUN1301",
+                            "name": "Law, Governance, Economy & Society",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "FOUN1101",
+                            "name": "Caribbean Civilization",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "INTRO",
+            "name": "FST INTRODUCTORY",
+            "fulfilled": true,
+            "node_type": "AND grouping",
+            "credits_earned": 27,
+            "credit_threshold": 24,
+            "percentage": "112.50%",
+            "summary": [
+                {
+                    "code": "FSTCSCOREINTRO",
+                    "name": "COMPUTER SCIENCE MAJOR INTRODUCTORY CORE",
+                    "fulfilled": true,
+                    "node_type": "AND grouping",
+                    "credits_earned": 15,
+                    "credit_threshold": 15,
+                    "percentage": "100.00%",
+                    "summary": [
+                        {
+                            "code": "COMP1126",
+                            "name": "Introduction to Computing I",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "COMP1127",
+                            "name": "Introduction to Computing II",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "COMP1210",
+                            "name": "Mathematics for Computing",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "COMP1220",
+                            "name": "Computing and Society",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "COMP1161",
+                            "name": "Object-Oriented Programming",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        }
+                    ]
+                },
+                {
+                    "code": "INTRORELECT",
+                    "name": "INTRODUCTORY RESTRICTED ELECTIVES",
+                    "fulfilled": true,
+                    "node_type": "OR grouping",
+                    "credits_earned": 6,
+                    "credit_threshold": 3,
+                    "percentage": "200.00%",
+                    "summary": [
+                        {
+                            "code": "MATH1142",
+                            "name": "Calculus I",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "MATH1151",
+                            "name": "Calculus II",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "MATH1141",
+                            "name": "Introductory Linear Algebra and Analytic Geometry",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "STAT1001",
+                            "name": "Statistics For The Scientists",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "GEOG1131",
+                            "name": "Human Geography I",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "GEOG1132",
+                            "name": "Human Geography II",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        }
+                    ]
+                },
+                {
+                    "code": "INTROFELECT",
+                    "name": "INTRODUCTORY FREE ELECTIVES",
+                    "fulfilled": true,
+                    "node_type": "OR grouping",
+                    "credits_earned": 6,
+                    "credit_threshold": 6,
+                    "percentage": "100.00%",
+                    "summary": [
+                        {
+                            "code": "ECON1000",
+                            "name": "Principles of Economics I",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "ECON1012",
+                            "name": "Principles of Economics II",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "SOCI1002",
+                            "name": "Introduction to Sociology I",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "HIST1703",
+                            "name": "Introduction to History",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "HIST1801",
+                            "name": "Introduction to Archaeology",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "HIST1901",
+                            "name": "Introduction to Heritage Studies",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "code": "FSTADV",
+            "name": "FST ADVANCED",
+            "fulfilled": true,
+            "node_type": "AND grouping",
+            "credits_earned": 69,
+            "credit_threshold": 60,
+            "percentage": "115.00%",
+            "summary": [
+                {
+                    "code": "FSTCSADV",
+                    "name": "COMPUTER SCIENCE MAJOR ADVANCED",
+                    "fulfilled": true,
+                    "node_type": "AND grouping",
+                    "credits_earned": 48,
+                    "credit_threshold": 39,
+                    "percentage": "123.08%",
+                    "summary": [
+                        {
+                            "code": "FSTCSADV",
+                            "name": "COMPUTER SCIENCE MAJOR LEVEL 2 CORE",
+                            "fulfilled": true,
+                            "node_type": "AND grouping",
+                            "credits_earned": 18,
+                            "credit_threshold": 18,
+                            "percentage": "100.00%",
+                            "summary": [
+                                {
+                                    "code": "COMP2140",
+                                    "name": "Software Engineering",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2171",
+                                    "name": "Object-Oriented Design and Implementation",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2190",
+                                    "name": "Net-Centric Computing",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2201",
+                                    "name": "Discrete Mathematics for Computer Science",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2211",
+                                    "name": "Analysis of Algorithms",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2340",
+                                    "name": "Computer System Organization",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                }
+                            ]
+                        },
+                        {
+                            "code": "FSTCSADV",
+                            "name": "COMPUTER SCIENCE MAJOR LEVEL 3 CORE",
+                            "fulfilled": true,
+                            "node_type": "AND grouping",
+                            "credits_earned": 12,
+                            "credit_threshold": 12,
+                            "percentage": "100.00%",
+                            "summary": [
+                                {
+                                    "code": "COMP3101",
+                                    "name": "Operating Systems",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3161",
+                                    "name": "Database Management Systems",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3220",
+                                    "name": "Principles of Artificial Intelligence",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3901",
+                                    "name": "Capstone Project",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                }
+                            ]
+                        },
+                        {
+                            "code": "FSTCSADVRELECT",
+                            "name": "COMPUTER SCIENCE MAJOR ADVANCED RESTRICTED ELECTIVES",
+                            "fulfilled": true,
+                            "node_type": "OR grouping",
+                            "credits_earned": 18,
+                            "credit_threshold": 9,
+                            "percentage": "200.00%",
+                            "summary": [
+                                {
+                                    "code": "COMP2130",
+                                    "name": "Systems Programming",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP2802",
+                                    "name": "Speech Processing",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3162",
+                                    "name": "Data Science Principles",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3191",
+                                    "name": "Principles of Computer Networking",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3192",
+                                    "name": "Implementation of Computer Networks",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3410",
+                                    "name": "Introduction to Parallel Computing",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3652",
+                                    "name": "Language Processors",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3702",
+                                    "name": "Theory of Computation",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3801",
+                                    "name": "Real-Time Embedded Systems",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3802",
+                                    "name": "Speech and Language Technology",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3911",
+                                    "name": "Internship in Computing I",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3912",
+                                    "name": "Internship in Computing II",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO3105",
+                                    "name": "Computer System Administration",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "COMP3110",
+                                    "name": "Information Systems",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO3155",
+                                    "name": "Information Assurance and Security",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO3170",
+                                    "name": "User Interface Design for IT",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO2180",
+                                    "name": "Dynamic Web Development I",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO3180",
+                                    "name": "Dynamic Web Development II",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "INFO3435",
+                                    "name": "E-Commerce",
+                                    "fulfilled": true,
+                                    "node_type": "course",
+                                    "credits_earned": 3,
+                                    "credit_threshold": 3,
+                                    "percentage": "100.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SWEN2165",
+                                    "name": "Requirements Engineering",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SWEN3130",
+                                    "name": "Software Project Management",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SWEN3145",
+                                    "name": "Software Modelling",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SWEN3165",
+                                    "name": "Software Testing",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                },
+                                {
+                                    "code": "SWEN3185",
+                                    "name": "Formal Methods and Software Reliability",
+                                    "fulfilled": false,
+                                    "node_type": "course",
+                                    "credits_earned": 0,
+                                    "credit_threshold": 3,
+                                    "percentage": "0.0%",
+                                    "summary": []
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "code": "FSTCSADV",
+                    "name": "ADVANCED FREE ELECTIVES",
+                    "fulfilled": true,
+                    "node_type": "OR grouping",
+                    "credits_earned": 21,
+                    "credit_threshold": 21,
+                    "percentage": "100.00%",
+                    "summary": [
+                        {
+                            "code": "HIST2405",
+                            "name": "War and Conflict",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "HIST2503",
+                            "name": "History of Modern China",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "HIST2602",
+                            "name": "Imperialism Since 1918",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "PHIL2028",
+                            "name": "Sports Ethics",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "PHIL2601",
+                            "name": "African Philosophy I",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "PHIL2602",
+                            "name": "African Philosophy II",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "ECON3003",
+                            "name": "Game Theory",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "ECON3005",
+                            "name": "Monetary Theory and Policy",
+                            "fulfilled": false,
+                            "node_type": "course",
+                            "credits_earned": 0,
+                            "credit_threshold": 3,
+                            "percentage": "0.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "MGMT3058",
+                            "name": "New Venture Management",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        },
+                        {
+                            "code": "MGMT3031",
+                            "name": "Business Strategy & Policy",
+                            "fulfilled": true,
+                            "node_type": "course",
+                            "credits_earned": 3,
+                            "credit_threshold": 3,
+                            "percentage": "100.0%",
+                            "summary": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

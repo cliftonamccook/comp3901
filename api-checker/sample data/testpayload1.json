@@ -1,5 +1,225 @@
+[
+    {
+        "name": "Jane Doe",
+        "id": 620000000,
+        "campus": "Mona",
+        "faculty": "Science and Technology",
+        "programme": "BSc Computer Science",
+        "course history": [
+            {
+                "term": "2019-2020-S1",
+                "course records": [
+                    {
+                        "name": "Introduction to Computing I",
+                        "code": "COMP1126",
+                        "grade": "C-"
+                    },
+                    {
+                        "name": "Calculus I",
+                        "code": "MATH1142",
+                        "grade": "B+"
+                    },
+                    {
+                        "name": "Introductory Linear Algebra and Analytic Geometry",
+                        "code": "MATH1141",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Introduction to Computing II",
+                        "code": "COMP1127",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Mathematics for Computing",
+                        "code": "COMP1210",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Critical Reading and Writing in Science and Technology and Medical Sciences",
+                        "code": "FOUN1401",
+                        "grade": "A-"
+                    }
+                ]
+            },
+            {
+                "term": "2019-2020-S2",
+                "course records": [
+                    {
+                        "name": "Computing and Society",
+                        "code": "COMP1220",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Caribbean Civilization",
+                        "code": "FOUN1101",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Principles of Economics II",
+                        "code": "ECON1012",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Introduction to History",
+                        "code": "HIST1703",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Object-Oriented Programming",
+                        "code": "COMP1161",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Law, Governance, Economy & Society",
+                        "code": "FOUN1301",
+                        "grade": "B+"
+                    }
+                ]
+            },
+            {
+                "term": "2020-2021-S1",
+                "course records": [
+                    {
+                        "name": "Software Engineering",
+                        "code": "COMP2140",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Net-Centric Computing",
+                        "code": "COMP2190",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Discrete Mathematics for Computer Science",
+                        "code": "COMP2201",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Dynamic Web Development I",
+                        "code": "INFO2180",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "War and Conflict",
+                        "code": "HIST2405",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Imperialism Since 1918",
+                        "code": "HIST2602",
+                        "grade": "B+"
+                    }
+                ]
+            },
+            {
+                "term": "2020-2021-S2",
+                "course records": [
+                    {
+                        "name": "Analysis of Algorithms",
+                        "code": "COMP2211",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Computer System Organization",
+                        "code": "COMP2340",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Object-Oriented Design and Implementation",
+                        "code": "COMP2171",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Dynamic Web Development II",
+                        "code": "INFO3180",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Systems Programming",
+                        "code": "COMP2130",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "History of Modern China",
+                        "code": "HIST2503",
+                        "grade": "B+"
+                    }
+                ]
+            },
+            {
+                "term": "2021-2022-S1",
+                "course records": [
+                    {
+                        "name": "Operating Systems",
+                        "code": "COMP3101",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Database Management Systems",
+                        "code": "COMP3161",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Principles of Artificial Intelligence",
+                        "code": "COMP3220",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "Capstone Project",
+                        "code": "COMP3901",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "African Philosophy I",
+                        "code": "PHIL2602",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Game Theory",
+                        "code": "ECON3003",
+                        "grade": "B+"
+                    }
+                ]
+            },
+            {
+                "term": "2021-2022-S2",
+                "course records": [
+                    {
+                        "name": "E-Commerce",
+                        "code": "INFO3435",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Information Assurance and Security",
+                        "code": "INFO3155",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "User Interface Design for IT",
+                        "code": "INFO3170",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "African Philosophy II",
+                        "code": "PHIL2602",
+                        "grade": "A+"
+                    },
+                    {
+                        "name": "New Venture Management",
+                        "code": "MGMT3058",
+                        "grade": "A"
+                    },
+                    {
+                        "name": "Business Strategy & Policy",
+                        "code": "MGMT3031",
+                        "grade": "B+"
+                    }
+                ]
+            }
+            
+        ]
+    },
 {
-    "BSCCOMPSCI": {
         "name": "BACHELOR OF SCIENCE - COMPUTER SCIENCE",
         "code":"BSCCOMPSCI",
         "faculty": "Science and Technology",
@@ -1058,7 +1278,5 @@
                 ]
             }
         ]
-    },    
-    "BSCGENCHEM": {},
-    "BSCECON": {}
-}
+    }
+]

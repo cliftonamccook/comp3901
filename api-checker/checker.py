@@ -1,14 +1,17 @@
 import uvicorn
 from fastapi import FastAPI, Request, HTTPException
 from models import *
+from sampledata import bsccompsci, bscgenchem
 
 
 SERVER_PORT = 8000
 
 app = FastAPI()
 
-CACHED_PROGRAMMES = {} # cache of programme trees
+CACHED_PROGRAMMES = {}
 
+# comp = bsccompsci.programmedata
+# chem = bscgenchem.programmedata
 
 @app.post("/checker/fastcheck/")
 async def checkprogress(payload:Request):
@@ -18,7 +21,8 @@ async def checkprogress(payload:Request):
     try:
         tree = CACHED_PROGRAMMES[pid]
         auditor = Auditor(studentrecord, programmedata=None)
-        report = auditor.walktree(tree) # perform check (tree walk) on cached programme tree
+        auditor.settree(tree)
+        report = auditor.walktree()
         return report
     except:
         raise HTTPException(status_code=404, detail=f'Programme with ID: {pid} not found')
@@ -29,11 +33,14 @@ async def checkprogress(payload:Request):
     data = await payload.json()
     studentrecord = data[0]
     programmedata = data[1]
+    # programmedata = chem
     auditor = Auditor(studentrecord, programmedata)
-    tree = auditor.buildtree(programmedata) # construct programme tree from received ProgrammeData
-    CACHED_PROGRAMMES[f'{programmedata["code"]}'] = tree # cache tree in programmes dictionary
-    report = auditor.walktree(tree) # perform check (tree walk) on cached programme tree
+    tree = auditor.gettree()
+    CACHED_PROGRAMMES[f'{programmedata["code"]}'] = tree
+    report = auditor.walktree()
     return report
+    # return auditor.grades
+    # return programmedata
 
 
 if __name__ == "__main__":
