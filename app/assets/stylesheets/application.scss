@@ -182,3 +182,9 @@ aside{
     float: right;
     margin-left: 10px;
 }
+
+.custom-line-through:before, .custom-line-through:after {
+  content:'\00a0\00a0\00a0\00a0';
+  text-decoration: line-through;
+  margin: auto 0.5em;
+}

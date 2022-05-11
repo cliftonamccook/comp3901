@@ -8,14 +8,14 @@
   <% end %>
 <% else %>
   <% if requirement_group.operation.present? and index != 0 %>
-    <p class="mt-3"><strong><%= Requirement::OPERATIONS[requirement_group.operation] %></strong></p>
+    <p class="mt-3 custom-line-through"><strong><%= Requirement::OPERATIONS[requirement_group.operation] %></strong></p>
   <% end %>
 <% end %>
 
 <% if requirement_group.has_requirements? %>
   <% requirement_group.requirements.each_with_index do |requirement, index| %>
-   <% if index != 0 %>
-      <p class="mt-3"><strong><%= Requirement::OPERATIONS[requirement.operation] %></strong></p>
+    <% if index != 0 %>
+      <p class="mt-3 custom-line-through"><strong><%= Requirement::OPERATIONS[requirement.operation] %></strong></p>
     <% end %>
 
     <% if requirement.description.present? %>
@@ -23,11 +23,15 @@
     <% end %>
 
     <% if requirement.course_ids.present? %>
-      <% requirement.course_ids.each do |course_id| %>
+      <% @total_courses_credits = total_credits(requirement.course_ids) %>
+      <% requirement.course_ids.each_with_index do |course_id, index| %>
         <% course = Course.find(course_id) %>
         <div class="text-truncate mt-P3">
           <%= link_to course.name, course_path(course) %>
           <div class="text-muted"><%= course.credit_amount %> Credits | <%= enum_to_human(course.level).titleize %></div>
+          <% if requirement.minimum_amount_of_credits != @total_courses_credits and index != requirement.course_ids.count - 1 %>
+            <p class="mt-3">or</p>
+          <% end %>
         </div>
       <% end %>
     <% end %>
