@@ -1,5 +1,5 @@
-[
-  {
+{
+    "computer science student": {
         "name": "Jane Doe",
         "id": 620000000,
         "campus": "Mona",
@@ -216,11 +216,9 @@
                     }
                 ]
             }
-            
         ]
     },
-
-    {
+    "general chemistry student": {
         "name": "Jane Doe",
         "id": 620000001,
         "campus": "Mona",
@@ -397,7 +395,9 @@
                     }
                 ]
             }
-            
         ]
-    }
-  ]
+    },
+    "620000002": {},
+    "620000003": {},
+    "620000004": {}
+}
