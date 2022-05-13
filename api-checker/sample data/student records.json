@@ -1,11 +1,5 @@
-import json
-
-with open('sampledata/courses.json', 'r') as coursefile:
-  courses = json.load(coursefile)
-
-
-{
-    "620000000": {
+[
+  {
         "name": "Jane Doe",
         "id": 620000000,
         "campus": "Mona",
@@ -226,7 +220,7 @@ with open('sampledata/courses.json', 'r') as coursefile:
         ]
     },
 
-    "620000001": {
+    {
         "name": "Jane Doe",
         "id": 620000001,
         "campus": "Mona",
@@ -405,8 +399,5 @@ with open('sampledata/courses.json', 'r') as coursefile:
             }
             
         ]
-    },
-    "620000002": {},
-    "620000003": {},
-    "620000004": {}
-}
+    }
+  ]
