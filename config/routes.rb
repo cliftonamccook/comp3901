@@ -40,5 +40,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/student_progress', to: 'home#student_progress'
+  post '/check_progress', to: 'home#check_progress'
   root 'home#index'
 end

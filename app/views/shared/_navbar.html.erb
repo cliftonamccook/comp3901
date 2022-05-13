@@ -17,7 +17,6 @@
             </div>
           </a>
           <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <a href="#" class="dropdown-item">Profile</a>
             <a href="#" class="dropdown-item">Settings</a>
             <%= link_to "Logout", destroy_user_session_path, class: "dropdown-item", method: :delete %>
           </div>
@@ -34,6 +33,11 @@
     <div class="collapse navbar-collapse" id="navbar-menu">
       <div class="d-flex flex-column flex-md-row flex-fill align-items-stretch align-items-md-center">
         <ul class="navbar-nav">
+          <% if student? %>
+            <li class="nav-item">
+              <%= link_to "My Progress", student_progress_path, class: "nav-link" %>
+            </li>
+          <% end %>
           <% if staff_admin? %>
             <li class="nav-item <%= active_link(faculties_path) %>">
               <%= link_to "Faculties", faculties_path, class: "nav-link"  %>
