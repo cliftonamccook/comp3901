@@ -1,5 +1,5 @@
-<%= render 'shared/page_header', title: "#{@major.name.titleize} Major", back_action: @major.programme, 
-            action: polymophic_path_builder('new', @major, RequirementGroup.new), action_restricted: false, action_name: "Add Requirement Group"  %>
+<%= render 'shared/page_header', title: "#{@major.name.titleize} Major", back_action: :back, 
+            action: polymophic_path_builder('new', @major, RequirementGroup.new), action_restricted: (student? or !current_user), action_name: "Add Requirement Group"  %>
 
 <% if @major.has_requirement_group? %>
   <div class="card">

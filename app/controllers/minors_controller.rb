@@ -24,6 +24,7 @@ class MinorsController < ApplicationController
 
     respond_to do |format|
       if @minor.save
+        make_association(params[:minor][:requirement_groups].reject(&:blank?), @minor)
         format.html { redirect_to @minor.programme, notice: "Minor was successfully created." }
         format.json { render :show, status: :created, location: @minor }
       else
@@ -60,6 +61,17 @@ class MinorsController < ApplicationController
     end
 
     def minor_params
-      params.require(:minor).permit(:name, :programme_id)
+      params.require(:minor).permit(:name, :programme_id, :term_id)
+    end
+
+    def make_association(ids, minor)
+      @requirement_groups = RequirementGroup.find(ids)
+
+      @requirement_groups.each do |requirement_group|
+        @saved_rg = minor.requirement_groups.create(requirement_group.dup.attributes)
+        requirement_group.requirements.each do |requirement|
+          @saved_rg.requirements.create(requirement.dup.attributes)
+        end
+      end
     end
 end

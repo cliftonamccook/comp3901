@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :campus
-  
+  has_many :course_records
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, authentication_keys: [:login]
 
@@ -50,5 +51,9 @@ class User < ApplicationRecord
 
   def permission_group
     PermissionGroup.find(permission_group_id)
+  end
+
+  def self.students
+    self.where(account_type: User.account_types[:student])
   end
 end

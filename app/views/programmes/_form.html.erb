@@ -6,6 +6,16 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.association :department, prompt: "Please select department", input_html: { class: "form-select" } %>
+
+    <% if @programme.new_record? %>
+      <hr>
+      <h3>Import Requirement Groups (optional)</h3>
+      <div class="card mb-4">
+        <div class="card-body">
+          <%= f.input :requirement_groups, collection: RequirementGroup.where(requirement_groupable_type: "Programme").uniq { |r| r.name }, as: :check_boxes, label: "Requirement Groups", label_method: lambda { |req| "#{req.name} | #{req.requirement_groupable.department.name} Department" } %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">

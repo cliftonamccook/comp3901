@@ -30,10 +30,10 @@
           Credit Amount: <strong><%= @course.credit_amount %></strong>
         </div>
         <div class="mb-2">
-          Level: <strong><%= enum_to_human(@course.level).titleize %></strong>
+          Level: <strong><%= @course.level.present? ? enum_to_human(@course.level).titleize : "Any" %></strong>
         </div>
         <div class="mb-2">
-          Offered In: <strong><%= enum_to_human(@course.semester_offered_in).titleize %></strong>
+          Semester offered: <strong><%= @course.semester_offered_in %></strong>
         </div>
         <div class="mb-2">
           Department: <strong><%= @course.department.name.titleize %></strong>

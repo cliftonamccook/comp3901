@@ -1,0 +1,101 @@
+<div class="card">
+  <div class="card-body">
+    <div class="card-title">
+      <h3>Track Degree Progress</h3>
+      <p class="text-muted">Please select your programme, major and/or minor.</p>
+    </div>
+    <%= simple_form_for :track, url: check_progress_path, method: :post do |f| %>
+      <% if !student? %>
+        <%= f.input :student, collection: User.students, prompt: "Please student", input_html: { class: "form-select" }, required: false, label_method: lambda { |student| student.uwi_id  } %>
+      <% end %>
+      <%= f.input :programme, collection: Programme.all, prompt: "Please select programme", input_html: { class: "form-select" } %>
+      <%= f.input :major, collection: Major.all, prompt: "Please select major", input_html: { class: "form-select" }, required: false %>
+      <%= f.input :minor, collection: Minor.all, prompt: "Please select minor", input_html: { class: "form-select" }, required: false %>
+
+      <%= f.button :button, "Check Progress", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<% if student_progress %>
+  <div class="card mt-4">
+    <div class="card-status-top bg-primary"></div>
+    <div class="card-body">
+      <h3 class="card-title">Results Overview</h3>
+      <p class="text-muted">Last Request: <%= "#{format_date(student_progress.updated_at)}, #{format_time(student_progress.updated_at)}" %> </p>
+      <hr>
+      <div class="programme-info">
+        <p>Name: <strong><%= student_progress.programme.name %></strong></p>
+        <p>Major: <strong><%= student_progress.major.name %></strong></p>
+        <p>Faculty: <strong><%= student_progress.programme.department.faculty.name %></strong></p>
+        <p>Fulfillment Status: <span class="badge <%= @progress_report['fulfilled'] ? "bg-teal" : "bg-danger" %> "><%= @progress_report['fulfilled'] ? "Completed" : "Incomplete" %></span></p>
+        <p>Credits Required: <strong><%= @progress_report['credit_threshold'] %></strong></p>
+        <p>Credits Earned: <strong><%= @progress_report['credits_earned'] %></strong></p>
+      </div><!--/.programme-info-->
+
+      <div class="progress-report mt-4">
+        <h4>Report Breakdown</h4>
+        <div id="faq-1" class="accordion mt-4" role="tablist" aria-multiselectable="true">
+          <% @progress_report["summary"].each.with_index do |summary, index| %>
+            <div class="accordion-item">
+              <div class="accordion-header" role="tab">
+                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#faq-1-<%= index %>"><%= "#{summary["name"]}" %> <span class="badge <%= summary['fulfilled'] ? "bg-teal" : "bg-danger" %> " style="margin-left: 10px"><%= summary['fulfilled'] ? "Completed" : "Incomplete" %></span></button>
+              </div>
+              <div id="faq-1-<%= index %>" class="accordion-collapse collapse" role="tabpanel" data-bs-parent="#faq-1" style="">
+                <div class="accordion-body pt-0">
+                  <div class="row">
+                    <% if RequirementGroup.find(extract_integer(summary["code"])).has_requirements? %>
+                      <% @incomplete_course, @completed_courses = [], [] %>
+                      <p class="mb-0">Credits Required: <strong><%= summary['credit_threshold'] %></strong></p>
+                      <p class="mb-0">Credits Earned: <strong><%= summary['credits_earned'] %></strong></p>
+
+                      <% if !summary['fulfilled'] %>
+                        <p>Credits Needed: <strong><%= summary['credit_threshold'].to_i - summary['credits_earned'].to_i %></strong></p>
+                      <% end %>
+
+                      <h4 class="mt-3 mb-3">Completed Courses</h4>
+
+                      <% summary["summary"].each do |requirement_summary| %>
+                        <% requirement_summary['summary'].each do |course| %>
+                          <% if course['fulfilled'] %>
+                            <div class="col-md-4">
+                              <p class="text-muted lead mb-0 font-weight-medium"><%= course['code'] %></p>
+                              <p class="mb-0"><%= course['name'] %></p>
+                              <p class="font-weight-medium text-teal">Completed</p>
+                            </div><!--/.col-->
+                          <% else %>
+                            <% @incomplete_course.append(course['code']) %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+
+                      <% if ! summary['fulfilled'] %>
+                        <h4>Courses you can take:</h4>
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="row">
+                              <% @incomplete_course.uniq.each do |code| %>
+                                <div class="col-md-4">
+                                  <% @course =  Course.where(code: code).first %>
+                                  <p class="text-muted lead mb-0 font-weight-medium"><%= @course.code %></p>
+                                  <p class="mb-0"><%= link_to @course.name, @course, target: "_blank" %></p>
+                                  <p class="text-muted">Credits: <%= @course.credit_amount %> | Semester Offered: <%= @course.semester_offered_in %></p>
+                                </div>
+                              <% end %>
+                            </div>
+                          </div>
+                        </div><!--/.card-->
+                      <% end %>
+                    <% end %>
+                  </div><!--/.row-->
+                </div>
+              </div>
+            </div><!--.,accordin-item-->
+          <% end %>
+        </div><!--/.accordion-->
+      </div><!--/.progress-report-->
+
+    </div><!--/.card-body-->
+  </div><!--/.card-->
+<% end %>
+

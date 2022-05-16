@@ -24,6 +24,8 @@ class MajorsController < ApplicationController
 
     respond_to do |format|
       if @major.save
+        make_association(params[:major][:requirement_groups].reject(&:blank?), @major)
+
         format.html { redirect_to @major.programme, notice: "Major was successfully created." }
         format.json { render :show, status: :created, location: @major }
       else
@@ -60,6 +62,18 @@ class MajorsController < ApplicationController
     end
 
     def major_params
-      params.require(:major).permit(:name, :programme_id)
+      params.require(:major).permit(:name, :programme_id, :term_id)
+    end
+
+    
+    def make_association(ids, major)
+      @requirement_groups = RequirementGroup.find(ids)
+
+      @requirement_groups.each do |requirement_group|
+        @saved_rg = major.requirement_groups.create(requirement_group.dup.attributes)
+        requirement_group.requirements.each do |requirement|
+          @saved_rg.requirements.create(requirement.dup.attributes)
+        end
+      end
     end
 end

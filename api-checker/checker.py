@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI, Request, HTTPException
 from models import *
-from sampledata import bsccompsci, bscgenchem
+# from sampledata import bsccompsci, bscgenchem
 
 
 SERVER_PORT = 8000
@@ -13,6 +13,7 @@ CACHED_PROGRAMMES = {}
 # comp = bsccompsci.programmedata
 # chem = bscgenchem.programmedata
 
+# accepts student record and programme id
 @app.post("/checker/fastcheck/")
 async def checkprogress(payload:Request):
     data = await payload.json()
@@ -27,7 +28,7 @@ async def checkprogress(payload:Request):
     except:
         raise HTTPException(status_code=404, detail=f'Programme with ID: {pid} not found')
 
-
+# accepts student record and programme data
 @app.post("/checker/")
 async def checkprogress(payload:Request):
     data = await payload.json()

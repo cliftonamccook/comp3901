@@ -1,0 +1,33 @@
+<%= render 'shared/page_header', title: "Course Records", action: new_course_record_path, action_name: "New Course Record",action_restricted: false %>
+
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-vcenter card-table table-striped text-nowrap datatable" id="dataTable">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Course Name</th>
+          <th>Course Code</th>
+          <th>Term Taken</th>
+          <th>Grade</th>
+          <th class="w-3">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @course_records.each do |course_record| %>
+          <tr>
+            <td><%= course_record.id %></td>
+            <td><%= course_record.course.name %></td>
+            <td><%= course_record.course.code %></td>
+            <td><%= course_record.term_to_human %></td>
+            <td><%= course_record.grade %></td>
+            <td>
+              <%= link_to 'Edit', edit_course_record_path(course_record), class: "btn" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -117,10 +117,9 @@ class Auditor:
 
     def flatten(self, record):
         grades = {}
-        for term in record["course history"]:
-            for course_record in term["course records"]:
-                if course_record["grade"][0] <= 'C':
-                    grades[course_record["code"]] = {"name":course_record["name"], "grade":course_record["grade"]}
+        for course_record in record["course records"]:
+            if course_record["grade"][0] <= 'C':
+                grades[course_record["code"]] = {"name":course_record["name"], "grade":course_record["grade"]}
         return grades
     
     def buildtree(self, obj):

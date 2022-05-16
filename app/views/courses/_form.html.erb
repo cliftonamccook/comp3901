@@ -8,8 +8,12 @@
     <%= f.input :description, as: :rich_text_area %>
     <%= f.input :credit_amount %>
     <%= f.input :level, as: :select, collection: Course::levels, label_method: lambda { |opt| opt.first.titleize }, input_html: { class: 'form-select' }, prompt: "Please select level", value_method: :first %>
-    <%= f.input :semester_offered_in, as: :select, collection: Course::semester_offered_ins, label_method: lambda { |opt| opt.first.titleize }, input_html: { class: 'form-select' }, prompt: "Please select semester", value_method: :first %>
+    
+    <%= f.input :semester_offered_in, hint: "Eg. 1, 1 and 2" %>
+
     <%= f.association :department, prompt: "Please select department", input_html: { class: "form-select" } %>
+
+
   </div>
 
   <div class="form-actions">

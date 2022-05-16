@@ -1,0 +1,15 @@
+<%= simple_form_for(@term) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col"><%= f.input :start_year, input_html: { placeholder: "Eg. #{Date.today.year}" } %></div>
+      <div class="col"><%= f.input :end_year, input_html: { placeholder: "Eg. #{1.year.from_now.year}" } %></div>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

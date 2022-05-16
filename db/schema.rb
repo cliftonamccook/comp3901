@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_05_041958) do
+ActiveRecord::Schema.define(version: 2022_05_15_023428) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,17 +59,30 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "course_records", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "course_id", null: false
+    t.string "grade"
+    t.integer "term_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "semester"
+    t.index ["course_id"], name: "index_course_records_on_course_id"
+    t.index ["user_id"], name: "index_course_records_on_user_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.text "description"
     t.integer "credit_amount"
     t.integer "level"
-    t.integer "semester_offered_in"
     t.boolean "discontinued", default: false
     t.bigint "department_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "term_id"
+    t.string "semester_offered_in"
     t.index ["department_id"], name: "index_courses_on_department_id"
   end
 
@@ -94,6 +107,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
     t.bigint "programme_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "term_id"
     t.index ["programme_id"], name: "index_majors_on_programme_id"
   end
 
@@ -102,6 +116,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
     t.bigint "programme_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "term_id"
     t.index ["programme_id"], name: "index_minors_on_programme_id"
   end
 
@@ -129,6 +144,7 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
     t.bigint "department_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "term_id"
     t.index ["department_id"], name: "index_programmes_on_department_id"
   end
 
@@ -153,6 +169,24 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
     t.text "description"
     t.boolean "description_only"
     t.index ["requirement_group_id"], name: "index_requirements_on_requirement_group_id"
+  end
+
+  create_table "student_progresses", force: :cascade do |t|
+    t.text "report"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "programme_id"
+    t.integer "major_id"
+    t.integer "minor_id"
+    t.index ["user_id"], name: "index_student_progresses_on_user_id"
+  end
+
+  create_table "terms", force: :cascade do |t|
+    t.string "start_year"
+    t.string "end_year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -180,6 +214,8 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "course_records", "courses"
+  add_foreign_key "course_records", "users"
   add_foreign_key "courses", "departments"
   add_foreign_key "departments", "faculties"
   add_foreign_key "faculties", "campuses"
@@ -189,5 +225,6 @@ ActiveRecord::Schema.define(version: 2022_05_05_041958) do
   add_foreign_key "permissions", "permission_groups"
   add_foreign_key "programmes", "departments"
   add_foreign_key "requirements", "requirement_groups"
+  add_foreign_key "student_progresses", "users"
   add_foreign_key "users", "campuses"
 end

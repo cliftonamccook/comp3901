@@ -23,6 +23,7 @@ class ProgrammesController < ApplicationController
 
     respond_to do |format|
       if @programme.save
+        make_association(params[:programme][:requirement_groups].reject(&:blank?), @programme)
         format.html { redirect_to programme_url(@programme), notice: "Programme was successfully created." }
         format.json { render :show, status: :created, location: @programme }
       else
@@ -59,6 +60,17 @@ class ProgrammesController < ApplicationController
     end
 
     def programme_params
-      params.require(:programme).permit(:name, :department_id)
+      params.require(:programme).permit(:name, :department_id, :term_id)
+    end
+
+    def make_association(ids, minor)
+      @requirement_groups = RequirementGroup.find(ids)
+
+      @requirement_groups.each do |requirement_group|
+        @saved_rg = minor.requirement_groups.create(requirement_group.dup.attributes)
+        requirement_group.requirements.each do |requirement|
+          @saved_rg.requirements.create(requirement.dup.attributes)
+        end
+      end
     end
 end

@@ -35,8 +35,12 @@
         <ul class="navbar-nav">
           <% if student? %>
             <li class="nav-item">
-              <%= link_to "My Progress", student_progress_path, class: "nav-link" %>
+              <%= link_to "My Progress", student_progress_overview_path, class: "nav-link" %>
             </li>
+
+            <li class="nav-item <%= active_link(course_records_path) %>">
+              <%= link_to "Course Records", course_records_path, class: "nav-link"  %>
+          </li>
           <% end %>
           <% if staff_admin? %>
             <li class="nav-item <%= active_link(faculties_path) %>">
@@ -58,6 +62,12 @@
             </li>
             <li class="nav-item <%= active_link(courses_path) %>">
               <%= link_to "Courses", courses_path, class: "nav-link"  %>
+            </li>
+            <li class="nav-item <%= active_link(terms_path) %>">
+              <%= link_to "Terms", terms_path, class: "nav-link"  %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Check Student Progress", student_progress_overview_path, class: "nav-link" %>
             </li>
           <% end %>
         </ul>

@@ -1,160 +1,179 @@
+<section class="bg-banner d-table w-100 text-white">
+  <div class="bg-banner-overlay"></div>
+  <div class="container landing-container">
+    <div class="row justify-content-center mb-6 text-center">
+      <div class="col-xl-8 col-lg-9 col-md-10">
+        <div class="banner-content">
+          <h1 class="display-6 font-weight-bold">University of the West Indies - Mona Campus</h1>
+          <p class="lead" style="font-size: 20px;">
+             source of programme, major, minor and course information
+          </p>
+          </div>
+        </div><!--/.banner-content-->
+      </div>
+    </div><!--/.row-->
+  </div> <!--/.container-->
+</section>
 
-<form method="get" class="row ">
-            <main class="col-sm-6 col-md-7 col-lg-8">
-                <!--This should probably be a form by itself-->
-                <div class="show-only">
-                    <input type="radio" id="All" name="categories" value="All" checked>
-                    <input type="radio" id="Courses" name="categories" value="Courses">
-                    <input type="radio" id="Programmes" name="categories" value="Programmes">
-                    <input type="radio" id="Majors" name="categories" value="Majors">
-                    <input type="radio" id="Minors" name="categories" value="Minors">
+<div class="container py-4">
+  <div class="row mt-3">
+    <div class="col-md-4 col-sm-12 col-xs-12 mt-4">
+      <div class="card bg-blue-lt">
+        <div class="card-body">
+          <div class="keyword-search">
+            <h3 class="text-dark">Search by Keywords</h3>
+            <div class="search">
+              <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+                <% if params[:search].present? %>
+                  <%= f.input :keyword,
+                               :label         => false,
+                               :input_html    => { placeholder: "keyword...", value: params[:search][:keyword] }, 
+                               :wrapper_class => "me-2" %>
+                <% else %>
+                  <%= f.input :keyword,
+                              :label         => false,
+                              :input_html    => { placeholder: "keyword..." }, 
+                              :wrapper_class => "me-2" %>
+                <% end %>
 
-                    <ol class="filters-show-only">
-                        <li>
-                          <label for="All">All</label>
-                        </li>
-                        <li>
-                          <label for="Courses">Courses</label>
-                        </li>
-                        <li>
-                          <label for="Programmes">Programmes</label>
-                        </li>
-                        <li>
-                            <label for="Majors">Majors</label>
-                        </li>
-                        <li>
-                            <label for="Minors">Minors</label>
-                        </li>
-                    </ol>
+
+                <div class="department mt-3">
+                  <h3 class="mb-2 text-dark">Search for</h3>
+                  <%= f.input :for, 
+                              :label      => false,
+                              :prompt     => "select a item to search for",
+                              :collection => ["programme", "course", "major", "minor"],
+                              :input_html => { class: 'form-select' },
+                              :wrapper_class => "me-2" %>
                 </div>
 
-               <div class="card course-card">
-                   <div class="card-body d-flex flex-row">
-                       <div class="d-flex flex-column">
-                           <a href="#"><h5 class="card-title">Bioenergetics and Cell Metabolism</h5></a> <h6 class="card-subtitle">BIOC2014</</h6> <!--for courses-->
-                           <p class="card-text">Faculty of Science and Technology</p>
-                       </div>
-                        
-                        <div class="d-flex flex-column lvl-crdt flex-fill">
-                            <p class="card-text lvl">Level 2</p>
-                            <p class="card-text crdt">3 Credits</p>
-                        </div>
-                   </div>
-               </div>
-
-               <!--Pagination-->
-               <ul class="pagination">
-                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </main>
-
-
-            <!--Sidebar filter-->
-            <section id="sidebar" class="col-sm-6 col-md-4 col-lg-3 shadow-sm">
-                 <!--Main search -->
-                
-                <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search keywords"/>
-                    <button class="btn btn-dark srch-btn" type="button"><i class="fa fa-search"></i></button>
+                <div class="department mt-3">
+                  <h3 class="mb-2 text-dark">Department</h3>
+                  <%= f.input :department, 
+                              :label      => false,
+                              :prompt     => "select a department",
+                              :collection => Department.all,
+                              :input_html => { class: 'form-select' },
+                              :wrapper_class => "me-2" %>
                 </div>
-                <hr>
 
-                <!-- Filter by hanbook version-->
-                <div class="dropdown filters filter-version">
-                    <h3 class="">Version of handbook</h3>
-                    <button class="btn btn-outline-dark dropdown-toggle btn-block" type="button" data-bs-toggle="dropdown">Select
-                    <span class="caret "></span></button>
-                    <div class="dropdown-menu">
-                        <input class="form-control" id="version" type="text" placeholder="Search..">
-                        <!--List of  versions-->
-                        <label class="dropdown-item"><input class="form-check-input m-0 me-2" type="checkbox"/>Current 2021-2</label>
+                <div class="faculty mt-3">
+                  <h3 class="mb-2 text-dark">Faculty</h3>
+                  <%= f.input :faculty, 
+                              :label      => false,
+                              :prompt     => "select a faculty",
+                              :collection => Faculty.all,
+                              :input_html => { class: 'form-select' },
+                              :wrapper_class => "me-2" %>                  
+                </div>
+                <%= button_tag(type: 'submit', class: "btn w-100 me-2 mt-4 btn-indigo mb-2") do %>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                     <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                     <circle cx="10" cy="10" r="7"></circle>
+                     <line x1="21" y1="21" x2="15" y2="15"></line>
+                  </svg>
+                  Search       
+                <% end %>
+                <% if params[:search].present? %>
+                  <%= link_to 'Reset search', root_path %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div><!--/.card-->
+    </div><!--/.col-->
+
+    <div class="col-sm-12 col-md-8 col-sm-12 col-xs-12 mt-4">
+      <h1 class="mb-3 page-title">
+        Records
+      </h1>
+      <div class="row mt-3">
+        <% if !params[:search].present? or params[:search][:for] == 'course' %>
+          <% @records.each do |record| %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row g-2 align-items-center">
+                  <div class="col">
+                    <p class="text-muted font-weight-bold mb-0"><%= record.code %></p>
+                    <h3 class="card-title mb-2 text-primary"><%= link_to record.name, record %></h3>
+                    <div class="text-truncate">
+                      <div class="text-muted"><%= record.credit_amount %> Credits | <%= record.level.present? ? enum_to_human(record.level).titleize : "Any" %></div>
                     </div>
-                </div>
-                
-                <hr>
 
-                 <!--Campus filter-->
-                <div class="filters filter-campus">
-                    <a href="#campus" data-bs-toggle="collapse"> <h3 class="">Campus</h3> </a><i class="fa-regular fa-caret-down"></i>
-                    <p><small>Select a Campus</small> </p>
-                    <div class="collapse" id="campus">
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> Mona</span>
-                        </label>
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> St.Augustine</span>
-                        </label>
+                    <div class="job-metas-bottom mt-2">
+                      <span class="badge bg-blue-lt"><%= record.department.name %></span>
+                      <span class="badge bg-blue-lt"><%= record.department.faculty.name %></span>
                     </div>
+                  </div>
+                  <div class="col-auto text-muted">
+                    <span class="badge bg-dark-lt">
+                      Course 
+                    </span>
+                  </div>
                 </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
 
-                <hr>
-
-                <!-- Filter by faculty-->
-                <div class="dropdown filters filter-version">
-                    <h3 class="">Faculty</h3>
-                    <button class="btn btn-outline-dark dropdown-toggle btn-block" type="button" data-bs-toggle="dropdown">Select faculty
-                    </button>
-                    <div class="dropdown-menu">
-                        <input class="form-control" id="faculty" type="text" placeholder="Search..">
-                        <!--List of faculties-->
-                        <label class="dropdown-item"><input class="form-check-input m-0 me-2" type="checkbox"/>Science and Technology</label>
+        <% if params[:search].present? and params[:search][:for] == 'major' %>
+          <% @records.each do |record| %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row g-2 align-items-center">
+                  <div class="col">
+                    <h3 class="card-title mb-2 text-primary"><%= link_to record.name, record %></h3>
+                    <div class="text-truncate">
+                      <div class="text-muted">Programme: <%= record.programme.name %></div>
                     </div>
-                </div>
 
-                <hr>
-
-                <!-- Filter by departments-->
-                <div class="dropdown filters filter-version">
-                    <h3 class="">Department</h3>
-                    <button class="btn btn-outline-dark dropdown-toggle btn-block" type="button" data-bs-toggle="dropdown">Select department
-                    <span class="caret "></span></button>
-                    <div class="dropdown-menu">
-                        <input class="form-control" id="deartment" type="text" placeholder="Search..">
-                        <!--List of departments-->
-                        <label class="dropdown-item"><input class="form-check-input m-0 me-2" type="checkbox"/>Computing</label>
+                    <div class="job-metas-bottom mt-2">
+                      <span class="badge bg-blue-lt"><%= record.programme.department.name %></span>
+                      <span class="badge bg-blue-lt"><%= record.programme.department.faculty.name %></span>
                     </div>
+                  </div>
+                  <div class="col-auto text-muted">
+                    <span class="badge bg-dark-lt">
+                      Major 
+                    </span>
+                  </div>
                 </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
 
-                <hr>
-
-                <div class="filters filter-year">
-                    <a href="#yr-lvl" data-bs-toggle="collapse"> <h3 class="">Year Level</h3> </a><i class="fa-thin fa-caret-down"></i>
-                    <p><small>Select a year level</small> </p>
-                    <div class="collapse" id="yr-lvl">
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> Level 1</span>
-                        </label>
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> Level 2</span>
-                        </label>
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> Level 3</span>
-                        </label>
-                        <label class="form-check">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <span class="form-check-label"> Level 4</span>
-                        </label>
+        <% if params[:search].present? and params[:search][:for] == 'programme' %>
+          <% @records.each do |record| %>
+            <div class="card mb-3">
+              <div class="card-body">
+                <div class="row g-2 align-items-center">
+                  <div class="col">
+                    <h3 class="card-title mb-2 text-primary"><%= link_to record.name, record %></h3>
+                    <div class="text-truncate">
                     </div>
+
+                    <div class="job-metas-bottom mt-2">
+                      <span class="badge bg-blue-lt"><%= record.department.name %></span>
+                      <span class="badge bg-blue-lt"><%= record.department.faculty.name %></span>
+                    </div>
+                  </div>
+                  <div class="col-auto text-muted">
+                    <span class="badge bg-dark-lt">
+                      Programme 
+                    </span>
+                  </div>
                 </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
 
-                <hr>
-
-                <div class="d-flex flex-row">
-                    <button class="btn btn-dark" type="submit"> Update results</button>
-                    <a class="reset flex-fill" href="#"> Reset search</a>
-                </div>
-
-
-            </section>
-
-
-        </form>
+        <div class="pagy">
+          <%== pagy_nav_bootstrap(@pagy) %>
+        </div>
+      </div>
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div><!--/.container-->

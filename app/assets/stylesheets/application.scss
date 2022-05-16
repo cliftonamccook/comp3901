@@ -13,13 +13,10 @@ $accent-color: #db3131;
     color: white;
 }
 
-
-
 input[type="radio"] {
     position: absolute;
     left: -9999px;
 }
-
   
 .filters-show-only {
     *{display: inline-block;}
@@ -187,4 +184,28 @@ aside{
   content:'\00a0\00a0\00a0\00a0';
   text-decoration: line-through;
   margin: auto 0.5em;
+}
+
+.bg-banner {
+  padding: 150px 0;
+  background-size: cover !important;
+  align-self: center;
+  position: relative;
+  background: url('https://www.mona.uwi.edu/principal/sites/default/files/principal/contact.png') center top;
+  background-repeat: no-repeat;
+}
+
+.bg-banner-overlay {
+  background-image: linear-gradient(179deg, #3867af52 0%, #0000009c 100%);
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.landing-container > * {
+  position: relative;
 }

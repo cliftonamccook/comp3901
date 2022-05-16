@@ -10,6 +10,16 @@
     <% else %>
       <%= f.input :programme_id, as: :hidden %>      
     <% end %>
+
+    <% if @minor.new_record? %>
+      <hr>
+      <h3>Import Requirement Groups (optional)</h3>
+      <div class="card mb-4">
+        <div class="card-body">
+          <%= f.input :requirement_groups, collection: RequirementGroup.where(requirement_groupable_type: "Minor").uniq { |r| r.name }, as: :check_boxes, label: "Requirement Groups" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">

@@ -1,5 +1,9 @@
 class RequirementsController < ApplicationController
+  include UsersHelper
+  
   before_action :set_requirement, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  before_action :only_staff_members
 
   def index
     @requirements = Requirement.all

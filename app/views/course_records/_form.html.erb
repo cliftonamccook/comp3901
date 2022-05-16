@@ -1,0 +1,18 @@
+<%= simple_form_for(@course_record) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <%= f.input :user_id, input_html: { value: current_user.id }, as: :hidden %>
+    <%= f.input :course_id, collection: Course.not_discontinued, prompt: "Please select a course", input_html: { class: 'form-select' }, label_method: lambda { |course| "#{course.code}-#{course.name}" } %>
+    <%= f.input :grade, collection: CourseRecord::GRADE, prompt: "Please select grade", input_html: { class: 'form-select' } %>
+    <%= f.input :term_id, collection: Term.all, prompt: "Please select term", input_html: { class: 'form-select' }, label_method: lambda { |term| "#{term.start_year}-#{term.end_year}" } %>
+
+    <%= f.input :semester, collection: Term::SEMESTERS, prompt: "Please select semester" %>
+  </div>
+
+  <div class="form-actions mt-4">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+ 

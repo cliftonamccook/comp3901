@@ -14,6 +14,8 @@
 
     <%= f.input :description_only %>
 
+
+    <p class="text-muted">Provide additional information about this requirement.</p>
     <%= f.input :description, as: :rich_text_area %>
 
     <div class="requirement_courses">
@@ -22,11 +24,12 @@
         <div class="row m-0 mb-3">
           <div class="card p-0">
             <div class="table-responsive">
-              <table class="table card-table table-vcenter text-nowrap datatable" id="dataTable">
+              <table class="table card-table table-vcenter text-nowrap datatable" id="requirementcoursesdataTable">
                 <thead>
                   <tr>
                     <th class="w-1"><input type="checkbox" id="selectAll" value="selectAll" class="form-check-input"> </th>
                     <th>Course Code</th>
+                    <th>Faculty</th>
                     <th>Course Name</th>
                     <th>Credit Amount</th>
                     <th>Level</th>
@@ -40,10 +43,11 @@
                         <%= f.check_box(:course_ids, { :multiple => true, class: "form-check-input", id: "#{course.code.downcase}-form-check"  }, course.id, nil) %>
                       </td>
                       <td><%= course.code.upcase %></td>
+                      <td><%= course.department.faculty.name %></td>
                       <td><%= course.name.titleize %></td>
                       <td><%= course.credit_amount %></td>
-                      <td><%= enum_to_human(course.level).titleize %></td>
-                      <td><%= enum_to_human(course.semester_offered_in).titleize %></td>
+                      <td><%= course.level.present? ? enum_to_human(course.level).titleize : "Any" %></td>
+                      <td><%= course.semester_offered_in %></td>
                     </tr>
                   <% end %>                
                 </tbody>     

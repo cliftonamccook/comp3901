@@ -1,5 +1,9 @@
 class CoursesController < ApplicationController
+  include UsersHelper
+
   before_action :set_course, only: %i[ show edit update discontinue continue ]
+  before_action :authenticate_user!, except: %i[show]
+  before_action :only_staff_members, except: %i[show]
 
   def index
     @courses = Course.all
@@ -20,7 +24,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to course_url(@course), notice: "Course was successfully created." }
+        @course.requirement_groups.create(name: "Pre-requisites")
+        format.html { redirect_to @course.requirement_groups.first, notice: "Course was successfully created." }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -57,6 +62,6 @@ class CoursesController < ApplicationController
     end
 
     def course_params
-      params.require(:course).permit(:name, :code, :description, :credit_amount, :level, :semester_offered_in, :discontinued, :department_id, :requirement_id)
+      params.require(:course).permit(:name, :code, :description, :credit_amount, :level, :discontinued, :department_id, :requirement_id, :term_id, :semester_offered_in)
     end
 end

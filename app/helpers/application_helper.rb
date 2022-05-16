@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+  
   def toastr_flash
     flash.each_with_object([]) do |(type, message), flash_messages|
       type = 'success' if type == 'notice'
@@ -22,6 +24,18 @@ module ApplicationHelper
 
   def boolean_to_human(boolean)
     boolean ? "Yes" : "No"
+  end
+
+  def format_date(date)
+    date.strftime("%b %-d, %Y")
+  end
+
+  def format_time(time)
+    time.strftime("%l:%M %p")
+  end
+
+  def extract_integer(string)
+    string.scan(/\d/).join('').to_i
   end
 
   def link_to_add_card(name, f, association, type, **args)

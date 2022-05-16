@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :permission_groups
+  resources :terms, except: [:destroy, :show, :edit]
+  resources :permission_groups, except: [:destroy]
   resources :requirements, except: [:destroy]
   resources :departments, except: [:destroy]
   resources :faculties, except: [:destroy]
   resources :campuses, except: [:destroy]
+  resources :course_records, except: [:destroy, :index, :create, :update, :edit]
 
   devise_for :users, :skip => [:registration], :controllers => { :users => "users" }
   as :user do
@@ -40,7 +42,9 @@ Rails.application.routes.draw do
     end
   end
 
-  get '/student_progress', to: 'home#student_progress'
+  resources :course_records
+
+  get '/student_progress_overview', to: 'home#student_progress_overview'
   post '/check_progress', to: 'home#check_progress'
   root 'home#index'
 end

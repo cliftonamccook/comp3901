@@ -15,7 +15,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form'
 gem 'devise'
 gem 'cancancan'
-
+gem 'pagy', '~> 0.8.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

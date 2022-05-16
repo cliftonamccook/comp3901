@@ -31,6 +31,10 @@ module UsersHelper
     end
   end
 
+  def student_progress
+    StudentProgress.where(user_id: current_user.id).first if current_user and current_user.student?
+  end
+
   def status_text(user)
     return '<span class="badge bg-green">Activated</span>'.html_safe if user.activated?
     return '<span class="badge bg-danger">Deactivated</span>'.html_safe 
