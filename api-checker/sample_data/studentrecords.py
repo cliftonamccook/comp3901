@@ -1,4 +1,6 @@
-{
+import json
+
+records = {
     "computer science student": {
         "name": "Jane Doe",
         "id": 620000000,
@@ -216,9 +218,11 @@
                     }
                 ]
             }
+            
         ]
     },
-    "general chemistry student": {
+
+    "general chemistry strudent": {
         "name": "Jane Doe",
         "id": 620000001,
         "campus": "Mona",
@@ -395,9 +399,13 @@
                     }
                 ]
             }
+            
         ]
     },
     "620000002": {},
     "620000003": {},
     "620000004": {}
 }
+
+with open('sampledata/json/student records.json', 'w') as json_file:
+  json.dump(records, json_file)
