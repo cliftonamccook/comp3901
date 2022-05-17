@@ -26,22 +26,22 @@
 # CourseRecord.create(user_id: 1, course_id: 3, grade: 'B+', term: 1)
 
 
-# records = JSON.parse(File.read("./api-checker/sample_data/studentrecords.json"))
+records = JSON.parse(File.read("./api-checker/sample_data/studentrecords.json"))
 
-# records.each do |record|
-#   @student = User.where(account_type: User.account_types[:student], uwi_id: record[1]['id']).first
+records.each do |record|
+  @student = User.where(account_type: User.account_types[:student], uwi_id: record[1]['id']).first
 
-#   record[1]["course history"].each do |course_history|
-#     splited_term_text = course_history["term"].split("-")
-#     semester = splited_term_text[-1][-1]
-#     @term = Term.where(start_year: splited_term_text[0], end_year: splited_term_text[1]).first
+  record[1]["course history"].each do |course_history|
+    splited_term_text = course_history["term"].split("-")
+    semester = splited_term_text[-1][-1]
+    @term = Term.where(start_year: splited_term_text[0], end_year: splited_term_text[1]).first
 
-#     course_history["course records"].each do |course_record|
-#       @course = Course.where(code: course_record['code']).first
+    course_history["course records"].each do |course_record|
+      @course = Course.where(code: course_record['code']).first
 
-#       if @course 
-#         CourseRecord.create(user_id: @student.id, course_id: @course.id, grade: course_record['grade'], semester: semester, term_id: @term.id)
-#       end
-#     end
-#   end
-# end
+      if @course 
+        CourseRecord.create(user_id: @student.id, course_id: @course.id, grade: course_record['grade'], semester: semester, term_id: @term.id)
+      end
+    end
+  end
+end
