@@ -56,4 +56,25 @@ class User < ApplicationRecord
   def self.students
     self.where(account_type: User.account_types[:student])
   end
+
+  def can_create?(department_id)
+    records = permission_group.permissions.where(department_id: department_id)
+    if records.present?
+      records.first.can_create? 
+    end
+  end
+
+  def can_update?(department_id)
+    records = permission_group.permissions.where(department_id: department_id)
+    if records.present?
+      records.first.can_update?
+    end
+  end
+
+  def can_discontinue?(department_id)
+    records = permission_group.permissions.where(department_id: department_id)
+    if records.present?
+      records.first.can_discontinue?
+    end
+  end
 end

@@ -4,6 +4,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <p class="text-muted">Provide additional information about this requirement group.</p>
     <%= f.input :description, as: :rich_text_area %>
 
     <%= f.input :operation, as: :select, value_method: lambda { |args| Requirement::OPERATIONS.find_index(args) }, collection: Requirement::OPERATIONS, input_html: { class: "form-select" }, prompt: "Please select and operation", label: "Operation (optional)" %>

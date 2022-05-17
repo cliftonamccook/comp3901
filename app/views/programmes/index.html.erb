@@ -20,8 +20,10 @@
             <td><%= programme.department.name %></td>
             <td>
               <div class="btn-list flex-nowrap">
+              <% if can_update?(programme.department.id) %>
                 <%= link_to 'Show', programme, class: 'btn btn-primary' %>
-                <%= link_to 'Edit', edit_programme_path(programme), class: 'btn' %>
+                  <%= link_to 'Edit', edit_programme_path(programme), class: 'btn' %>
+                <% end %>
               </div>
             </td>
           </tr>

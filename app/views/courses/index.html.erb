@@ -27,8 +27,12 @@
             <td>
               <div class="btn-list flex-nowrap">
                 <%= link_to 'Show', course, class: "btn btn-primary" %>
-                <%= link_to 'Edit', edit_course_path(course), class: "btn"  %>
-                <%= discontinue_or_continue_course_options(course) %>
+                <% if can_update?(course.department.id) %>
+                  <%= link_to 'Edit', edit_course_path(course), class: "btn"  %>
+                <% end %>
+                <% if can_discontinue?(course.department.id) %>
+                  <%= discontinue_or_continue_course_options(course) %>
+                <% end %>
               </div>
             </td>
           </tr>

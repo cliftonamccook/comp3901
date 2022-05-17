@@ -5,7 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.association :department, prompt: "Please select department", input_html: { class: "form-select" } %>
+    <%= f.input :department_id, collection: Department.all.map { |dep| can_create?(dep.id) ? dep : nil }.compact, prompt: "Please select department", input_html: { class: "form-select" } %>
 
     <% if @programme.new_record? %>
       <hr>

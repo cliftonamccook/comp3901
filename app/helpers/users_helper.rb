@@ -13,6 +13,18 @@ module UsersHelper
     current_user and current_user.staff_admin?
   end
 
+  def can_create?(department_id)
+    staff_admin? or (staff_member? and current_user.can_create?(department_id))
+  end
+
+  def can_update?(department_id)
+    staff_admin? or (staff_member? and current_user.can_update?(department_id))
+  end
+
+  def can_discontinue?(department_id)
+    staff_admin? or (staff_member? and current_user.can_discontinue?(department_id))
+  end
+
   def only_admin!
     if !staff_admin?
       redirect_to root_path, alert: @permission_notice 

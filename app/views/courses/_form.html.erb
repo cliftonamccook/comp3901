@@ -11,9 +11,7 @@
     
     <%= f.input :semester_offered_in, hint: "Eg. 1, 1 and 2" %>
 
-    <%= f.association :department, prompt: "Please select department", input_html: { class: "form-select" } %>
-
-
+    <%= f.input :department_id, collection: Department.all.map { |dep| can_create?(dep.id) ? dep : nil }.compact, prompt: "Please select department", input_html: { class: "form-select" } %>
   </div>
 
   <div class="form-actions">

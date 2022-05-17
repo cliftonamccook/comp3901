@@ -2,7 +2,7 @@ class TermsController < ApplicationController
   include UsersHelper
 
   before_action :set_term, only: %i[ show edit update destroy ]
-  before_action :only_admin!
+  before_action :only_staff_members
 
   def index
     @terms = Term.all
